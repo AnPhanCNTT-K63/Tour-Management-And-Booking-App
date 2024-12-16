@@ -8,16 +8,33 @@ namespace travelApp1
         public AccountForm()
         {
 
-            this.Text = "Account";
-            this.Size = new System.Drawing.Size(500, 400);
-            this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeComponent();
 
-            Label lblAccount = new Label();
-            lblAccount.Text = "Account Management";
-            lblAccount.Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold);
-            lblAccount.AutoSize = true;
-            lblAccount.Location = new System.Drawing.Point(150, 50);
-            this.Controls.Add(lblAccount);
+
         }
+        // Event handler for Save button
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // You can add logic to save user details here
+            MessageBox.Show("Changes Saved!");
+        }
+
+        // Event handler for Cancel button
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Logic for Cancel button (close the form or reset fields)
+            this.Close();
+        }
+
+        // Declare the controls
+        private Label lblName;
+        private TextBox txtName;
+        private Label lblEmail;
+        private TextBox txtEmail;
+        private Label lblPhone;
+        private TextBox txtPhone;
+        private PictureBox avatarPictureBox;
+        private Button btnSave;
+        private Button btnCancel;
     }
 }
