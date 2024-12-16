@@ -118,6 +118,17 @@
         "tags": [
           "Booking"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -195,6 +206,38 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cloud/upload": {
+      "post": {
+        "tags": [
+          "Cloud"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1029,15 +1072,10 @@
       },
       "UpdateBookingStatus": {
         "required": [
-          "bookingId",
           "status"
         ],
         "type": "object",
         "properties": {
-          "bookingId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "status": {
             "minLength": 1,
             "type": "string"

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Tour;
-using TravelWebBackEndCore.DTOs.TourPackage;
 using TravelWebBackEndCore.Helpers;
 using TravelWebBackEndCore.Interfaces;
 

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "TravelWebBackEndCore/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.410.6",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.Cors": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
@@ -19,6 +20,25 @@
         },
         "runtime": {
           "TravelWebBackEndCore.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.400.64": {
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.400.64"
+          }
+        }
+      },
+      "AWSSDK.S3/3.7.410.6": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.400.64"
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.410.6"
+          }
         }
       },
       "Azure.Core/1.38.0": {
@@ -1204,6 +1224,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.400.64": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z1YP6lDeIgi04Z/YP/+Jw2m02TWo8Fm5wZy21X686RwN2k/3nKlDSwogv1RLrtSnvtuKKYm6uXPmwioWhhKDHA==",
+      "path": "awssdk.core/3.7.400.64",
+      "hashPath": "awssdk.core.3.7.400.64.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.410.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7d9VCS79ep+ho1yWmnOJSla0qPSFqnh7kLPN29A8x34HWYhXdNIAuzAqZFnQ4NVEjdXzZpP8EMpO5AGNUN6DYA==",
+      "path": "awssdk.s3/3.7.410.6",
+      "hashPath": "awssdk.s3.3.7.410.6.nupkg.sha512"
     },
     "Azure.Core/1.38.0": {
       "type": "package",

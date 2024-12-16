@@ -72,6 +72,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "statusDTO",
         "Type": "TravelWebBackEndCore.DTOs.Booking.UpdateBookingStatus",
         "IsRequired": true
@@ -95,6 +100,22 @@
       {
         "Name": "status",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.CloudController",
+    "Method": "UploadFile",
+    "RelativePath": "api/cloud/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
     ],

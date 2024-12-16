@@ -177,3 +177,5 @@ D:\Visual Studio 2022\TravelWebBackEndCore\bin\Debug\net8.0\Newtonsoft.Json.Bson
 D:\Visual Studio 2022\TravelWebBackEndCore\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Visual Studio 2022\TravelWebBackEndCore\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Visual Studio 2022\TravelWebBackEndCore\obj\Debug\net8.0\TravelWebBackEndCore.sourcelink.json
+D:\Visual Studio 2022\TravelWebBackEndCore\bin\Debug\net8.0\AWSSDK.Core.dll
+D:\Visual Studio 2022\TravelWebBackEndCore\bin\Debug\net8.0\AWSSDK.S3.dll

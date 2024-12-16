@@ -8,6 +8,7 @@ using TravelWebBackEndCore.Interfaces;
 using TravelWebBackEndCore.Models;
 using TravelWebBackEndCore.Repositories;
 using TravelWebBackEndCore.Repository;
+using TravelWebBackEndCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +64,9 @@ builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IScheduleReposity, ScheduleReposity>();
 builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
+builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
+builder.Services.AddScoped<ICloundService, CloudService>();
+builder.Services.AddScoped<ICloudRepository, CloudRepository>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 

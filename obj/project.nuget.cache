@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "73rkKRL9tuM=",
+  "dgSpecHash": "HEAqRKKzDY4=",
   "success": true,
   "projectFilePath": "D:\\Visual Studio 2022\\TravelWebBackEndCore\\TravelWebBackEndCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DUC AN\\.nuget\\packages\\awssdk.core\\3.7.400.64\\awssdk.core.3.7.400.64.nupkg.sha512",
+    "C:\\Users\\DUC AN\\.nuget\\packages\\awssdk.s3\\3.7.410.6\\awssdk.s3.3.7.410.6.nupkg.sha512",
     "C:\\Users\\DUC AN\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\DUC AN\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\DUC AN\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
