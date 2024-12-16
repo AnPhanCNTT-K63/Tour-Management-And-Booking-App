@@ -55,7 +55,7 @@ namespace TravelWebBackEndCore.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -140,7 +140,7 @@ namespace TravelWebBackEndCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("TourPackageId")
+                    b.Property<int>("TourPackageId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("TravelDay")
@@ -203,7 +203,7 @@ namespace TravelWebBackEndCore.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -283,7 +283,7 @@ namespace TravelWebBackEndCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("BookingId")
+                    b.Property<int>("BookingId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -415,7 +415,7 @@ namespace TravelWebBackEndCore.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TourPackageId")
+                    b.Property<int>("TourPackageId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -425,7 +425,7 @@ namespace TravelWebBackEndCore.Migrations
 
                     b.HasIndex("TourPackageId");
 
-                    b.ToTable("Vouchers");
+                    b.ToTable("Voucher");
                 });
 
             modelBuilder.Entity("TravelWebBackEndCore.Models.Booking", b =>
@@ -438,7 +438,9 @@ namespace TravelWebBackEndCore.Migrations
 
                     b.HasOne("TravelWebBackEndCore.Models.User", "User")
                         .WithMany("Bookings")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TourPackage");
 
@@ -471,7 +473,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.TourPackage", "TourPackage")
                         .WithMany("Schedules")
-                        .HasForeignKey("TourPackageId");
+                        .HasForeignKey("TourPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TourPackage");
                 });
@@ -480,7 +484,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.User", "User")
                         .WithMany("Tours")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -500,7 +506,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.Booking", "Booking")
                         .WithMany("Travelers")
-                        .HasForeignKey("BookingId");
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Booking");
                 });
@@ -520,7 +528,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.TourPackage", "TourPackage")
                         .WithMany("Vouchers")
-                        .HasForeignKey("TourPackageId");
+                        .HasForeignKey("TourPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TourPackage");
                 });

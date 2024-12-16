@@ -44,7 +44,7 @@ namespace TravelWebBackEndCore.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Opening = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Ending = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -59,7 +59,8 @@ namespace TravelWebBackEndCore.Migrations
                         name: "FK_Tour_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -132,6 +133,7 @@ namespace TravelWebBackEndCore.Migrations
                     BookingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumOfPeople = table.Column<int>(type: "int", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     TourPackageId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -161,7 +163,7 @@ namespace TravelWebBackEndCore.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TravelDay = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    TourPackageId = table.Column<int>(type: "int", nullable: true)
+                    TourPackageId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,7 +172,32 @@ namespace TravelWebBackEndCore.Migrations
                         name: "FK_Schedule_TourPackage_TourPackageId",
                         column: x => x.TourPackageId,
                         principalTable: "TourPackage",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Voucher",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TourPackageId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Voucher", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Voucher_TourPackage_TourPackageId",
+                        column: x => x.TourPackageId,
+                        principalTable: "TourPackage",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -196,6 +223,30 @@ namespace TravelWebBackEndCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Payment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PaymentAmount = table.Column<float>(type: "real", nullable: true),
+                    BookingId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Payment_Booking_BookingId",
+                        column: x => x.BookingId,
+                        principalTable: "Booking",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Traveler",
                 columns: table => new
                 {
@@ -203,7 +254,7 @@ namespace TravelWebBackEndCore.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BookingId = table.Column<int>(type: "int", nullable: true)
+                    BookingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -212,7 +263,8 @@ namespace TravelWebBackEndCore.Migrations
                         name: "FK_Traveler_Booking_BookingId",
                         column: x => x.BookingId,
                         principalTable: "Booking",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -228,6 +280,12 @@ namespace TravelWebBackEndCore.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Contact_BookingId",
                 table: "Contact",
+                column: "BookingId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payment_BookingId",
+                table: "Payment",
                 column: "BookingId",
                 unique: true);
 
@@ -256,6 +314,11 @@ namespace TravelWebBackEndCore.Migrations
                 table: "UserProfile",
                 column: "UserId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Voucher_TourPackageId",
+                table: "Voucher",
+                column: "TourPackageId");
         }
 
         /// <inheritdoc />
@@ -265,6 +328,9 @@ namespace TravelWebBackEndCore.Migrations
                 name: "Contact");
 
             migrationBuilder.DropTable(
+                name: "Payment");
+
+            migrationBuilder.DropTable(
                 name: "Schedule");
 
             migrationBuilder.DropTable(
@@ -272,6 +338,9 @@ namespace TravelWebBackEndCore.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserProfile");
+
+            migrationBuilder.DropTable(
+                name: "Voucher");
 
             migrationBuilder.DropTable(
                 name: "Booking");

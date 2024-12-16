@@ -89,7 +89,7 @@ namespace TravelWebBackEndCore.Repositories
 
         }
 
-        public async Task<string> UpdateStatusAsync(UpdateBookingStatus statusDTO)
+        public async Task<string> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace TravelWebBackEndCore.Repositories
                     return "Status cannot be null or empty.";
                 }
 
-                var booking = _context.Bookings.Find(statusDTO.bookingId);
+                var booking = await _context.Bookings.FindAsync(id);
 
                 if (booking == null)
                 {

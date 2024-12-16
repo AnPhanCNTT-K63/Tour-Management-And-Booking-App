@@ -12,7 +12,7 @@ using TravelWebBackEndCore.Data;
 namespace TravelWebBackEndCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241215131750_new")]
+    [Migration("20241216055011_new")]
     partial class @new
     {
         /// <inheritdoc />
@@ -41,6 +41,9 @@ namespace TravelWebBackEndCore.Migrations
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("NumOfPeople")
                         .HasColumnType("int");
@@ -98,6 +101,40 @@ namespace TravelWebBackEndCore.Migrations
                     b.ToTable("Contact");
                 });
 
+            modelBuilder.Entity("TravelWebBackEndCore.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookingId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float?>("PaymentAmount")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId")
+                        .IsUnique();
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("TravelWebBackEndCore.Models.Schedule", b =>
                 {
                     b.Property<int>("Id")
@@ -106,7 +143,7 @@ namespace TravelWebBackEndCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("TourPackageId")
+                    b.Property<int>("TourPackageId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("TravelDay")
@@ -169,7 +206,7 @@ namespace TravelWebBackEndCore.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -249,7 +286,7 @@ namespace TravelWebBackEndCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("BookingId")
+                    b.Property<int>("BookingId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -361,6 +398,39 @@ namespace TravelWebBackEndCore.Migrations
                     b.ToTable("UserProfile");
                 });
 
+            modelBuilder.Entity("TravelWebBackEndCore.Models.Voucher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TourPackageId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TourPackageId");
+
+                    b.ToTable("Voucher");
+                });
+
             modelBuilder.Entity("TravelWebBackEndCore.Models.Booking", b =>
                 {
                     b.HasOne("TravelWebBackEndCore.Models.TourPackage", "TourPackage")
@@ -389,11 +459,24 @@ namespace TravelWebBackEndCore.Migrations
                     b.Navigation("Booking");
                 });
 
+            modelBuilder.Entity("TravelWebBackEndCore.Models.Payment", b =>
+                {
+                    b.HasOne("TravelWebBackEndCore.Models.Booking", "Booking")
+                        .WithOne("Payment")
+                        .HasForeignKey("TravelWebBackEndCore.Models.Payment", "BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+                });
+
             modelBuilder.Entity("TravelWebBackEndCore.Models.Schedule", b =>
                 {
                     b.HasOne("TravelWebBackEndCore.Models.TourPackage", "TourPackage")
                         .WithMany("Schedules")
-                        .HasForeignKey("TourPackageId");
+                        .HasForeignKey("TourPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TourPackage");
                 });
@@ -402,7 +485,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.User", "User")
                         .WithMany("Tours")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -422,7 +507,9 @@ namespace TravelWebBackEndCore.Migrations
                 {
                     b.HasOne("TravelWebBackEndCore.Models.Booking", "Booking")
                         .WithMany("Travelers")
-                        .HasForeignKey("BookingId");
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Booking");
                 });
@@ -438,9 +525,22 @@ namespace TravelWebBackEndCore.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TravelWebBackEndCore.Models.Voucher", b =>
+                {
+                    b.HasOne("TravelWebBackEndCore.Models.TourPackage", "TourPackage")
+                        .WithMany("Vouchers")
+                        .HasForeignKey("TourPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TourPackage");
+                });
+
             modelBuilder.Entity("TravelWebBackEndCore.Models.Booking", b =>
                 {
                     b.Navigation("Contact");
+
+                    b.Navigation("Payment");
 
                     b.Navigation("Travelers");
                 });
@@ -455,6 +555,8 @@ namespace TravelWebBackEndCore.Migrations
                     b.Navigation("Bookings");
 
                     b.Navigation("Schedules");
+
+                    b.Navigation("Vouchers");
                 });
 
             modelBuilder.Entity("TravelWebBackEndCore.Models.User", b =>

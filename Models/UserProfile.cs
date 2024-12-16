@@ -20,6 +20,6 @@ namespace TravelWebBackEndCore.Models
         public string? Phone { get; set; }
         public DateTime? Birthday { get; set; }
         public int UserId { get; set; }
-        public User? User { get; set; }
+        public User User { get; set; }
     }
 }

@@ -21,6 +21,8 @@ namespace TravelWebBackEndCore.Mappers
                 VAT = packageModel.VAT,
                 Quantity = packageModel.Quantity,
                 TourId = packageModel.TourId,
+                Schedules = packageModel.Schedules?.Select(s => s.ToScheduleDto()).ToList(),
+                Vouchers = packageModel.Vouchers?.Select(v => v.toVoucherDTO()).ToList(),
             };
         }
 

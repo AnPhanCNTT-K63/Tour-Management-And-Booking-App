@@ -10,7 +10,7 @@ namespace TravelWebBackEndCore.Models
         [Key]
         public int Id { get; set; }
         public DateTime? TravelDay { get; set; }
-        public int? TourPackageId { get; set; }
-        public TourPackage? TourPackage { get; set; }
+        public int TourPackageId { get; set; }
+        public TourPackage TourPackage { get; set; }
     }
 }

@@ -1,19 +1,32 @@
-﻿namespace TravelWebBackEndCore.DTOs.TourPackage
+﻿using System.ComponentModel.DataAnnotations;
+using TravelWebBackEndCore.DTOs.Schedule;
+using TravelWebBackEndCore.DTOs.Voucher;
+
+namespace TravelWebBackEndCore.DTOs.TourPackage
 {
     public class PackageDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; } = new string("No name");
-        public string Description { get; set; } = new string("No description");
-        public string Image { get; set; } = new string("No image");
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Description { get; set; }
+        public string Image { get; set; }
+        [Required]
         public decimal Price { get; set; }
-        public string Activities { get; set; } = new string("No activities");
+        [Required]
+        public string Activities { get; set; }
         public bool IsChangeSchedule { get; set; }
         public bool IsRefund { get; set; }
-        public string CheckIn { get; set; } = new string("No check in method");
+        [Required]
+        public string CheckIn { get; set; }
+        [Required]
         public decimal VAT { get; set; }
+        [Required]
         public int Quantity { get; set; }
         public int TourId { get; set; }
+        public List<ScheduleDTO>? Schedules { get; set; }
+        public List<VoucherDTO>? Vouchers { get; set; }
 
     }
 }

@@ -18,12 +18,13 @@ namespace TravelWebBackEndCore.Models
         public bool IsDeleted { get; set; } = false;
         [Required]
         public int TourPackageId { get; set; }
-        public int? UserId { get; set; }
+        [Required]
+        public int UserId { get; set; }
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public User? User { get; set; }
-        public TourPackage? TourPackage { get; set; }
+        public User User { get; set; }
+        public TourPackage TourPackage { get; set; }
         public Contact? Contact { get; set; }
         public Payment? Payment { get; set; }
         public ICollection<Traveler>? Travelers { get; set; }

@@ -38,13 +38,13 @@ namespace TravelWebBackEndCore.Controllers
         }
 
         [HttpPatch("update-status")]
-        public async Task<IActionResult> UpdateStatus([FromBody] UpdateBookingStatus statusDTO)
+        public async Task<IActionResult> UpdateStatus([FromRoute] int id, [FromBody] UpdateBookingStatus statusDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var result = await _bookingRepository.UpdateStatusAsync(statusDTO);
+            var result = await _bookingRepository.UpdateStatusAsync(id, statusDTO);
             if (result == "Booking not found")
             {
                 return NotFound(result);
@@ -56,7 +56,7 @@ namespace TravelWebBackEndCore.Controllers
             return Ok(result);
         }
 
-        [HttpGet("get-by-user-id/{user_id:int}")]
+        [HttpGet("user/{user_id:int}")]
         public async Task<IActionResult> GetBookingByUserId([FromRoute] int user_id, [FromQuery] string? status)
         {
             var bookings = await _bookingRepository.GetBookingByUserIdAsync(user_id, status);

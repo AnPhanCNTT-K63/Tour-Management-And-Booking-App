@@ -37,22 +37,18 @@ namespace TravelWebBackEndCore.Controllers
             {
                 return NotFound(result);
             }
-            else if (result == "Create failure")
-            {
-                return BadRequest(result);
-            }
-            else if (result == "Create success")
+
+            if (result == "Create success")
             {
                 return Ok(result);
             }
-            else
-            {
-                return BadRequest(result);
-            }
+
+            return BadRequest(result);
+
         }
 
-        [HttpGet("get-by-id/{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var tour = await _tourRepository.GetTourByIdAsync(id);
             if (tour == null)
@@ -60,6 +56,54 @@ namespace TravelWebBackEndCore.Controllers
                 return NotFound("Not found");
             }
             return Ok(tour);
+        }
+
+        [HttpDelete("soft-delete/{id:int}")]
+        public async Task<IActionResult> SoftDelete([FromRoute] int id)
+        {
+            var result = await _tourRepository.SoftDeleteAsync(id);
+            if (result == "Not found")
+            {
+                return NotFound(result);
+            }
+
+            if (result == "Delete success")
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+
+        }
+
+        [HttpPatch("restore/{id:int}")]
+        public async Task<IActionResult> Restore([FromRoute] int id)
+        {
+            var result = await _tourRepository.RestoreAsynce(id);
+            if (result == "Not found")
+            {
+                return NotFound(result);
+            }
+            if (result == "Restore success")
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpDelete("delete/{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var result = await _tourRepository.DeltedAsync(id);
+            if (result == "Not found")
+            {
+                return NotFound(result);
+            }
+            if (result == "Delete success")
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

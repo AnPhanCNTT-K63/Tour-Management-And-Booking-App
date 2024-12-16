@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TravelWebBackEndCore.Models
 {
+    [Table("Voucher")]
     public class Voucher
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,7 +15,7 @@ namespace TravelWebBackEndCore.Models
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
 
-        public int? TourPackageId { get; set; }
-        public TourPackage? TourPackage { get; set; }
+        public int TourPackageId { get; set; }
+        public TourPackage TourPackage { get; set; }
     }
 }

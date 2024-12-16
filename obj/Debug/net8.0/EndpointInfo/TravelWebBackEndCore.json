@@ -149,7 +149,7 @@
         }
       }
     },
-    "/api/booking/get-by-user-id/{user_id}": {
+    "/api/booking/user/{user_id}": {
       "get": {
         "tags": [
           "Booking"
@@ -327,7 +327,7 @@
         }
       }
     },
-    "/api/tour/get-by-id/{id}": {
+    "/api/tour/{id}": {
       "get": {
         "tags": [
           "Tour"
@@ -350,7 +350,192 @@
         }
       }
     },
-    "/api/user/{user_id}/update-profile": {
+    "/api/tour/soft-delete/{id}": {
+      "delete": {
+        "tags": [
+          "Tour"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tour/restore/{id}": {
+      "patch": {
+        "tags": [
+          "Tour"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tour/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Tour"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/package/{id}": {
+      "get": {
+        "tags": [
+          "TourPackage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/package/tour/{tour_id}": {
+      "get": {
+        "tags": [
+          "TourPackage"
+        ],
+        "parameters": [
+          {
+            "name": "tour_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/package/update/{id}": {
+      "put": {
+        "tags": [
+          "TourPackage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePackageDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePackageDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePackageDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePackageDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/package/delete/{id}": {
+      "delete": {
+        "tags": [
+          "TourPackage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/update-profile/{user_id}": {
       "put": {
         "tags": [
           "User"
@@ -443,7 +628,7 @@
         }
       }
     },
-    "/api/user/{user_id}/update-account": {
+    "/api/user/update-account/{user_id}": {
       "put": {
         "tags": [
           "User"
@@ -860,6 +1045,78 @@
         },
         "additionalProperties": false
       },
+      "UpdatePackageDTO": {
+        "required": [
+          "activities",
+          "checkIn",
+          "description",
+          "id",
+          "name",
+          "price",
+          "quantity",
+          "vat"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "activities": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "isChangeSchedule": {
+            "type": "boolean"
+          },
+          "isRefund": {
+            "type": "boolean"
+          },
+          "checkIn": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vat": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateScheduleDTO"
+            },
+            "nullable": true
+          },
+          "vouchers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateVoucherDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateProfile": {
         "type": "object",
         "properties": {
@@ -903,6 +1160,43 @@
           "birthday": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateScheduleDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "travelDay": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateVoucherDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
             "nullable": true
           }
         },

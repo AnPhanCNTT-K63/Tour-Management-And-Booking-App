@@ -6,6 +6,9 @@ namespace TravelWebBackEndCore.Interfaces
 {
     public interface ITourPackageRepository
     {
-        Task<string> UpdateAsynce(UpdatePackageDTO packageDTO);
+        Task<string> UpdateAsync(int id, UpdatePackageDTO packageDTO);
+        Task<PackageDTO?> GetById(int id);
+        Task<List<PackageDTO>?> GetByTourId(int tour_id);
+        Task<string> DeleteAsync(int id);
     }
 }

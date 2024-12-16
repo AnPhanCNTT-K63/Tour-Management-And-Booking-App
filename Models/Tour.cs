@@ -15,7 +15,7 @@ namespace TravelWebBackEndCore.Models
         public string City { get; set; } = new string("No city");
         public string Image { get; set; } = new string("No image");
         public string Description { get; set; } = new string("No description");
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
         public bool IsDeleted { get; set; } = false;
         public DateTime? Opening { get; set; }
         public DateTime? Ending { get; set; }
@@ -23,6 +23,6 @@ namespace TravelWebBackEndCore.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public ICollection<TourPackage>? TourPackages { get; set; }
-        public User? User { get; set; }
+        public User User { get; set; }
     }
 }

@@ -15,6 +15,6 @@ namespace TravelWebBackEndCore.Models
         public int BookingId { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public Booking? Booking { get; set; }
+        public Booking Booking { get; set; }
     }
 }

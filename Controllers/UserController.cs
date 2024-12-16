@@ -15,7 +15,7 @@ namespace TravelWebBackEndCore.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpPut("{user_id:int}/update-profile")]
+        [HttpPut("update-profile/{user_id:int}")]
         public async Task<IActionResult> UpdateProfile([FromRoute] int user_id, [FromBody] UpdateProfile profileDTO)
         {
             var result = await _userRepository.UpdateProfileAsync(user_id, profileDTO);
@@ -55,7 +55,7 @@ namespace TravelWebBackEndCore.Controllers
             return Ok(account);
         }
 
-        [HttpPut("{user_id:int}/update-account")]
+        [HttpPut("update-account/{user_id:int}")]
         public async Task<IActionResult> UpdateAccount([FromRoute] int user_id, [FromBody] UpdateAccountDTO accountDTO)
         {
             var result = await _userRepository.UpdateAccountAsync(user_id, accountDTO);

@@ -65,8 +65,24 @@
   },
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.BookingController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/booking/update-status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "statusDTO",
+        "Type": "TravelWebBackEndCore.DTOs.Booking.UpdateBookingStatus",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.BookingController",
     "Method": "GetBookingByUserId",
-    "RelativePath": "api/booking/get-by-user-id/{user_id}",
+    "RelativePath": "api/booking/user/{user_id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -85,16 +101,69 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TravelWebBackEndCore.Controllers.BookingController",
-    "Method": "UpdateStatus",
-    "RelativePath": "api/booking/update-status",
-    "HttpMethod": "PATCH",
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourPackageController",
+    "Method": "GetPackage",
+    "RelativePath": "api/package/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "statusDTO",
-        "Type": "TravelWebBackEndCore.DTOs.Booking.UpdateBookingStatus",
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourPackageController",
+    "Method": "DeletePackage",
+    "RelativePath": "api/package/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourPackageController",
+    "Method": "GetPackagesByTourId",
+    "RelativePath": "api/package/tour/{tour_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tour_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourPackageController",
+    "Method": "UpdatePackage",
+    "RelativePath": "api/package/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "packageDTO",
+        "Type": "TravelWebBackEndCore.DTOs.TourPackage.UpdatePackageDTO",
         "IsRequired": true
       }
     ],
@@ -118,6 +187,22 @@
   },
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
+    "Method": "GetById",
+    "RelativePath": "api/tour/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
     "Method": "Create",
     "RelativePath": "api/tour/create-tour-and-package",
     "HttpMethod": "POST",
@@ -127,6 +212,22 @@
       {
         "Name": "dto",
         "Type": "TravelWebBackEndCore.DTOs.Tour.CreateTourWithPackageDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
+    "Method": "Delete",
+    "RelativePath": "api/tour/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -170,9 +271,25 @@
   },
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
-    "Method": "GetById",
-    "RelativePath": "api/tour/get-by-id/{id}",
-    "HttpMethod": "GET",
+    "Method": "Restore",
+    "RelativePath": "api/tour/restore/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
+    "Method": "SoftDelete",
+    "RelativePath": "api/tour/soft-delete/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -219,7 +336,7 @@
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.UserController",
     "Method": "UpdateAccount",
-    "RelativePath": "api/user/{user_id}/update-account",
+    "RelativePath": "api/user/update-account/{user_id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -240,7 +357,7 @@
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.UserController",
     "Method": "UpdateProfile",
-    "RelativePath": "api/user/{user_id}/update-profile",
+    "RelativePath": "api/user/update-profile/{user_id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

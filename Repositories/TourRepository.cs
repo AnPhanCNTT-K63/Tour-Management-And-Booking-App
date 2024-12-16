@@ -12,9 +12,13 @@ namespace TravelWebBackEndCore.Repository
     public class TourRepository : ITourRepository
     {
         private readonly ApplicationDbContext _context;
-        public TourRepository(ApplicationDbContext context)
+        private readonly IScheduleReposity _scheduleReposity;
+        private readonly IVoucherRepository _voucherRepository;
+        public TourRepository(ApplicationDbContext context, IScheduleReposity scheduleReposity, IVoucherRepository voucherRepository)
         {
             _context = context;
+            _scheduleReposity = scheduleReposity;
+            _voucherRepository = voucherRepository;
         }
 
         public async Task<string> CreateTourWithPackageAsync(CreateTourWithPackageDTO dto)
@@ -40,20 +44,12 @@ namespace TravelWebBackEndCore.Repository
 
                     if (package.Schedules != null)
                     {
-                        foreach (var schedule in package.Schedules)
-                        {
-                            schedule.TourPackage = package;
-                        }
-                        await _context.Schedules.AddRangeAsync(package.Schedules);
+                        await _scheduleReposity.AddRangeSchedulesAsync(package.Schedules, package);
                     }
 
                     if (package.Vouchers != null)
                     {
-                        foreach (var voucher in package.Vouchers)
-                        {
-                            voucher.TourPackage = package;
-                        }
-                        await _context.Vouchers.AddRangeAsync(package.Vouchers);
+                        await _voucherRepository.AddRangeVouchersAsync(package.Vouchers, package);
                     }
 
                     packages.Add(package);
@@ -75,6 +71,27 @@ namespace TravelWebBackEndCore.Repository
             }
         }
 
+        public async Task<string> DeltedAsync(int id)
+        {
+            try
+            {
+                var tour = await _context.Tours.FindAsync(id);
+
+                if (tour == null)
+                {
+                    return "Tour not found";
+                }
+
+                _context.Tours.Remove(tour);
+                await _context.SaveChangesAsync();
+
+                return "Delete success";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
 
         public async Task<List<TourDTO>> GetAllAsync(QueryTour query)
         {
@@ -133,5 +150,52 @@ namespace TravelWebBackEndCore.Repository
 
             return tour?.ToTourDetailDto();
         }
+
+        public async Task<string> RestoreAsynce(int id)
+        {
+            try
+            {
+                var tour = await _context.Tours.FindAsync(id);
+
+                if (tour == null)
+                {
+                    return "Tour not found";
+                }
+
+                tour.IsDeleted = false;
+                await _context.SaveChangesAsync();
+
+                return "Restore success";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+        public async Task<string> SoftDeleteAsync(int id)
+        {
+            try
+            {
+                var tour = await _context.Tours.FindAsync(id);
+
+                if (tour == null)
+                {
+                    return "Tour not found";
+                }
+
+                tour.IsDeleted = true;
+                await _context.SaveChangesAsync();
+
+                return "Delete success";
+
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+
+
     }
 }
