@@ -2,6 +2,7 @@
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Transfer;
+using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.Interfaces.Service;
 
 
@@ -33,11 +34,11 @@ namespace TravelWebBackEndCore.Services
         /// <param name="keyName">The key name to save the file as in the S3 bucket.</param>
         /// <returns>The URL of the uploaded file.</returns>
         /// 
-        public async Task<string> UploadFile(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file)
         {
             if (file == null || file.Length == 0)
             {
-                return "File is missing or empty.";
+                return new NotFoundObjectResult("File is missing or empty.");
             }
 
             try
@@ -47,12 +48,12 @@ namespace TravelWebBackEndCore.Services
                 using (var fileStream = file.OpenReadStream())
                 {
                     var fileUrl = await UploadFileStreamAsync(fileStream, keyName);
-                    return "File uploaded successfully.";
+                    return new OkObjectResult("File uploaded successfully.");
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return new BadRequestObjectResult(ex.Message);
             }
         }
         public async Task<string> UploadFileAsync(string filePath, string keyName)

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Booking;
 using TravelWebBackEndCore.Interfaces.Repository;
@@ -9,41 +10,53 @@ namespace TravelWebBackEndCore.Services
 {
     public class BookingService : IBookingService
     {
-        private readonly ApplicationDbContext _context;
-        public BookingService(ApplicationDbContext context)
+        private readonly IBookingRepository _bookingRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IContactRepository _contactRepository;
+        private readonly ITravelerRepository _travelerRepository;
+        private readonly ITourPackageRepository _tourPackageRepository;
+        public BookingService(ApplicationDbContext context,
+            IBookingRepository bookingRepository,
+            IUserRepository userRepository,
+            ITourPackageRepository tourPackageRepository,
+            IContactRepository contactRepository,
+            ITravelerRepository travelerRepository
+            )
         {
-            _context = context;
+            _bookingRepository = bookingRepository;
+            _userRepository = userRepository;
+            _tourPackageRepository = tourPackageRepository;
+            _contactRepository = contactRepository;
+            _travelerRepository = travelerRepository;
+
         }
-        public async Task<string> CreateAsync(CreateBookingInfoDTO bookingDTO)
+        public async Task<IActionResult> CreateAsync(CreateBookingInfoDTO bookingDTO)
         {
             try
             {
                 var booking = bookingDTO.Booking.ToBooking();
-                var user = await _context.Users.FindAsync(bookingDTO.Booking.UserId);
-                var package = await _context.TourPackages.FindAsync(bookingDTO.Booking.TourPackageId);
+                var user = await _userRepository.FindByIdAsync(bookingDTO.Booking.UserId);
+                var package = await _tourPackageRepository.FindByIdAsync(bookingDTO.Booking.TourPackageId);
 
                 if (user == null)
                 {
-                    return "User not found";
+                    return new NotFoundObjectResult("User not found");
                 }
 
                 booking.User = user;
 
                 if (package == null)
                 {
-                    return "Tour package not found";
+                    return new NotFoundObjectResult("Tour package not found");
                 }
 
                 booking.TourPackage = package;
 
-                await _context.Bookings.AddAsync(booking);
-
-
-
+                await _bookingRepository.AddAsync(booking);
 
                 var contact = bookingDTO.Contact.ToContact();
                 contact.Booking = booking;
-                await _context.Contacts.AddAsync(contact);
+                await _contactRepository.AddAsync(contact);
 
                 if (bookingDTO.Travelers != null)
                 {
@@ -54,77 +67,91 @@ namespace TravelWebBackEndCore.Services
                         return traveler;
                     });
 
-                    await _context.Travelers.AddRangeAsync(travelers);
+                    await _travelerRepository.AddRangeAsync(travelers);
                 }
 
-                await _context.SaveChangesAsync();
-                return "Booking created successfully";
+                await _bookingRepository.SaveChangesAsync();
+
+                return new OkObjectResult("Booking created successfully");
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return new BadRequestObjectResult(ex.Message);
             }
         }
 
-        public async Task<string> DeleteAsync(int booking_id)
+        public async Task<IActionResult> DeleteAsync(int booking_id)
         {
             try
             {
-                var booking = await _context.Bookings.FindAsync(booking_id);
+                var booking = await _bookingRepository.FindByIdAsync(booking_id);
 
                 if (booking == null)
                 {
-                    return "Booking not found";
+                    return new NotFoundObjectResult("Booking not found");
                 }
 
                 booking.IsDeleted = true;
-                await _context.SaveChangesAsync();
+                await _bookingRepository.SaveChangesAsync();
 
-                return "Booking deleted successfully";
+                return new OkObjectResult("Booking deleted successfully");
 
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return new BadRequestObjectResult(ex.Message);
             }
         }
 
-        public async Task<List<BookingDTO>> GetBookingByUserIdAsync(int user_id, string? status)
+        public async Task<IActionResult> FindBookingByUserIdAsync(int userId, string? status)
         {
-            var bookings = _context.Bookings.Where(b => b.UserId == user_id && b.IsDeleted == false);
+            var user = _userRepository.FindByIdAsync(userId);
 
-            if (status != null)
+            if (user == null)
             {
-                bookings = bookings.Where(b => b.Status == status);
+                return new NotFoundObjectResult("User not found");
             }
 
-            return await bookings.Select(b => b.ToBookingDTO()).ToListAsync();
+            var bookingsQuery = await _bookingRepository.FindBookingsByUserIdAsync(userId);
 
+            if (bookingsQuery == null)
+            {
+                return new NotFoundObjectResult("No bookings found for the user");
+            }
+
+            if (!string.IsNullOrEmpty(status))
+            {
+                bookingsQuery = bookingsQuery.Where(b => b.Status == status);
+            }
+
+            var bookingDTOs = await bookingsQuery.Select(b => b.ToBookingDTO()).ToListAsync();
+            return new OkObjectResult(bookingDTOs);
         }
 
-        public async Task<string> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO)
+
+        public async Task<IActionResult> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO)
         {
             try
             {
                 if (statusDTO.status == null)
                 {
-                    return "Status cannot be null or empty.";
+                    return new BadRequestObjectResult("Status cannot be null or empty.");
                 }
 
-                var booking = await _context.Bookings.FindAsync(id);
+                var booking = await _bookingRepository.FindByIdAsync(id);
 
                 if (booking == null)
                 {
-                    return "Booking not found";
+                    return new NotFoundObjectResult("Booking not found");
                 }
 
                 booking.Status = statusDTO.status;
-                await _context.SaveChangesAsync();
-                return "Booking status updated successfully";
+                await _bookingRepository.SaveChangesAsync();
+                return new OkObjectResult("Booking status updated successfully");
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return new BadRequestObjectResult(ex.Message);
 
             }
         }

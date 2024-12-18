@@ -24,14 +24,9 @@ namespace TravelWebBackEndCore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var (token, error) = await _authService.Login(request);
+            var result = await _authService.Login(request);
 
-            if (!string.IsNullOrEmpty(error))
-            {
-                return Unauthorized(error);
-            }
-
-            return Ok(new { Token = token });
+            return result;
         }
 
         [HttpPost("register")]
@@ -43,12 +38,7 @@ namespace TravelWebBackEndCore.Controllers
             }
             var result = await _authService.Register(userDTO);
 
-            if (result == "Email already exists")
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            return result;
         }
 
 

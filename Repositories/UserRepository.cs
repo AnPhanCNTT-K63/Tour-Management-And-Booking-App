@@ -14,7 +14,7 @@ namespace TravelWebBackEndCore.Repositories
             _context = context;
         }
 
-        public async Task<User?> GetByIdAsync(int userId)
+        public async Task<User?> FindByIdAsync(int userId)
         {
             return await _context.Users.FindAsync(userId);
         }
@@ -25,10 +25,27 @@ namespace TravelWebBackEndCore.Repositories
             await Task.CompletedTask;
         }
 
+        public async Task<User?> FindByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        }
+
+        public async Task<User?> FindByNameAsync(string name)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Username == name);
+        }
+
+        public async Task AddAsync(User user)
+        {
+            await _context.Users.AddAsync(user);
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
         }
+
+
     }
 
     public class UserProfileRepository : IUserProfileRepository

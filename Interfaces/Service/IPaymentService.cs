@@ -1,9 +1,10 @@
-﻿using TravelWebBackEndCore.DTOs.Payment;
+﻿using Microsoft.AspNetCore.Mvc;
+using TravelWebBackEndCore.DTOs.Payment;
 
 namespace TravelWebBackEndCore.Interfaces.Service
 {
     public interface IPaymentService
     {
-        Task<string> CreateAsync(CreatePaymentDTO paymentDTO);
+        Task<IActionResult> CreateAsync(CreatePaymentDTO paymentDTO);
     }
 }

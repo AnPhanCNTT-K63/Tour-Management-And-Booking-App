@@ -1,4 +1,5 @@
-﻿using TravelWebBackEndCore.DTOs.Tour;
+﻿using Microsoft.AspNetCore.Mvc;
+using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
 
 namespace TravelWebBackEndCore.Interfaces.Service
@@ -7,9 +8,9 @@ namespace TravelWebBackEndCore.Interfaces.Service
     {
         Task<List<TourDTO>> GetAllAsync(QueryTour query);
         Task<TourDTO?> GetTourByIdAsync(int id);
-        Task<string> CreateTourWithPackageAsync(CreateTourWithPackageDTO dto);
-        Task<string> SoftDeleteAsync(int id);
-        Task<string> RestoreAsynce(int id);
-        Task<string> DeltedAsync(int id);
+        Task<IActionResult> CreateTourWithPackageAsync(CreateTourWithPackageDTO dto);
+        Task<IActionResult> SoftDeleteAsync(int id);
+        Task<IActionResult> RestoreAsync(int id);
+        Task<IActionResult> DeltedAsync(int id);
     }
 }

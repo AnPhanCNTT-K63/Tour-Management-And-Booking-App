@@ -10,9 +10,11 @@ namespace TravelWebBackEndCore.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
-        public BookingController(IBookingService bookingService)
+        private readonly IUserService _userService;
+        public BookingController(IBookingService bookingService, IUserService userService)
         {
             _bookingService = bookingService;
+            _userService = userService;
         }
 
         [HttpPost("create")]
@@ -25,17 +27,7 @@ namespace TravelWebBackEndCore.Controllers
 
             var result = await _bookingService.CreateAsync(createBookingInfoDTO);
 
-            if (result == "User not found")
-            {
-                return NotFound(result);
-            }
-
-            if (result != "Booking created successfully")
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            return result;
         }
 
         [HttpPatch("update-status")]
@@ -46,38 +38,24 @@ namespace TravelWebBackEndCore.Controllers
                 return BadRequest(ModelState);
             }
             var result = await _bookingService.UpdateStatusAsync(id, statusDTO);
-            if (result == "Booking not found")
-            {
-                return NotFound(result);
-            }
-            if (result != "Booking status updated successfully")
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+
+            return result;
         }
 
         [HttpGet("user/{user_id:int}")]
         public async Task<IActionResult> GetBookingByUserId([FromRoute] int user_id, [FromQuery] string? status)
         {
-            var bookings = await _bookingService.GetBookingByUserIdAsync(user_id, status);
+            var bookings = await _bookingService.FindBookingByUserIdAsync(user_id, status);
 
-            return Ok(bookings);
+            return bookings;
         }
 
         [HttpDelete("delete/{booking_id:int}")]
         public async Task<IActionResult> DeleteBooking([FromRoute] int booking_id)
         {
             var result = await _bookingService.DeleteAsync(booking_id);
-            if (result == "Booking not found")
-            {
-                return NotFound(result);
-            }
-            if (result != "Booking deleted successfully")
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+
+            return result;
         }
     }
 

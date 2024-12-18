@@ -21,27 +21,19 @@ namespace TravelWebBackEndCore.Controllers
         {
             var result = await _userService.UpdateProfileAsync(user_id, profileDTO);
 
-            if (result == "User not found")
-            {
-                return NotFound(result);
-            }
-
-            if (result != "Profile updated successfully")
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            return result;
         }
 
         [HttpGet("{user_id:int}/profile")]
         public async Task<IActionResult> GetProfileById([FromRoute] int user_id)
         {
             var profile = await _userService.GetProfileAsync(user_id);
+
             if (profile == null)
             {
                 return NotFound("Not found");
             }
+
             return Ok(profile);
         }
 
@@ -49,10 +41,12 @@ namespace TravelWebBackEndCore.Controllers
         public async Task<IActionResult> GetAccountById([FromRoute] int user_id)
         {
             var account = await _userService.GetAccountAsync(user_id);
+
             if (account == null)
             {
                 return NotFound("Not found");
             }
+
             return Ok(account);
         }
 
@@ -60,15 +54,8 @@ namespace TravelWebBackEndCore.Controllers
         public async Task<IActionResult> UpdateAccount([FromRoute] int user_id, [FromBody] UpdateAccountDTO accountDTO)
         {
             var result = await _userService.UpdateAccountAsync(user_id, accountDTO);
-            if (result == "User not found")
-            {
-                return NotFound(result);
-            }
-            if (result != "Account updated successfully")
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+
+            return result;
         }
 
     }

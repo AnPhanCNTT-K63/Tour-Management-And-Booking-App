@@ -5,6 +5,7 @@ using TravelWebBackEndCore.Interfaces.Service;
 using TravelWebBackEndCore.Models;
 using TravelWebBackEndCore.Mappers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TravelWebBackEndCore.Services
 {
@@ -21,9 +22,21 @@ namespace TravelWebBackEndCore.Services
             _passwordHasher = passwordHasher;
         }
 
+        public async Task<User?> FindByIdAsync(int userId)
+        {
+            var user = await _userRepository.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user;
+        }
+
         public async Task<AccountDTO?> GetAccountAsync(int userId)
         {
-            var user = await _userRepository.GetByIdAsync(userId);
+            var user = await _userRepository.FindByIdAsync(userId);
 
             if (user == null)
             {
@@ -49,25 +62,25 @@ namespace TravelWebBackEndCore.Services
             return profile.ToProfileDTO();
         }
 
-        public async Task<string> UpdateAccountAsync(int userId, UpdateAccountDTO accountDTO)
+        public async Task<IActionResult> UpdateAccountAsync(int userId, UpdateAccountDTO accountDTO)
         {
-            var user = await _userRepository.GetByIdAsync(userId);
+            var user = await _userRepository.FindByIdAsync(userId);
 
             if (user == null)
             {
-                return "User not found";
+                return new NotFoundObjectResult("User not found");
             }
 
             if (accountDTO.Password == null)
             {
-                return "Password is required";
+                return new BadRequestObjectResult("Password is required");
             }
 
             var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.Password, accountDTO.Password);
 
             if (passwordVerificationResult == PasswordVerificationResult.Failed)
             {
-                return "Invalid password";
+                return new BadRequestObjectResult("Invalid password");
             }
 
             if (accountDTO.Email != null)
@@ -90,16 +103,16 @@ namespace TravelWebBackEndCore.Services
             await _userRepository.UpdateAsync(user);
             await _userRepository.SaveChangesAsync();
 
-            return "Account updated successfully";
+            return new OkObjectResult("Account updated successfully");
         }
 
-        public async Task<string> UpdateProfileAsync(int userId, UpdateProfile profileDTO)
+        public async Task<IActionResult> UpdateProfileAsync(int userId, UpdateProfile profileDTO)
         {
-            var user = await _userRepository.GetByIdAsync(userId);
+            var user = await _userRepository.FindByIdAsync(userId);
 
             if (user == null)
             {
-                return "User not found";
+                return new NotFoundObjectResult("User not found");
             }
 
             var profile = await _userProfileRepository.GetByUserIdAsync(userId);
@@ -128,7 +141,7 @@ namespace TravelWebBackEndCore.Services
 
             await _userProfileRepository.SaveChangesAsync();
 
-            return "Profile updated successfully";
+            return new OkObjectResult("Profile updated successfully");
         }
     }
 }

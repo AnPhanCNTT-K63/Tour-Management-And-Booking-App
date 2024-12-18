@@ -4,7 +4,10 @@ namespace TravelWebBackEndCore.Interfaces.Repository
 {
     public interface IUserRepository
     {
-        Task<User?> GetByIdAsync(int userId);
+        Task<User?> FindByIdAsync(int userId);
+        Task<User?> FindByEmailAsync(string email);
+        Task<User?> FindByNameAsync(string name);
+        Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task SaveChangesAsync();
     }

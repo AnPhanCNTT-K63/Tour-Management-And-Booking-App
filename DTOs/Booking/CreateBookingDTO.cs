@@ -13,6 +13,6 @@ namespace TravelWebBackEndCore.DTOs.Booking
         [Required]
         public int TourPackageId { get; set; }
         [Required]
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
     }
 }

@@ -12,9 +12,6 @@ namespace TravelWebBackEndCore.Models
         public Decimal Discount { get; set; }
         public string? Title { get; set; }
         public string? Code { get; set; }
-        public DateTime? CreatedAt { get; set; } = DateTime.Now;
-        public DateTime? UpdatedAt { get; set; }
-
         public int TourPackageId { get; set; }
         public TourPackage TourPackage { get; set; }
     }

@@ -33,17 +33,8 @@ namespace TravelWebBackEndCore.Controllers
 
             var result = await _tourService.CreateTourWithPackageAsync(dto);
 
-            if (result == "User not found")
-            {
-                return NotFound(result);
-            }
 
-            if (result == "Create success")
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
+            return result;
 
         }
 
@@ -62,48 +53,25 @@ namespace TravelWebBackEndCore.Controllers
         public async Task<IActionResult> SoftDelete([FromRoute] int id)
         {
             var result = await _tourService.SoftDeleteAsync(id);
-            if (result == "Not found")
-            {
-                return NotFound(result);
-            }
 
-            if (result == "Delete success")
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
+            return result;
 
         }
 
         [HttpPatch("restore/{id:int}")]
         public async Task<IActionResult> Restore([FromRoute] int id)
         {
-            var result = await _tourService.RestoreAsynce(id);
-            if (result == "Not found")
-            {
-                return NotFound(result);
-            }
-            if (result == "Restore success")
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            var result = await _tourService.RestoreAsync(id);
+
+            return result;
         }
 
         [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var result = await _tourService.DeltedAsync(id);
-            if (result == "Not found")
-            {
-                return NotFound(result);
-            }
-            if (result == "Delete success")
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+
+            return result;
         }
     }
 }

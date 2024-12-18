@@ -1,12 +1,13 @@
-﻿using TravelWebBackEndCore.DTOs.Booking;
+﻿using Microsoft.AspNetCore.Mvc;
+using TravelWebBackEndCore.DTOs.Booking;
 
 namespace TravelWebBackEndCore.Interfaces.Service
 {
     public interface IBookingService
     {
-        Task<string> CreateAsync(CreateBookingInfoDTO createBookingInfoDTO);
-        Task<string> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO);
-        Task<List<BookingDTO>> GetBookingByUserIdAsync(int user_id, string? status);
-        Task<string> DeleteAsync(int booking_id);
+        Task<IActionResult> CreateAsync(CreateBookingInfoDTO createBookingInfoDTO);
+        Task<IActionResult> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO);
+        Task<IActionResult> FindBookingByUserIdAsync(int user_id, string? status);
+        Task<IActionResult> DeleteAsync(int booking_id);
     }
 }

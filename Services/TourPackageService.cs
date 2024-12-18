@@ -1,51 +1,61 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Schedule;
 using TravelWebBackEndCore.DTOs.TourPackage;
 using TravelWebBackEndCore.DTOs.Voucher;
+using TravelWebBackEndCore.Interfaces.Repository;
 using TravelWebBackEndCore.Interfaces.Service;
 using TravelWebBackEndCore.Mappers;
 using TravelWebBackEndCore.Models;
+using TravelWebBackEndCore.Repositories;
 
 namespace TravelWebBackEndCore.Services
 {
     public class TourPackageService : ITourPackageService
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IScheduleService _scheduleService;
-        private readonly IVoucherService _voucherService;
-        public TourPackageService(ApplicationDbContext context, IScheduleService scheduleReposity, IVoucherService voucherRepository)
+        private readonly ITourPackageRepository _tourPackageRepository;
+        private readonly IScheduleRepository _scheduleRepository;
+        private readonly IVoucherRepository _voucherRepository;
+        private readonly ITourRepository _tourRepository;
+        public TourPackageService(ApplicationDbContext context,
+            IScheduleRepository scheduleReposity,
+            IVoucherRepository voucherRepository,
+            ITourPackageRepository tourPackageRepository,
+            ITourRepository tourRepository
+            )
         {
-            _context = context;
-            _scheduleService = scheduleReposity;
-            _voucherService = voucherRepository;
+            _scheduleRepository = scheduleReposity;
+            _voucherRepository = voucherRepository;
+            _tourPackageRepository = tourPackageRepository;
+            _tourRepository = tourRepository;
         }
 
-        public async Task<string> DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
-                var package = await _context.TourPackages.FindAsync(id);
+                var package = await _tourPackageRepository.FindByIdAsync(id);
 
                 if (package == null)
                 {
-                    return "Package not found";
+                    return new NotFoundObjectResult("Package not found");
                 }
 
-                _context.TourPackages.Remove(package);
-                await _context.SaveChangesAsync();
-                return "Package deleted successfully";
+                _tourPackageRepository.RemoveAsync(package);
+                await _tourPackageRepository.SaveChangesAsync();
+                return new OkObjectResult("Package deleted successfully");
 
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return new BadRequestObjectResult(ex.Message);
             }
         }
 
         public async Task<PackageDTO?> GetById(int id)
         {
-            var package = await _context.TourPackages.Include(p => p.Schedules).Include(p => p.Vouchers).FirstOrDefaultAsync(p => p.Id == id);
+            var package = await _tourPackageRepository.GetTourPackageWithDetailsAsync(id);
 
             if (package == null)
             {
@@ -60,17 +70,14 @@ namespace TravelWebBackEndCore.Services
         {
             try
             {
-                var tour = await _context.Tours.FindAsync(tour_id);
+                var tour = _tourRepository.FindByIdAsync(tour_id);
 
                 if (tour == null)
                 {
                     return null;
                 }
 
-                var packages = _context.TourPackages
-                    .Include(p => p.Schedules)
-                    .Include(p => p.Vouchers)
-                    .Where(p => p.TourId == tour_id);
+                var packages = _tourPackageRepository.GetTourPackageDetailsByTourIdAsync(tour_id);
 
                 return await packages.Select(p => p.ToPackageDto()).ToListAsync();
             }
@@ -80,19 +87,18 @@ namespace TravelWebBackEndCore.Services
             }
         }
 
-        public async Task<string> UpdateAsync(int id, UpdatePackageDTO packageDTO)
+        public async Task<IActionResult> UpdateAsync(int id, UpdatePackageDTO packageDTO)
         {
             try
             {
-                var package = await _context.TourPackages
-                    .Include(p => p.Schedules)
-                    .Include(p => p.Vouchers)
-                    .FirstOrDefaultAsync(p => p.Id == id);
+                var package = await _tourPackageRepository.GetTourPackageWithDetailsAsync(id);
 
                 if (package == null)
                 {
-                    return "Package not found";
+                    return new NotFoundObjectResult("Package not found");
                 }
+
+                package.UpdatedAt = DateTime.UtcNow;
 
                 package.Name = packageDTO.Name;
                 package.Description = packageDTO.Description;
@@ -113,14 +119,16 @@ namespace TravelWebBackEndCore.Services
                         .ToList() ?? new List<Schedule>();
 
                     if (schedulesToRemove.Count > 0)
-                        _scheduleService.RemoveSchedules(schedulesToRemove);
+                        _scheduleRepository.RemoveSchedules(schedulesToRemove);
+
+                    var newSchedules = new List<Schedule>();
 
                     foreach (var scheduleDTO in packageDTO.Schedules)
                     {
                         var existingSchedule = package.Schedules?.FirstOrDefault(s => s.Id == scheduleDTO.Id);
                         if (existingSchedule != null)
                         {
-                            _scheduleService.UpdateSchedule(existingSchedule, scheduleDTO);
+                            existingSchedule.TravelDay = scheduleDTO.TravelDay;
                         }
                         else
                         {
@@ -131,11 +139,17 @@ namespace TravelWebBackEndCore.Services
                             var addSchedule = newSchedule.ToSchedule();
                             addSchedule.TourPackage = package;
 
-                            await _scheduleService.AddScheduleAsync(addSchedule);
+                            newSchedules.Add(addSchedule);
                         }
+                    }
+
+                    if (newSchedules.Any())
+                    {
+                        await _scheduleRepository.AddRangeAsync(newSchedules);
                     }
                 }
 
+                var newVouchers = new List<Voucher>();
                 if (packageDTO.Vouchers != null)
                 {
                     var incomingVoucherIds = packageDTO.Vouchers.Select(s => s.Id).ToList();
@@ -144,14 +158,16 @@ namespace TravelWebBackEndCore.Services
                         .ToList() ?? new List<Voucher>();
 
                     if (vouchersToRemove.Count > 0)
-                        _voucherService.RemoveVouchers(vouchersToRemove);
+                        _voucherRepository.RemoveVouchers(vouchersToRemove);
 
                     foreach (var voucherDTO in packageDTO.Vouchers)
                     {
                         var existingVoucher = package.Vouchers?.FirstOrDefault(s => s.Id == voucherDTO.Id);
                         if (existingVoucher != null)
                         {
-                            _voucherService.UpdateVoucher(existingVoucher, voucherDTO);
+                            existingVoucher.Discount = voucherDTO.Discount;
+                            existingVoucher.Title = voucherDTO.Title;
+                            existingVoucher.Code = voucherDTO.Code;
                         }
                         else
                         {
@@ -165,16 +181,22 @@ namespace TravelWebBackEndCore.Services
                             var addVoucher = newVoucher.ToVoucher();
                             addVoucher.TourPackage = package;
 
-                            await _voucherService.AddVoucherAsync(addVoucher);
+                            newVouchers.Add(addVoucher);
                         }
+                    }
+                    if (newVouchers.Any())
+                    {
+                        await _voucherRepository.AddRangeAsync(newVouchers);
                     }
                 }
 
-                return await _context.SaveChangesAsync() > 0 ? "Package updated successfully" : "Failed to update package";
+                await _tourPackageRepository.SaveChangesAsync();
+                return new OkObjectResult("Package updated successfully");
+
             }
             catch (Exception e)
             {
-                return e.Message;
+                return new BadRequestObjectResult(e.Message);
             }
         }
     }

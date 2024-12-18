@@ -19,17 +19,7 @@ namespace TravelWebBackEndCore.Controllers
         {
             var result = await _cloudService.UploadFile(file);
 
-            if (result == "File is missing or empty.")
-            {
-                return BadRequest(result);
-            }
-
-            if (result != "File uploaded successfully.")
-            {
-                return StatusCode(500, result);
-            }
-
-            return Ok(result);
+            return result;
         }
 
 

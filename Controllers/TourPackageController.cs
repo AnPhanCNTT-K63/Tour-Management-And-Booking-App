@@ -43,32 +43,15 @@ namespace TravelWebBackEndCore.Controllers
         {
             var result = await _tourPackageService.UpdateAsync(id, packageDTO);
 
-            if (result == "Package not found")
-            {
-                return NotFound(result);
-            }
-
-            if (result == "Package updated successfully")
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
+            return result;
         }
 
         [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> DeletePackage([FromRoute] int id)
         {
             var result = await _tourPackageService.DeleteAsync(id);
-            if (result == "Package not found")
-            {
-                return NotFound(result);
-            }
-            if (result == "Package deleted successfully")
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+
+            return result;
         }
     }
 }

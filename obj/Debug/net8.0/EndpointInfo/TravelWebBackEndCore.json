@@ -1084,24 +1084,15 @@
         "additionalProperties": false
       },
       "UpdatePackageDTO": {
-        "required": [
-          "activities",
-          "checkIn",
-          "description",
-          "name",
-          "price",
-          "quantity",
-          "vat"
-        ],
         "type": "object",
         "properties": {
           "name": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "image": {
             "type": "string",
@@ -1112,8 +1103,8 @@
             "format": "int32"
           },
           "activities": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "isChangeSchedule": {
             "type": "boolean"
@@ -1122,8 +1113,8 @@
             "type": "boolean"
           },
           "checkIn": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "vat": {
             "type": "number",

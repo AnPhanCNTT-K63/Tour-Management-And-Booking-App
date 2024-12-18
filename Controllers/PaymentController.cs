@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Payment;
-using TravelWebBackEndCore.Interfaces.Repository;
 using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
@@ -10,6 +9,7 @@ namespace TravelWebBackEndCore.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly IPaymentService _paymentService;
+
         public PaymentController(IPaymentService paymentService)
         {
             _paymentService = paymentService;
@@ -25,17 +25,7 @@ namespace TravelWebBackEndCore.Controllers
 
             var result = await _paymentService.CreateAsync(paymentDTO);
 
-            if (result == "Booking not found")
-            {
-                return NotFound(result);
-            }
-
-            if (result != "Payment created successfully")
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            return result;
         }
     }
 }

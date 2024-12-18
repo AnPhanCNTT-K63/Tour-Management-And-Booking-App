@@ -10,6 +10,6 @@ namespace TravelWebBackEndCore.Interfaces.Repository
 {
     public interface IAuthRepository
     {
-
+        Task SaveChangesAsync();
     }
 }

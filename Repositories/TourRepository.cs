@@ -11,8 +11,35 @@ namespace TravelWebBackEndCore.Repository
 {
     public class TourRepository : ITourRepository
     {
+        private readonly ApplicationDbContext _context;
+        public TourRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
+        public async Task AddAsync(Tour tour)
+        {
+            await _context.Tours.AddAsync(tour);
+        }
 
+        public IQueryable<Tour> FindAll()
+        {
+            return _context.Tours;
+        }
 
+        public async Task<Tour?> FindByIdAsync(int id)
+        {
+            return await _context.Tours.FindAsync(id);
+        }
+
+        public void RemoveAsync(Tour tour)
+        {
+            _context.Tours.Remove(tour);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
