@@ -8,7 +8,6 @@ namespace TravelWebBackEndCore.Interfaces.Repository
         Task<User?> FindByEmailAsync(string email);
         Task<User?> FindByNameAsync(string name);
         Task AddAsync(User user);
-        Task UpdateAsync(User user);
         Task SaveChangesAsync();
     }
 

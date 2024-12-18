@@ -19,12 +19,6 @@ namespace TravelWebBackEndCore.Repositories
             return await _context.Users.FindAsync(userId);
         }
 
-        public async Task UpdateAsync(User user)
-        {
-            _context.Users.Update(user);
-            await Task.CompletedTask;
-        }
-
         public async Task<User?> FindByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);

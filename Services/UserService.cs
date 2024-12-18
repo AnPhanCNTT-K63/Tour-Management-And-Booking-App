@@ -100,7 +100,6 @@ namespace TravelWebBackEndCore.Services
 
             user.UpdatedAt = DateTime.UtcNow;
 
-            await _userRepository.UpdateAsync(user);
             await _userRepository.SaveChangesAsync();
 
             return new OkObjectResult("Account updated successfully");
