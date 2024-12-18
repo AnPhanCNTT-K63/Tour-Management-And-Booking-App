@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.TourPackage;
 using TravelWebBackEndCore.DTOs.User;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Repository;
+using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
 {
@@ -9,16 +10,16 @@ namespace TravelWebBackEndCore.Controllers
     [ApiController]
     public class TourPackageController : ControllerBase
     {
-        private readonly ITourPackageRepository _tourPackageRepository;
-        public TourPackageController(ITourPackageRepository tourPackageRepository)
+        private readonly ITourPackageService _tourPackageService;
+        public TourPackageController(ITourPackageService tourPackageService)
         {
-            _tourPackageRepository = tourPackageRepository;
+            _tourPackageService = tourPackageService;
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPackage([FromRoute] int id)
         {
-            var package = await _tourPackageRepository.GetById(id);
+            var package = await _tourPackageService.GetById(id);
             if (package == null)
             {
                 return NotFound("Package not found");
@@ -29,7 +30,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpGet("tour/{tour_id:int}")]
         public async Task<IActionResult> GetPackagesByTourId([FromRoute] int tour_id)
         {
-            var packages = await _tourPackageRepository.GetByTourId(tour_id);
+            var packages = await _tourPackageService.GetByTourId(tour_id);
             if (packages == null)
             {
                 return NotFound("Packages not found");
@@ -40,7 +41,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpPut("update/{id:int}")]
         public async Task<IActionResult> UpdatePackage([FromRoute] int id, [FromBody] UpdatePackageDTO packageDTO)
         {
-            var result = await _tourPackageRepository.UpdateAsync(id, packageDTO);
+            var result = await _tourPackageService.UpdateAsync(id, packageDTO);
 
             if (result == "Package not found")
             {
@@ -58,7 +59,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> DeletePackage([FromRoute] int id)
         {
-            var result = await _tourPackageRepository.DeleteAsync(id);
+            var result = await _tourPackageService.DeleteAsync(id);
             if (result == "Package not found")
             {
                 return NotFound(result);

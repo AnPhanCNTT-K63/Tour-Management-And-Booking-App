@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Booking;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Repository;
+using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
 {
@@ -8,10 +9,10 @@ namespace TravelWebBackEndCore.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingRepository _bookingRepository;
-        public BookingController(IBookingRepository bookingRepository)
+        private readonly IBookingService _bookingService;
+        public BookingController(IBookingService bookingService)
         {
-            _bookingRepository = bookingRepository;
+            _bookingService = bookingService;
         }
 
         [HttpPost("create")]
@@ -22,7 +23,7 @@ namespace TravelWebBackEndCore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _bookingRepository.CreateAsync(createBookingInfoDTO);
+            var result = await _bookingService.CreateAsync(createBookingInfoDTO);
 
             if (result == "User not found")
             {
@@ -44,7 +45,7 @@ namespace TravelWebBackEndCore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await _bookingRepository.UpdateStatusAsync(id, statusDTO);
+            var result = await _bookingService.UpdateStatusAsync(id, statusDTO);
             if (result == "Booking not found")
             {
                 return NotFound(result);
@@ -59,7 +60,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpGet("user/{user_id:int}")]
         public async Task<IActionResult> GetBookingByUserId([FromRoute] int user_id, [FromQuery] string? status)
         {
-            var bookings = await _bookingRepository.GetBookingByUserIdAsync(user_id, status);
+            var bookings = await _bookingService.GetBookingByUserIdAsync(user_id, status);
 
             return Ok(bookings);
         }
@@ -67,7 +68,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpDelete("delete/{booking_id:int}")]
         public async Task<IActionResult> DeleteBooking([FromRoute] int booking_id)
         {
-            var result = await _bookingRepository.DeleteAsync(booking_id);
+            var result = await _bookingService.DeleteAsync(booking_id);
             if (result == "Booking not found")
             {
                 return NotFound(result);

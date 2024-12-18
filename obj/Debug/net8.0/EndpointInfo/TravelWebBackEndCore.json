@@ -1088,7 +1088,6 @@
           "activities",
           "checkIn",
           "description",
-          "id",
           "name",
           "price",
           "quantity",
@@ -1096,10 +1095,6 @@
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "name": {
             "minLength": 1,
             "type": "string"

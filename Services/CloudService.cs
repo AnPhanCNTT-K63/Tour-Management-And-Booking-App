@@ -2,12 +2,12 @@
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Transfer;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Service;
 
 
 namespace TravelWebBackEndCore.Services
 {
-    public class CloudService : ICloundService
+    public class CloudService : ICloudService
     {
         private readonly string _accessKey;
         private readonly string _secretKey;
@@ -32,6 +32,29 @@ namespace TravelWebBackEndCore.Services
         /// <param name="filePath">The local file path of the picture to be uploaded.</param>
         /// <param name="keyName">The key name to save the file as in the S3 bucket.</param>
         /// <returns>The URL of the uploaded file.</returns>
+        /// 
+        public async Task<string> UploadFile(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return "File is missing or empty.";
+            }
+
+            try
+            {
+                string keyName = Path.GetFileName(file.FileName);
+
+                using (var fileStream = file.OpenReadStream())
+                {
+                    var fileUrl = await UploadFileStreamAsync(fileStream, keyName);
+                    return "File uploaded successfully.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public async Task<string> UploadFileAsync(string filePath, string keyName)
         {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))

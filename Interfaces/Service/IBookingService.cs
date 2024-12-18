@@ -1,8 +1,8 @@
 ﻿using TravelWebBackEndCore.DTOs.Booking;
 
-namespace TravelWebBackEndCore.Interfaces
+namespace TravelWebBackEndCore.Interfaces.Service
 {
-    public interface IBookingRepository
+    public interface IBookingService
     {
         Task<string> CreateAsync(CreateBookingInfoDTO createBookingInfoDTO);
         Task<string> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO);

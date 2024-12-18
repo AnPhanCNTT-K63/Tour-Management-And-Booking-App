@@ -1,10 +1,8 @@
-﻿using TravelWebBackEndCore.DTOs.Tour;
-using TravelWebBackEndCore.DTOs.TourPackage;
-using TravelWebBackEndCore.Models;
+﻿using TravelWebBackEndCore.DTOs.TourPackage;
 
-namespace TravelWebBackEndCore.Interfaces
+namespace TravelWebBackEndCore.Interfaces.Service
 {
-    public interface ITourPackageRepository
+    public interface ITourPackageService
     {
         Task<string> UpdateAsync(int id, UpdatePackageDTO packageDTO);
         Task<PackageDTO?> GetById(int id);

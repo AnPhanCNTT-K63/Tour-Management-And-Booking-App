@@ -1,10 +1,9 @@
-﻿using TravelWebBackEndCore.DTOs.Schedule;
-using TravelWebBackEndCore.DTOs.Voucher;
+﻿using TravelWebBackEndCore.DTOs.Voucher;
 using TravelWebBackEndCore.Models;
 
-namespace TravelWebBackEndCore.Interfaces
+namespace TravelWebBackEndCore.Interfaces.Service
 {
-    public interface IVoucherRepository
+    public interface IVoucherService
     {
         Task AddVoucherAsync(Voucher voucher);
         Task AddRangeVouchersAsync(IEnumerable<Voucher> vouchers, TourPackage package);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Repository;
+using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
 {
@@ -7,16 +8,16 @@ namespace TravelWebBackEndCore.Controllers
     [ApiController]
     public class CloudController : ControllerBase
     {
-        private readonly ICloudRepository _cloudRepository;
-        public CloudController(ICloudRepository cloudRepository)
+        private readonly ICloudService _cloudService;
+        public CloudController(ICloudService cloudService)
         {
-            _cloudRepository = cloudRepository;
+            _cloudService = cloudService;
         }
 
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
-            var result = await _cloudRepository.UploadFile(file);
+            var result = await _cloudService.UploadFile(file);
 
             if (result == "File is missing or empty.")
             {

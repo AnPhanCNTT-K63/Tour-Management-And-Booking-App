@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using TravelWebBackEndCore.DTOs.Auth;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Service;
 
 public class JwtTokenService : IJwtTokenService
 {

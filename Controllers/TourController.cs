@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Repository;
+using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
 {
@@ -9,16 +10,16 @@ namespace TravelWebBackEndCore.Controllers
     [ApiController]
     public class TourController : ControllerBase
     {
-        private readonly ITourRepository _tourRepository;
-        public TourController(ITourRepository tourRepository)
+        private readonly ITourService _tourService;
+        public TourController(ITourService tourService)
         {
-            _tourRepository = tourRepository;
+            _tourService = tourService;
         }
 
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll([FromQuery] QueryTour query)
         {
-            var tours = await _tourRepository.GetAllAsync(query);
+            var tours = await _tourService.GetAllAsync(query);
             return Ok(tours);
         }
 
@@ -30,7 +31,7 @@ namespace TravelWebBackEndCore.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _tourRepository.CreateTourWithPackageAsync(dto);
+            var result = await _tourService.CreateTourWithPackageAsync(dto);
 
             if (result == "User not found")
             {
@@ -49,7 +50,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var tour = await _tourRepository.GetTourByIdAsync(id);
+            var tour = await _tourService.GetTourByIdAsync(id);
             if (tour == null)
             {
                 return NotFound("Not found");
@@ -60,7 +61,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpDelete("soft-delete/{id:int}")]
         public async Task<IActionResult> SoftDelete([FromRoute] int id)
         {
-            var result = await _tourRepository.SoftDeleteAsync(id);
+            var result = await _tourService.SoftDeleteAsync(id);
             if (result == "Not found")
             {
                 return NotFound(result);
@@ -78,7 +79,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpPatch("restore/{id:int}")]
         public async Task<IActionResult> Restore([FromRoute] int id)
         {
-            var result = await _tourRepository.RestoreAsynce(id);
+            var result = await _tourService.RestoreAsynce(id);
             if (result == "Not found")
             {
                 return NotFound(result);
@@ -93,7 +94,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var result = await _tourRepository.DeltedAsync(id);
+            var result = await _tourService.DeltedAsync(id);
             if (result == "Not found")
             {
                 return NotFound(result);

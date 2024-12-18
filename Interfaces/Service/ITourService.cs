@@ -1,12 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using TravelWebBackEndCore.DTOs.Tour;
+﻿using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
-using TravelWebBackEndCore.Models;
 
-namespace TravelWebBackEndCore.Interfaces
+namespace TravelWebBackEndCore.Interfaces.Service
 {
-    public interface ITourRepository
+    public interface ITourService
     {
         Task<List<TourDTO>> GetAllAsync(QueryTour query);
         Task<TourDTO?> GetTourByIdAsync(int id);

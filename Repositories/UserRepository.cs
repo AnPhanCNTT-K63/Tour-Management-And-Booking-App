@@ -1,148 +1,58 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using TravelWebBackEndCore.Data;
-using TravelWebBackEndCore.DTOs.User;
-using TravelWebBackEndCore.DTOs.UserProfile;
-using TravelWebBackEndCore.Interfaces;
-using TravelWebBackEndCore.Mappers;
+﻿using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.Models;
+using Microsoft.EntityFrameworkCore;
+using TravelWebBackEndCore.Interfaces.Repository;
 
 namespace TravelWebBackEndCore.Repositories
 {
     public class UserRepository : IUserRepository
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPasswordHasher<User> _passwordHasher;
-        public UserRepository(ApplicationDbContext context, IPasswordHasher<User> passwordHasher)
+
+        public UserRepository(ApplicationDbContext context)
         {
             _context = context;
-            _passwordHasher = passwordHasher;
         }
 
-        public async Task<AccountDTO?> GetAccountAsync(int user_id)
+        public async Task<User?> GetByIdAsync(int userId)
         {
-            var user = await _context.Users.FindAsync(user_id);
-
-            if (user == null)
-            {
-                return null;
-            }
-
-            var account = new AccountDTO
-            {
-                Email = user.Email,
-                Username = user.Username,
-            };
-
-            return account;
+            return await _context.Users.FindAsync(userId);
         }
 
-        public async Task<ProfileDTO?> GetProfileAsync(int user_id)
+        public async Task UpdateAsync(User user)
         {
-            var profile = await _context.UserProfiles.FirstOrDefaultAsync(x => x.UserId == user_id);
-
-            if (profile == null)
-            {
-                return null;
-            }
-            return profile.ToProfileDTO();
+            _context.Users.Update(user);
+            await Task.CompletedTask;
         }
 
-        public async Task<string> UpdateAccountAsync(int user_id, UpdateAccountDTO accountDTO)
+        public async Task SaveChangesAsync()
         {
-            try
-            {
-                var user = await _context.Users.FindAsync(user_id);
+            await _context.SaveChangesAsync();
+        }
+    }
 
-                if (user == null)
-                {
-                    return "User not found";
-                }
+    public class UserProfileRepository : IUserProfileRepository
+    {
+        private readonly ApplicationDbContext _context;
 
-                if (accountDTO.Password == null)
-                {
-                    return "Password is required";
-                }
-
-                var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.Password, accountDTO.Password);
-
-                if (passwordVerificationResult == PasswordVerificationResult.Failed)
-                {
-                    return "Invalid password";
-                }
-
-                if (accountDTO.Email != null)
-                {
-                    user.Email = accountDTO.Email;
-                }
-
-                if (accountDTO.Username != null)
-                {
-                    user.Username = accountDTO.Username;
-                }
-
-                if(accountDTO.NewPassword != null)
-                {
-                    user.Password = _passwordHasher.HashPassword(user, accountDTO.NewPassword);
-                }
-
-                user.UpdatedAt = DateTime.UtcNow;
-
-                await _context.SaveChangesAsync();
-
-                return "Account updated successfully";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
+        public UserProfileRepository(ApplicationDbContext context)
+        {
+            _context = context;
         }
 
-        public async Task<string> UpdateProfileAsync(int user_id, UpdateProfile profileDTO)
+        public async Task<UserProfile?> GetByUserIdAsync(int userId)
         {
-            try
-            {
-                var existingUser = await _context.Users.FindAsync(user_id);
+            return await _context.UserProfiles.FirstOrDefaultAsync(x => x.UserId == userId);
+        }
 
-                if (existingUser == null)
-                {
-                    return "User not found";
-                }
+        public async Task AddAsync(UserProfile profile)
+        {
+            await _context.UserProfiles.AddAsync(profile);
+        }
 
-                var existingProfile = await _context.UserProfiles.FirstOrDefaultAsync(x => x.UserId == user_id);
-
-                if (existingProfile == null)
-                {
-                    existingProfile = new UserProfile
-                    {
-                        User = existingUser
-                    };
-                    _context.UserProfiles.Add(existingProfile);
-                }
-
-                existingProfile.FirstName = profileDTO.FirstName;
-                existingProfile.LastName = profileDTO.LastName;
-                existingProfile.Address = profileDTO.Address;
-                existingProfile.City = profileDTO.City;
-                existingProfile.Country = profileDTO.Country;
-                existingProfile.PostalCode = profileDTO.PostalCode;
-                existingProfile.AboutMe = profileDTO.AboutMe;
-                existingProfile.Avatar = profileDTO.Avatar;
-                existingProfile.Phone = profileDTO.Phone;
-                existingProfile.Birthday = profileDTO.Birthday;
-
-                existingUser.UpdatedAt = DateTime.UtcNow;
-
-                await _context.SaveChangesAsync();
-
-                return "Profile updated successfully";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

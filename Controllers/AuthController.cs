@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Auth;
 using TravelWebBackEndCore.DTOs.User;
-using TravelWebBackEndCore.Interfaces;
+using TravelWebBackEndCore.Interfaces.Repository;
+using TravelWebBackEndCore.Interfaces.Service;
 
 namespace TravelWebBackEndCore.Controllers
 {
@@ -10,20 +11,20 @@ namespace TravelWebBackEndCore.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthRepository _authRepository;
-        public AuthController(IAuthRepository authRepository)
+        private readonly IAuthService _authService;
+        public AuthController(IAuthService authService)
         {
-            _authRepository = authRepository;
+            _authService = authService;
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var (token, error) = await _authRepository.Login(request);
+            var (token, error) = await _authService.Login(request);
 
             if (!string.IsNullOrEmpty(error))
             {
@@ -40,7 +41,7 @@ namespace TravelWebBackEndCore.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await _authRepository.Register(userDTO);
+            var result = await _authService.Register(userDTO);
 
             if (result == "Email already exists")
             {

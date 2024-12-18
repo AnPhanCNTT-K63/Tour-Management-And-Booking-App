@@ -7,8 +7,7 @@ namespace TravelWebBackEndCore.DTOs.TourPackage
 {
     public class UpdatePackageDTO
     {
-        [Required]
-        public int id { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Required]

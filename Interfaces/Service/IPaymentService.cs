@@ -1,8 +1,8 @@
 ﻿using TravelWebBackEndCore.DTOs.Payment;
 
-namespace TravelWebBackEndCore.Interfaces
+namespace TravelWebBackEndCore.Interfaces.Service
 {
-    public interface IPaymentRepository
+    public interface IPaymentService
     {
         Task<string> CreateAsync(CreatePaymentDTO paymentDTO);
     }
