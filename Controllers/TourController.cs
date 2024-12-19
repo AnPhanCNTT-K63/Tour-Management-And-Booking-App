@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
 using TravelWebBackEndCore.Interfaces.Repository;
@@ -16,10 +17,10 @@ namespace TravelWebBackEndCore.Controllers
             _tourService = tourService;
         }
 
-        [HttpGet("get-all")]
-        public async Task<IActionResult> GetAll([FromQuery] QueryTour query)
+        [HttpGet("get/{page:int}/{pageSize:int}")]
+        public async Task<IActionResult> GetAll([FromRoute] int page, [FromRoute] int pageSize, [FromQuery] QueryTour query)
         {
-            var tours = await _tourService.GetAllAsync(query);
+            var tours = await _tourService.GetAllAsync(page, pageSize, query);
             return Ok(tours);
         }
 

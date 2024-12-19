@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelWebBackEndCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d497f56a1e0e13717ba0db2e6f84e67bde22a91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+521adea4daf90b2a9048b8241e2ea4ed99092cb5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelWebBackEndCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelWebBackEndCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

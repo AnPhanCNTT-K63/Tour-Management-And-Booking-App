@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Tour;
@@ -118,9 +119,11 @@ namespace TravelWebBackEndCore.Services
             }
         }
 
-        public async Task<List<TourDTO>> GetAllAsync(QueryTour query)
+        public async Task<List<TourDTO>> GetAllAsync(int page, int pageSize, QueryTour query)
         {
             var tours = _tourRepository.FindAll();
+            tours = tours.Skip((page - 1) * pageSize)
+                .Take(pageSize);
 
             if (!string.IsNullOrWhiteSpace(query.region))
             {
@@ -145,7 +148,6 @@ namespace TravelWebBackEndCore.Services
                     case "country":
                         tours = tours.Where(t => t.Country.ToLower().Contains(query.searchBy.ToLower()));
                         break;
-
                 }
             }
 
@@ -162,9 +164,7 @@ namespace TravelWebBackEndCore.Services
                 }
             }
 
-
             return await tours.Select(t => t.ToTourDto()).ToListAsync();
-
         }
 
         public async Task<TourDTO?> GetTourByIdAsync(int id)

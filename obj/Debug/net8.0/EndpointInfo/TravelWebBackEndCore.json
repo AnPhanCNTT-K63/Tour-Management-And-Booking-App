@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "TravelWebBackEndCore",
-    "version": "1.0"
+    "title": "Demo API",
+    "version": "v1"
   },
   "paths": {
     "/api/auth/login": {
@@ -281,12 +281,30 @@
         }
       }
     },
-    "/api/tour/get-all": {
+    "/api/tour/get/{page}/{pageSize}": {
       "get": {
         "tags": [
           "Tour"
         ],
         "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "region",
             "in": "query",
@@ -1226,6 +1244,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Please enter a valid token",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

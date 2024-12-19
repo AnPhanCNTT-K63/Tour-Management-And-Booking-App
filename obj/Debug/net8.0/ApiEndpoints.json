@@ -257,11 +257,21 @@
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
     "Method": "GetAll",
-    "RelativePath": "api/tour/get-all",
+    "RelativePath": "api/tour/get/{page}/{pageSize}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "region",
         "Type": "System.String",
