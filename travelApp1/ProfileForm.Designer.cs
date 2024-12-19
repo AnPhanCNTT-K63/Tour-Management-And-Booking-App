@@ -41,15 +41,15 @@
             avatarPictureBox = new PictureBox();
             changeAvatarButton = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtAdress = new TextBox();
+            txtCity = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtCountry = new TextBox();
             label4 = new Label();
             richTextBox1 = new RichTextBox();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txtPostalCode = new TextBox();
             ((System.ComponentModel.ISupportInitialize)avatarPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -166,19 +166,19 @@
             label1.TabIndex = 10;
             label1.Text = "City:";
             // 
-            // textBox1
+            // txtAdress
             // 
-            textBox1.Location = new Point(135, 71);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 27);
-            textBox1.TabIndex = 11;
+            txtAdress.Location = new Point(135, 71);
+            txtAdress.Name = "txtAdress";
+            txtAdress.Size = new Size(200, 27);
+            txtAdress.TabIndex = 11;
             // 
-            // textBox2
+            // txtCity
             // 
-            textBox2.Location = new Point(135, 120);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 27);
-            textBox2.TabIndex = 12;
+            txtCity.Location = new Point(135, 120);
+            txtCity.Name = "txtCity";
+            txtCity.Size = new Size(140, 27);
+            txtCity.TabIndex = 12;
             // 
             // label2
             // 
@@ -198,12 +198,12 @@
             label3.TabIndex = 14;
             label3.Text = "Country";
             // 
-            // textBox3
+            // txtCountry
             // 
-            textBox3.Location = new Point(430, 116);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(140, 27);
-            textBox3.TabIndex = 15;
+            txtCountry.Location = new Point(430, 116);
+            txtCountry.Name = "txtCountry";
+            txtCountry.Size = new Size(140, 27);
+            txtCountry.TabIndex = 15;
             // 
             // label4
             // 
@@ -231,27 +231,27 @@
             label6.TabIndex = 19;
             label6.Text = "Postal Code";
             // 
-            // textBox4
+            // txtPostalCode
             // 
-            textBox4.Location = new Point(135, 271);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(235, 27);
-            textBox4.TabIndex = 20;
+            txtPostalCode.Location = new Point(135, 271);
+            txtPostalCode.Name = "txtPostalCode";
+            txtPostalCode.Size = new Size(235, 27);
+            txtPostalCode.TabIndex = 20;
             // 
             // ProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 488);
-            Controls.Add(textBox4);
+            Controls.Add(txtPostalCode);
             Controls.Add(label6);
             Controls.Add(richTextBox1);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(txtCountry);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtCity);
+            Controls.Add(txtAdress);
             Controls.Add(label1);
             Controls.Add(lblFirstName);
             Controls.Add(txtFirstName);
@@ -275,14 +275,14 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtAdress;
+        private TextBox txtCity;
         private Label label2;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtCountry;
         private Label label4;
         private RichTextBox richTextBox1;
         private Label label6;
-        private TextBox textBox4;
+        private TextBox txtPostalCode;
     }
 }

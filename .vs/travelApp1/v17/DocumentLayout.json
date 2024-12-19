@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\laptrinhtrucquang\\tour-management-and-booking-app\\travelapp1\\accountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\accountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\laptrinhtrucquang\\tour-management-and-booking-app\\travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\laptrinhtrucquang\\tour-management-and-booking-app\\travelapp1\\profileform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\profileform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\laptrinhtrucquang\\tour-management-and-booking-app\\travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,50 +66,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountForm.cs [Design]",
-              "DocumentMoniker": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\AccountForm.cs",
-              "RelativeDocumentMoniker": "travelApp1\\AccountForm.cs",
-              "ToolTip": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\AccountForm.cs [Design]",
-              "RelativeToolTip": "travelApp1\\AccountForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T14:05:57.876Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProfileForm.cs [Design]",
               "DocumentMoniker": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.cs",
               "RelativeDocumentMoniker": "travelApp1\\ProfileForm.cs",
               "ToolTip": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.cs [Design]",
               "RelativeToolTip": "travelApp1\\ProfileForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T10:22:31.022Z",
+              "WhenOpened": "2024-12-19T07:56:31.626Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ProfileForm.Designer.cs",
               "DocumentMoniker": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.Designer.cs",
               "RelativeDocumentMoniker": "travelApp1\\ProfileForm.Designer.cs",
               "ToolTip": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.Designer.cs",
               "RelativeToolTip": "travelApp1\\ProfileForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHAAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwCMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T10:19:25.892Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ProfileForm.cs",
               "DocumentMoniker": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.cs",
               "RelativeDocumentMoniker": "travelApp1\\ProfileForm.cs",
               "ToolTip": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\ProfileForm.cs",
               "RelativeToolTip": "travelApp1\\ProfileForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswC4AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T09:23:40.699Z",
               "EditorCaption": ""
