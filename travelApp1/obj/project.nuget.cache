@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "KdkJ5zYTT5g=",
+  "dgSpecHash": "ATwvBCpXdIs=",
   "success": true,
-  "projectFilePath": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hahoa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\hahoa\\.nuget\\packages\\restsharp\\112.1.0\\restsharp.112.1.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
