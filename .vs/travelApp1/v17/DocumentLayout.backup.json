@@ -3,59 +3,7 @@
   "WorkspaceRootPath": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\models\\packagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\models\\packagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\models\\tourdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\models\\tourdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\models\\voucherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\models\\voucherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\pageform\\createtourpackage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\createtourpackage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelapp1\\pageform\\createtour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\createtour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:travelApp1\\travelApp1.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\travelapp1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\travelapp1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\pageform\\createtour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\createtour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|e:\\workspace\\reactjs\\tour-management-and-booking-app-app\\travelapp1\\pageform\\createtourpackage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\createtourpackage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -65,183 +13,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ScheduleDTO.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\ScheduleDTO.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Models\\ScheduleDTO.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\ScheduleDTO.cs",
-              "RelativeToolTip": "travelApp1\\Models\\ScheduleDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T08:36:10.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TourDTO.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\TourDTO.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Models\\TourDTO.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\TourDTO.cs",
-              "RelativeToolTip": "travelApp1\\Models\\TourDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T08:36:09.91Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VoucherDTO.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\VoucherDTO.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Models\\VoucherDTO.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\VoucherDTO.cs",
-              "RelativeToolTip": "travelApp1\\Models\\VoucherDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T08:36:08.628Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PackageDTO.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\PackageDTO.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Models\\PackageDTO.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\PackageDTO.cs",
-              "RelativeToolTip": "travelApp1\\Models\\PackageDTO.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T03:44:27.846Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAAMcVAAAAAAAAAAAjwN4VAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAMgVAAAAAAAAAAAQwN4VAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-20T08:32:44.534Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs*",
-              "RelativeToolTip": "travelApp1\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T08:34:59.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CreateTour.cs [Design]",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTour.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\CreateTour.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTour.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\CreateTour.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:45:17.903Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TourForm.cs [Design]",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourForm.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourForm.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourForm.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\TourForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T08:35:59.664Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": ".gitignore",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\.gitignore",
-              "RelativeDocumentMoniker": "travelApp1\\.gitignore",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\.gitignore",
-              "RelativeToolTip": "travelApp1\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-20T08:35:55.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateTourPackage.cs [Design]",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTourPackage.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\CreateTourPackage.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTourPackage.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\CreateTourPackage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T16:45:30.369Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "travelApp1.csproj.user",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj.user",
-              "RelativeDocumentMoniker": "travelApp1\\travelApp1.csproj.user",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj.user",
-              "RelativeToolTip": "travelApp1\\travelApp1.csproj.user",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
-              "WhenOpened": "2024-12-20T08:31:31.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "travelApp1",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
-              "RelativeDocumentMoniker": "travelApp1\\travelApp1.csproj",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
-              "RelativeToolTip": "travelApp1\\travelApp1.csproj",
-              "ViewState": "AgIAAAIAAAAAAAAAAADwvx8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-20T08:30:07.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CreateTour.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTour.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\CreateTour.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTour.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\CreateTour.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAuwD4AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T03:03:03.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CreateTourPackage.cs",
-              "DocumentMoniker": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTourPackage.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\CreateTourPackage.cs",
-              "ToolTip": "E:\\Workspace\\ReactJS\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\CreateTourPackage.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\CreateTourPackage.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAYwKQAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T14:23:01.597Z",
+              "WhenOpened": "2024-12-21T09:22:14.989Z",
               "EditorCaption": ""
             }
           ]
