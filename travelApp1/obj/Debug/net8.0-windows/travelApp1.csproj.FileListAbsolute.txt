@@ -45,3 +45,5 @@ D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0
 D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.ProfileForm.resources
 D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.genruntimeconfig.cache
 D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\ref\travelApp1.dll
+D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourManagerForm.resources
+D:\lapTrinhTrucQuang\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.Properties.Resources.resources
