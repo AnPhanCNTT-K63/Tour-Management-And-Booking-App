@@ -16,6 +16,12 @@
     <Compile Update="PageForm\ProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PageForm\Signin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PageForm\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PageForm\TourForm.cs">
       <SubType>Form</SubType>
     </Compile>
