@@ -78,6 +78,33 @@ namespace travelApp1
                 return;
             }
         }
+
+        private void btnBrowseImage_Click(object sender, EventArgs e)
+        {
+            // Tạo OpenFileDialog để chọn file
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Chỉ cho phép chọn file ảnh
+                openFileDialog.Title = "Chọn hình ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy tên file từ đường dẫn
+                    string fileName = System.IO.Path.GetFileName(openFileDialog.FileName);
+
+                    // Gán tên file vào txtPackageImage
+                    txtImage.Text = fileName;
+
+                    // Sao chép ảnh vào thư mục lưu trữ (nếu cần)
+                    string destinationPath = System.IO.Path.Combine(Application.StartupPath, "Images", fileName);
+                    if (!System.IO.Directory.Exists(System.IO.Path.Combine(Application.StartupPath, "Images")))
+                    {
+                        System.IO.Directory.CreateDirectory(System.IO.Path.Combine(Application.StartupPath, "Images"));
+                    }
+                    System.IO.File.Copy(openFileDialog.FileName, destinationPath, true); // Ghi đè nếu file tồn tại
+                }
+            }
+        }
     }
 }
     

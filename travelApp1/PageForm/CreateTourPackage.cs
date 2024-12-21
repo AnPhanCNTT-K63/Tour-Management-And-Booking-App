@@ -33,18 +33,24 @@ namespace travelApp1
                 Quantity = (int)nudQuantity.Value,
                 Vat = nudVat.Value,
                 CheckIn = txtCheckIn.Text,
-                // Thêm nhiều ngày du lịch vào Schedules
-                Schedules = new List<ScheduleDTO>(),
-                 Vouchers = new List<VoucherDTO>
-                {
-                    new VoucherDTO
-                    {
-                        Discount = nudDiscount.Value,
-                        Title = txtVoucherTitle.Text,
-                        Code = txtVoucherCode.Text
-                    }
-                }
+                Schedules = new List<ScheduleDTO>()
             };
+
+            // Thêm danh sách Voucher từ dgvVouchers
+            var vouchers = new List<VoucherDTO>();
+            foreach (DataGridViewRow row in dgvVouchers.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null) // Kiểm tra các ô không rỗng
+                {
+                    vouchers.Add(new VoucherDTO
+                    {
+                        Title = row.Cells["VoucherTitle"].Value.ToString(),
+                        Code = row.Cells["VoucherCode"].Value.ToString(),
+                        Discount = Convert.ToDecimal(row.Cells["VoucherDiscount"].Value)
+                    });
+                }
+            }
+            package.Vouchers = vouchers; // Gán danh sách Voucher vào PackageDTO
 
             // Lấy tất cả ngày du lịch từ DataGridView (hoặc một danh sách khác)
             foreach (DataGridViewRow row in dgvTravelDays.Rows)
@@ -97,9 +103,10 @@ namespace travelApp1
                     dtpTravelDay.Value = DateTime.Now;
                     txtVoucherTitle.Clear();
                     txtVoucherCode.Clear();
-                    txtCheckIn.Clear();
                     nudDiscount.Value = 0;
+                    txtCheckIn.Clear();
                     dgvTravelDays.Rows.Clear(); // Xóa hết các dòng đã nhập trong DataGridView
+                    dgvVouchers.Rows.Clear(); // Xóa hết các Voucher đã thêm
                 }
                 else
                 {
@@ -191,6 +198,61 @@ namespace travelApp1
             else
             {
                 MessageBox.Show("Ngày du lịch này đã được thêm!");
+            }
+        }
+
+        private void btnAddVoucher_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra các giá trị không rỗng
+            if (string.IsNullOrWhiteSpace(txtVoucherTitle.Text) || string.IsNullOrWhiteSpace(txtVoucherCode.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin Voucher.");
+                return;
+            }
+
+            // Kiểm tra nếu mã Voucher đã tồn tại trong danh sách
+            foreach (DataGridViewRow row in dgvVouchers.Rows)
+            {
+                if (row.Cells["VoucherCode"].Value?.ToString() == txtVoucherCode.Text)
+                {
+                    MessageBox.Show("Mã Voucher này đã tồn tại!");
+                    return;
+                }
+            }
+
+            // Thêm Voucher vào DataGridView
+            dgvVouchers.Rows.Add(txtVoucherTitle.Text, txtVoucherCode.Text, nudDiscount.Value);
+
+            // Xóa các giá trị nhập sau khi thêm
+            txtVoucherTitle.Clear();
+            txtVoucherCode.Clear();
+            nudDiscount.Value = 0;
+        }
+
+        private void btnBrowseImage_Click(object sender, EventArgs e)
+        {
+            // Tạo OpenFileDialog để chọn file
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Chỉ cho phép chọn file ảnh
+                openFileDialog.Title = "Chọn hình ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy tên file từ đường dẫn
+                    string fileName = System.IO.Path.GetFileName(openFileDialog.FileName);
+
+                    // Gán tên file vào txtPackageImage
+                    txtPackageImage.Text = fileName;
+
+                    // Sao chép ảnh vào thư mục lưu trữ (nếu cần)
+                    string destinationPath = System.IO.Path.Combine(Application.StartupPath, "Images", fileName);
+                    if (!System.IO.Directory.Exists(System.IO.Path.Combine(Application.StartupPath, "Images")))
+                    {
+                        System.IO.Directory.CreateDirectory(System.IO.Path.Combine(Application.StartupPath, "Images"));
+                    }
+                    System.IO.File.Copy(openFileDialog.FileName, destinationPath, true); // Ghi đè nếu file tồn tại
+                }
             }
         }
     }
