@@ -87,7 +87,7 @@ namespace travelApp1
             {
                 // Lấy ID của tour từ hàng được chọn
                 var selectedRow = toursDataGridView.SelectedRows[0];
-                var tourId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                var tourId = Convert.ToInt32(selectedRow.Cells["dataGridViewID"].Value);
 
                 // Hiển thị hộp thoại xác nhận
                 var confirmResult = MessageBox.Show(
