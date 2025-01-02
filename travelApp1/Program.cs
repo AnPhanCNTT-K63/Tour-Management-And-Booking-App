@@ -12,7 +12,7 @@ namespace travelApp1
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Khởi tạo và hiển thị trang Home
-            Application.Run(new Signin());
+            Application.Run(new CreateTour());
 
         }
     }

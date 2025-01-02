@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,41 +38,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeForm.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\HomeForm.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\HomeForm.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\HomeForm.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\HomeForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T17:15:03.959Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeToolTip": "travelApp1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T17:14:13.467Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Signin.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Signin.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Signin.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Signin.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\Signin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T17:13:57.987Z"
             }
           ]
         },

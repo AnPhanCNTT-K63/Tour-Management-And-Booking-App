@@ -48,6 +48,7 @@
             btnAddTour = new Button();
             btnReset = new Button();
             btnExit = new Button();
+            btnBrowseImage = new Button();
             SuspendLayout();
             // 
             // label1
@@ -236,11 +237,22 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // btnBrowseImage
+            // 
+            btnBrowseImage.Location = new Point(562, 294);
+            btnBrowseImage.Name = "btnBrowseImage";
+            btnBrowseImage.Size = new Size(112, 34);
+            btnBrowseImage.TabIndex = 20;
+            btnBrowseImage.Text = "Browse";
+            btnBrowseImage.UseVisualStyleBackColor = true;
+            btnBrowseImage.Click += btnBrowseImage_Click;
+            // 
             // CreateTour
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1339, 665);
+            Controls.Add(btnBrowseImage);
             Controls.Add(btnExit);
             Controls.Add(btnReset);
             Controls.Add(btnAddTour);
@@ -290,5 +302,6 @@
         private Button btnAddTour;
         private Button btnReset;
         private Button btnExit;
+        private Button btnBrowseImage;
     }
 }
