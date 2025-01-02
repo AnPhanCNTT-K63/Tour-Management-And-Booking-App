@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {}
+    "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {}
   },
   "projects": {
-    "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {
+    "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
+        "projectUniqueName": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
         "projectName": "travelApp1",
-        "projectPath": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
+        "projectPath": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
         "packagesPath": "C:\\Users\\dinhv\\.nuget\\packages\\",
-        "outputPath": "D:\\lapTrinhTrucQuang\\Tour-Management-And-Booking-App\\travelApp1\\obj\\",
+        "outputPath": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dinhv\\AppData\\Roaming\\NuGet\\NuGet.Config",
