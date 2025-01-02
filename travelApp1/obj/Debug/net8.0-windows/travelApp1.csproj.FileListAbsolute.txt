@@ -50,6 +50,8 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.Signin.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.SignUp.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourForm.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.Properties.Resources.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourManagerForm.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.csproj.GenerateResource.cache
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.GeneratedMSBuildEditorConfig.editorconfig
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.AssemblyInfoInputs.cache
