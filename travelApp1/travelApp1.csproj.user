@@ -16,7 +16,11 @@
     <Compile Update="PageForm\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
+    <Compile Update="PageForm\PaymentManage.cs">
+=======
     <Compile Update="PageForm\Payment.cs">
+>>>>>>> ff8505bd4507344c0a7fc498bffa635db8b0700e
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PageForm\ProfileForm.cs">

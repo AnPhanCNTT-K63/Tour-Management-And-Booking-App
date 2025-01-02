@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {}
+    "E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj": {}
   },
   "projects": {
-    "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj": {
+    "E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
+        "projectUniqueName": "E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
         "projectName": "travelApp1",
-        "projectPath": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
-        "packagesPath": "C:\\Users\\dinhv\\.nuget\\packages\\",
-        "outputPath": "D:\\new\\Tour-Management-And-Booking-App\\travelApp1\\obj\\",
+        "projectPath": "E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
+        "packagesPath": "C:\\Users\\hahoa\\.nuget\\packages\\",
+        "outputPath": "E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dinhv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hahoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
