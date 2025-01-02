@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using travelApp1.PageForm;
 
 namespace travelApp1
 {
@@ -12,7 +13,7 @@ namespace travelApp1
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Khởi tạo và hiển thị trang Home
-            Application.Run(new TourManagerForm());
+            Application.Run(new HomeForm());
 
         }
     }

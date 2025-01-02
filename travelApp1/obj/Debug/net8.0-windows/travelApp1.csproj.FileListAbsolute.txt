@@ -64,3 +64,5 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.pdb
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.genruntimeconfig.cache
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\ref\travelApp1.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Billing.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Payment.resources
