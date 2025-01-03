@@ -27,8 +27,9 @@ namespace travelApp1
             txtPassword = new TextBox();
             btnSignUp = new Button();
             SuspendLayout();
-
+            // 
             // lbSignUp
+            // 
             lbSignUp.AutoSize = true;
             lbSignUp.Font = new Font("Times New Roman", 34.2F, FontStyle.Bold);
             lbSignUp.Location = new Point(150, 40);
@@ -37,54 +38,61 @@ namespace travelApp1
             lbSignUp.TabIndex = 0;
             lbSignUp.Text = "Sign Up";
             lbSignUp.TextAlign = ContentAlignment.MiddleCenter;
-
+            // 
             // lbUserName
+            // 
             lbUserName.AutoSize = true;
             lbUserName.Font = new Font("Arial", 12F);
             lbUserName.Location = new Point(70, 130);
             lbUserName.Name = "lbUserName";
-            lbUserName.Size = new Size(100, 23);
+            lbUserName.Size = new Size(114, 23);
             lbUserName.TabIndex = 1;
             lbUserName.Text = "User Name:";
-
+            // 
             // lbEmail
+            // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Arial", 12F);
             lbEmail.Location = new Point(70, 180);
             lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(59, 23);
+            lbEmail.Size = new Size(64, 23);
             lbEmail.TabIndex = 2;
             lbEmail.Text = "Email:";
-
+            // 
             // lbPassword
+            // 
             lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Arial", 12F);
             lbPassword.Location = new Point(70, 230);
             lbPassword.Name = "lbPassword";
-            lbPassword.Size = new Size(92, 23);
+            lbPassword.Size = new Size(104, 23);
             lbPassword.TabIndex = 3;
             lbPassword.Text = "Password:";
-
+            // 
             // txtUserName
+            // 
             txtUserName.Location = new Point(200, 130);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(200, 27);
             txtUserName.TabIndex = 4;
-
+            // 
             // txtEmail
+            // 
             txtEmail.Location = new Point(200, 180);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(200, 27);
             txtEmail.TabIndex = 5;
-
+            // 
             // txtPassword
+            // 
             txtPassword.Location = new Point(200, 230);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(200, 27);
             txtPassword.TabIndex = 6;
-
+            // 
             // btnSignUp
+            // 
             btnSignUp.BackColor = SystemColors.ActiveCaption;
             btnSignUp.Font = new Font("Times New Roman", 13.8F);
             btnSignUp.Location = new Point(200, 280);
@@ -93,9 +101,10 @@ namespace travelApp1
             btnSignUp.TabIndex = 7;
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = false;
-            btnSignUp.Click += BtnSignUp_Click;
-
+            btnSignUp.Click += btnSignUp_Click;
+            // 
             // SignUp
+            // 
             ClientSize = new Size(500, 400);
             Controls.Add(lbSignUp);
             Controls.Add(lbUserName);
@@ -108,48 +117,6 @@ namespace travelApp1
             Name = "SignUp";
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void BtnSignUp_Click(object sender, EventArgs e)
-        {
-            string userName = txtUserName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
-
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please fill out all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!IsValidEmail(email))
-            {
-                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (password.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-            // Code to navigate to home page goes here.
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private Label lbSignUp;

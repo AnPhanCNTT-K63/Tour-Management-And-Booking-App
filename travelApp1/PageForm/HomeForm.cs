@@ -50,7 +50,7 @@ namespace travelApp1
 
         private void BtnViewTour_Click(object? sender, EventArgs e)
         {
-            TourForm tourForm = new TourForm();
+            HomeForm tourForm = new HomeForm();
             tourForm.Show();
         }
 
@@ -62,7 +62,7 @@ namespace travelApp1
         //Sự kiện khi nhấn nút "Tour"
         private void BtnTour_Click(object? sender, EventArgs e)
         {
-            TourForm tourForm = new TourForm();
+            HomeForm tourForm = new HomeForm();
             tourForm.Show(); // Hiển thị form Tour
             MessageBox.Show("Bạn đã chọn 'Đặt Tour'. Tính năng này đang được phát triển!");
         }

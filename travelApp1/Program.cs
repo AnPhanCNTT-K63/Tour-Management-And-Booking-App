@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using travelApp1.PageForm;
+using travelApp1.Services;
+using DotNetEnv;
 
 namespace travelApp1
 {
@@ -9,11 +11,12 @@ namespace travelApp1
         [STAThread]
         static void Main()
         {
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Khởi tạo và hiển thị trang Home
-            Application.Run(new HomeForm());
+            Application.Run(new ForgotPassword());
 
         }
     }

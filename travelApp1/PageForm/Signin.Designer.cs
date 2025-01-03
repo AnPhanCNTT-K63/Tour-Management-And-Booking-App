@@ -32,7 +32,6 @@ namespace travelApp1
             lbPassword = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
-            checkBox1 = new CheckBox();
             button1 = new Button();
             linkLabelFogotP = new LinkLabel();
             panel1 = new Panel();
@@ -56,9 +55,9 @@ namespace travelApp1
             lbUsername.Font = new Font("Times New Roman", 14F);
             lbUsername.Location = new Point(48, 23);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(108, 27);
+            lbUsername.Size = new Size(68, 27);
             lbUsername.TabIndex = 1;
-            lbUsername.Text = "Username";
+            lbUsername.Text = "Email";
             // 
             // lbPassword
             // 
@@ -86,18 +85,6 @@ namespace travelApp1
             txtPassword.Size = new Size(261, 34);
             txtPassword.TabIndex = 4;
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.ForeColor = SystemColors.ControlDarkDark;
-            checkBox1.Location = new Point(114, 269);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(159, 26);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Remember me ?";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             button1.BackColor = SystemColors.ActiveCaption;
@@ -109,7 +96,7 @@ namespace travelApp1
             button1.TabIndex = 6;
             button1.Text = "Sign In";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += Button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // linkLabelFogotP
             // 
@@ -122,7 +109,7 @@ namespace travelApp1
             linkLabelFogotP.TabIndex = 7;
             linkLabelFogotP.TabStop = true;
             linkLabelFogotP.Text = "Forgot Password";
-            linkLabelFogotP.LinkClicked += LinkLabelFogotP_LinkClicked;
+            linkLabelFogotP.LinkClicked += linkLabelFogotP_LinkClicked;
             // 
             // panel1
             // 
@@ -143,57 +130,16 @@ namespace travelApp1
             Controls.Add(panel1);
             Controls.Add(linkLabelFogotP);
             Controls.Add(button1);
-            Controls.Add(checkBox1);
             Controls.Add(lbSignIn);
             Name = "Signin";
             Text = "Signin";
-            Load += Signin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
 
-            // Mock data for demonstration
-            var validUsers = new System.Collections.Generic.Dictionary<string, string>
-            {
-                { "user1", "password1" },
-                { "user2", "password2" }
-            };
-
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-            {
-                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (validUsers.ContainsKey(username))
-            {
-                if (validUsers[username] == password)
-                {
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Account does not exist. Please register.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void LinkLabelFogotP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show("Redirecting to Forgot Password page...", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Logic to navigate to Forgot Password page can be added here
-        }
 
         #endregion
 
@@ -202,7 +148,6 @@ namespace travelApp1
         private Label lbPassword;
         private TextBox txtUsername;
         private TextBox txtPassword;
-        private CheckBox checkBox1;
         private Button button1;
         private LinkLabel linkLabelFogotP;
         private Panel panel1;
