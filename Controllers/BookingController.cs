@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TravelWebBackEndCore.DTOs.Booking;
 using TravelWebBackEndCore.Interfaces.Repository;
 using TravelWebBackEndCore.Interfaces.Service;
@@ -20,12 +21,20 @@ namespace TravelWebBackEndCore.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateBooking([FromBody] CreateBookingInfoDTO createBookingInfoDTO)
         {
+            var email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+            if (email == null)
+            {
+
+                return BadRequest("Unauthorized");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _bookingService.CreateAsync(createBookingInfoDTO);
+            var result = await _bookingService.CreateAsync(createBookingInfoDTO, email);
 
             return result;
         }

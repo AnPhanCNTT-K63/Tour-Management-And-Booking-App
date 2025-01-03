@@ -852,8 +852,7 @@
           "bookingDate",
           "numOfPeople",
           "status",
-          "tourPackageId",
-          "userId"
+          "tourPackageId"
         ],
         "type": "object",
         "properties": {
@@ -870,10 +869,6 @@
             "format": "int32"
           },
           "tourPackageId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
             "type": "integer",
             "format": "int32"
           }

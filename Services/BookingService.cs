@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Booking;
 using TravelWebBackEndCore.Interfaces.Repository;
 using TravelWebBackEndCore.Interfaces.Service;
 using TravelWebBackEndCore.Mappers;
+using TravelWebBackEndCore.Models;
 
 namespace TravelWebBackEndCore.Services
 {
@@ -30,12 +32,12 @@ namespace TravelWebBackEndCore.Services
             _travelerRepository = travelerRepository;
 
         }
-        public async Task<IActionResult> CreateAsync(CreateBookingInfoDTO bookingDTO)
+        public async Task<IActionResult> CreateAsync(CreateBookingInfoDTO bookingDTO, string email)
         {
             try
             {
                 var booking = bookingDTO.Booking.ToBooking();
-                var user = await _userRepository.FindByIdAsync(bookingDTO.Booking.UserId);
+                var user = await _userRepository.FindByEmailAsync(email);
                 var package = await _tourPackageRepository.FindByIdAsync(bookingDTO.Booking.TourPackageId);
 
                 if (user == null)
@@ -72,7 +74,8 @@ namespace TravelWebBackEndCore.Services
 
                 await _bookingRepository.SaveChangesAsync();
 
-                return new OkObjectResult("Booking created successfully");
+
+                return new OkObjectResult(booking.Id);
             }
             catch (Exception ex)
             {

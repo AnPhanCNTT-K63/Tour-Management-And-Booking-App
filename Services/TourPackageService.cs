@@ -70,7 +70,7 @@ namespace TravelWebBackEndCore.Services
         {
             try
             {
-                var tour = _tourRepository.FindByIdAsync(tour_id);
+                var tour = await _tourRepository.FindByIdAsync(tour_id);
 
                 if (tour == null)
                 {

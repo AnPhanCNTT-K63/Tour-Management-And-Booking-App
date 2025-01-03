@@ -12,7 +12,5 @@ namespace TravelWebBackEndCore.DTOs.Booking
         public int NumOfPeople { get; set; }
         [Required]
         public int TourPackageId { get; set; }
-        [Required]
-        public int UserId { get; set; }
     }
 }
