@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,54 +46,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeToolTip": "travelApp1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:06:04.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ForgotPassword.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ForgotPassword.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\ForgotPassword.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ForgotPassword.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\ForgotPassword.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:04:48.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResetPassword.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ResetPassword.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\ResetPassword.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ResetPassword.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\ResetPassword.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAADwvy4AAAARAAAAAAAAAA==",
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Payment.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Payment.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Payment.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\Payment.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAqwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:04:39.809Z",
+              "WhenOpened": "2025-01-03T16:52:52.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResetPassword.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ResetPassword.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\ResetPassword.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\ResetPassword.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\ResetPassword.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Booking.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Booking.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\Booking.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\Booking.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAASwGsAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:04:32.787Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-03T07:54:07.727Z",
+              "EditorCaption": ""
             }
           ]
         },

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using travelApp1.Models;
 
 namespace travelApp1
 {
@@ -27,6 +30,7 @@ namespace travelApp1
             TourManagerForm tourM = new TourManagerForm();
             tourM.Show();
         }
+
         // Hàm cập nhật slide
         private void UpdateSlide()
         {

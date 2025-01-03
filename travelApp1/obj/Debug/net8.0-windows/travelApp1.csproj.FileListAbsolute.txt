@@ -62,7 +62,6 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.pdb
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.genruntimeconfig.cache
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\ref\travelApp1.dll
-D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Billing.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Payment.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.PaymentManage.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\dotenv.net.dll
@@ -89,3 +88,9 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.HomeForm.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TourForm.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TourDetail.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Booking.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll

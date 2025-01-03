@@ -33,6 +33,7 @@
             lblRegion = new Label();
             lblCity = new Label();
             pictureBox = new PictureBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -80,11 +81,19 @@
             pictureBox.TabIndex = 4;
             pictureBox.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(286, 25);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(739, 499);
+            flowLayoutPanel1.TabIndex = 5;
+            // 
             // TourDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1365, 820);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox);
             Controls.Add(lblCity);
             Controls.Add(lblRegion);
@@ -104,5 +113,6 @@
         private Label lblRegion;
         private Label lblCity;
         private PictureBox pictureBox;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

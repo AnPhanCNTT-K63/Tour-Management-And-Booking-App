@@ -29,17 +29,11 @@
         private void InitializeComponent()
         {
             titleLabel = new Label();
-            nameLabel = new Label();
-            nameTextBox = new TextBox();
-            cardNumberLabel = new Label();
-            cardNumberTextBox = new TextBox();
             expiryDateLabel = new Label();
             expiryDateTextBox = new TextBox();
-            cvvLabel = new Label();
-            cvvTextBox = new TextBox();
-            noteLabel = new Label();
-            noteTextBox = new TextBox();
-            payButton = new Button();
+            label1 = new Label();
+            btnConfirm = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // titleLabel
@@ -48,42 +42,10 @@
             titleLabel.Font = new Font("Arial", 16F, FontStyle.Bold);
             titleLabel.Location = new Point(0, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(367, 50);
+            titleLabel.Size = new Size(472, 50);
             titleLabel.TabIndex = 0;
-            titleLabel.Text = "Payment Information";
+            titleLabel.Text = "Payment";
             titleLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(30, 70);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(130, 20);
-            nameLabel.TabIndex = 1;
-            nameLabel.Text = "Cardholder Name:";
-            // 
-            // nameTextBox
-            // 
-            nameTextBox.Location = new Point(30, 100);
-            nameTextBox.Name = "nameTextBox";
-            nameTextBox.Size = new Size(300, 27);
-            nameTextBox.TabIndex = 2;
-            // 
-            // cardNumberLabel
-            // 
-            cardNumberLabel.AutoSize = true;
-            cardNumberLabel.Location = new Point(30, 140);
-            cardNumberLabel.Name = "cardNumberLabel";
-            cardNumberLabel.Size = new Size(101, 20);
-            cardNumberLabel.TabIndex = 3;
-            cardNumberLabel.Text = "Card Number:";
-            // 
-            // cardNumberTextBox
-            // 
-            cardNumberTextBox.Location = new Point(30, 170);
-            cardNumberTextBox.Name = "cardNumberTextBox";
-            cardNumberTextBox.Size = new Size(300, 27);
-            cardNumberTextBox.TabIndex = 4;
             // 
             // expiryDateLabel
             // 
@@ -99,65 +61,44 @@
             expiryDateTextBox.Size = new Size(100, 27);
             expiryDateTextBox.TabIndex = 6;
             // 
-            // cvvLabel
+            // label1
             // 
-            cvvLabel.AutoSize = true;
-            cvvLabel.Location = new Point(200, 210);
-            cvvLabel.Name = "cvvLabel";
-            cvvLabel.Size = new Size(39, 20);
-            cvvLabel.TabIndex = 7;
-            cvvLabel.Text = "CVV:";
+            label1.AutoSize = true;
+            label1.Location = new Point(90, 352);
+            label1.Name = "label1";
+            label1.Size = new Size(297, 20);
+            label1.TabIndex = 7;
+            label1.Text = "Please click here if you have completed pay";
             // 
-            // cvvTextBox
+            // btnConfirm
             // 
-            cvvTextBox.Location = new Point(200, 240);
-            cvvTextBox.MaxLength = 3;
-            cvvTextBox.Name = "cvvTextBox";
-            cvvTextBox.Size = new Size(70, 27);
-            cvvTextBox.TabIndex = 8;
+            btnConfirm.Location = new Point(182, 387);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(94, 29);
+            btnConfirm.TabIndex = 8;
+            btnConfirm.Text = "Confirm";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
             // 
-            // noteLabel
+            // label2
             // 
-            noteLabel.AutoSize = true;
-            noteLabel.Location = new Point(30, 280);
-            noteLabel.Name = "noteLabel";
-            noteLabel.Size = new Size(39, 20);
-            noteLabel.TabIndex = 9;
-            noteLabel.Text = "note";
-            // 
-            // noteTextBox
-            // 
-            noteTextBox.Location = new Point(30, 310);
-            noteTextBox.Multiline = true;
-            noteTextBox.Name = "noteTextBox";
-            noteTextBox.Size = new Size(300, 60);
-            noteTextBox.TabIndex = 10;
-            // 
-            // payButton
-            // 
-            payButton.Location = new Point(150, 400);
-            payButton.Name = "payButton";
-            payButton.Size = new Size(100, 40);
-            payButton.TabIndex = 11;
-            payButton.Text = "Pay";
-            payButton.Click += PayButton_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(192, 80);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 20);
+            label2.TabIndex = 9;
+            label2.Text = "QR Code";
             // 
             // Payment
             // 
             AutoSize = true;
-            ClientSize = new Size(367, 487);
+            ClientSize = new Size(472, 487);
+            Controls.Add(label2);
+            Controls.Add(btnConfirm);
+            Controls.Add(label1);
             Controls.Add(titleLabel);
-            Controls.Add(nameLabel);
-            Controls.Add(nameTextBox);
-            Controls.Add(cardNumberLabel);
-            Controls.Add(cardNumberTextBox);
             Controls.Add(expiryDateLabel);
             Controls.Add(expiryDateTextBox);
-            Controls.Add(cvvLabel);
-            Controls.Add(cvvTextBox);
-            Controls.Add(noteLabel);
-            Controls.Add(noteTextBox);
-            Controls.Add(payButton);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Location = new Point(30, 240);
             Name = "Payment";
@@ -169,16 +110,10 @@
         #endregion
 
         private Label titleLabel;
-        private Label nameLabel;
-        private TextBox nameTextBox;
-        private Label cardNumberLabel;
-        private TextBox cardNumberTextBox;
         private Label expiryDateLabel;
         private TextBox expiryDateTextBox;
-        private Label cvvLabel;
-        private TextBox cvvTextBox;
-        private Label noteLabel;
-        private TextBox noteTextBox;
-        private Button payButton;
+        private Label label1;
+        private Button btnConfirm;
+        private Label label2;
     }
 }

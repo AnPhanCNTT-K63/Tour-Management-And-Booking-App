@@ -44,9 +44,10 @@
             // 
             // label1
             // 
-            label1.Location = new Point(570, 40);
+            label1.Location = new Point(456, 32);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(283, 51);
+            label1.Size = new Size(226, 41);
             label1.TabIndex = 0;
             label1.Text = "Manage User Payment Requests";
             // 
@@ -54,10 +55,11 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Name, Date, BID, TPackage, TPName, Price, Payment, Status });
-            dataGridView1.Location = new Point(2, 126);
+            dataGridView1.Location = new Point(2, 101);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1385, 360);
+            dataGridView1.Size = new Size(1108, 288);
             dataGridView1.TabIndex = 1;
             // 
             // ID
@@ -125,12 +127,13 @@
             // 
             // PaymentManage
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1385, 654);
+            ClientSize = new Size(1108, 523);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
-            //Name = "PaymentManage";
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "PaymentManage";
             Text = "PaymentManage";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

@@ -69,7 +69,6 @@ namespace travelApp1.PageForm
                 if (!string.IsNullOrEmpty(queryString)) url += $"?{queryString}";
 
                 var res = await _service.GetAsync(url);
-                Debug.WriteLine(url);
 
                 if (res.IsSuccessStatusCode)
                 {

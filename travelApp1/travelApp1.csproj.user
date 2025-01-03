@@ -7,7 +7,7 @@
     <Compile Update="PageForm\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PageForm\Billing.cs">
+    <Compile Update="PageForm\Booking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PageForm\CreateTour.cs">

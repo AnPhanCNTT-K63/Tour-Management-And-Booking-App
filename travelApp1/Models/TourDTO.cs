@@ -9,6 +9,7 @@ namespace travelApp1.Models
 {
     public class TourDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; } // Tên tour
         public string Region { get; set; } // Khu vực
         public string Country { get; set; } // Quốc gia
