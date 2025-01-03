@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Auth;
 using TravelWebBackEndCore.DTOs.User;
@@ -8,6 +10,9 @@ using TravelWebBackEndCore.Interfaces.Repository;
 using TravelWebBackEndCore.Interfaces.Service;
 using TravelWebBackEndCore.Mappers;
 using TravelWebBackEndCore.Models;
+using Microsoft.AspNetCore.Identity.Data;
+using Azure.Core;
+using System.Security.Claims;
 
 namespace TravelWebBackEndCore.Services
 {
@@ -23,7 +28,8 @@ namespace TravelWebBackEndCore.Services
             IUserRepository userRepository,
             IUserProfileRepository userProfileRepository,
             IJwtTokenService tokenService,
-            IPasswordHasher<User> passwordHasher
+            IPasswordHasher<User> passwordHasher,
+            IGoogleService googleService
             )
         {
             _userRepository = userRepository;
@@ -91,6 +97,35 @@ namespace TravelWebBackEndCore.Services
             await _userRepository.SaveChangesAsync();
 
             return new OkObjectResult("User registered successfully");
+
         }
+
+        public async Task<IActionResult> ResetPassword(PasswordResetRequest resetPasswordDTO)
+        {
+
+            try
+            {
+                var user = await _userRepository.FindByEmailAsync(resetPasswordDTO.Email);
+                if (user == null || user.VerificationCode != resetPasswordDTO.VerificationCode || DateTime.UtcNow > user.VerificationCodeExpiration)
+                {
+                    user.VerificationCode = null;
+                    user.VerificationCodeExpiration = null;
+                    return new BadRequestObjectResult("Invalid or expired verification code.");
+                }
+
+                user.Password = _passwordHasher.HashPassword(user, resetPasswordDTO.NewPassword);
+                user.VerificationCode = null;
+                user.VerificationCodeExpiration = null;
+                await _userRepository.SaveChangesAsync();
+
+                return new OkObjectResult(new { message = "success" });
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(ex.Message) { StatusCode = 500 };
+            }
+        }
+
+
     }
 }

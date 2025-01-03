@@ -119,34 +119,28 @@ namespace TravelWebBackEndCore.Services
             }
         }
 
-        public async Task<List<TourDTO>> GetAllAsync(int page, int pageSize, QueryTour query)
+        public async Task<(List<TourDTO> Tours, int TotalCount)> GetAllAsync(int page, int pageSize, QueryTour query)
         {
             var tours = _tourRepository.FindAll();
-            tours = tours.Skip((page - 1) * pageSize)
-                .Take(pageSize);
+
 
             if (!string.IsNullOrWhiteSpace(query.region))
             {
-                tours = tours.Where(x => x.Region.ToLower() == query.region.ToLower());
+                tours = tours.Where(x => x.Region.Equals(query.region, StringComparison.OrdinalIgnoreCase));
             }
 
-            if (!string.IsNullOrWhiteSpace(query.searchQuery))
-            {
-                tours = tours.Where(x => x.Name.ToLower().Contains(query.searchQuery.ToLower()));
-            }
-
-            if (!string.IsNullOrWhiteSpace(query.searchBy))
+            if (!string.IsNullOrWhiteSpace(query.searchBy) && !string.IsNullOrWhiteSpace(query.searchQuery))
             {
                 switch (query.searchBy.ToLower())
                 {
                     case "name":
-                        tours = tours.Where(t => t.Name.ToLower().Contains(query.searchBy.ToLower()));
+                        tours = tours.Where(t => t.Name != null && t.Name.Contains(query.searchQuery));
                         break;
                     case "city":
-                        tours = tours.Where(t => t.City.ToLower().Contains(query.searchBy.ToLower()));
+                        tours = tours.Where(t => t.City != null && t.City.Contains(query.searchQuery));
                         break;
                     case "country":
-                        tours = tours.Where(t => t.Country.ToLower().Contains(query.searchBy.ToLower()));
+                        tours = tours.Where(t => t.Country != null && t.Country.Contains(query.searchQuery));
                         break;
                 }
             }
@@ -164,7 +158,12 @@ namespace TravelWebBackEndCore.Services
                 }
             }
 
-            return await tours.Select(t => t.ToTourDto()).ToListAsync();
+            int totalCount = await tours.CountAsync();
+
+            var paginatedTours = await tours.Skip((page - 1) * pageSize).Include(t => t.TourPackages).Take(pageSize).ToListAsync();
+
+
+            return (Tours: paginatedTours.Select(t => t.ToTourDto()).ToList(), TotalCount: totalCount);
         }
 
         public async Task<TourDTO?> GetTourByIdAsync(int id)

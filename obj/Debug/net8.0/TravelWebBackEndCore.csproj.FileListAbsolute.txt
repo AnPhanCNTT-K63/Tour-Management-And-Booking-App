@@ -360,3 +360,9 @@ D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\obj\Debug\net8.0\s
 D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\obj\Debug\net8.0\TravelWe.2C075F2F.Up2Date
 D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\obj\Debug\net8.0\TravelWebBackEndCore.genruntimeconfig.cache
 D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\obj\Debug\net8.0\ref\TravelWebBackEndCore.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\Google.Apis.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\Google.Apis.Auth.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\Google.Apis.Core.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\Google.Apis.Oauth2.v2.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\System.Management.dll
+D:\Visual Studio 2022\Travel App Winform\TravelWebBackEndCore\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll

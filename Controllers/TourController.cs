@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
 using TravelWebBackEndCore.Interfaces.Repository;
@@ -20,8 +21,13 @@ namespace TravelWebBackEndCore.Controllers
         [HttpGet("get/{page:int}/{pageSize:int}")]
         public async Task<IActionResult> GetAll([FromRoute] int page, [FromRoute] int pageSize, [FromQuery] QueryTour query)
         {
-            var tours = await _tourService.GetAllAsync(page, pageSize, query);
-            return Ok(tours);
+            var paginatedTours = await _tourService.GetAllAsync(page, pageSize, query);
+
+            return Ok(new
+            {
+                Tours = paginatedTours.Tours,
+                TotalCount = paginatedTours.TotalCount
+            });
         }
 
         [HttpPost("create-tour-and-package")]
@@ -40,6 +46,7 @@ namespace TravelWebBackEndCore.Controllers
         }
 
         [HttpGet("{id:int}")]
+
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var tour = await _tourService.GetTourByIdAsync(id);

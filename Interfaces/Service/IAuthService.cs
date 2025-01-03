@@ -8,5 +8,6 @@ namespace TravelWebBackEndCore.Interfaces.Service
     {
         Task<IActionResult> Login(LoginRequestDTO request);
         Task<IActionResult> Register(CreateUserDTO userDTO);
+        Task<IActionResult> ResetPassword(PasswordResetRequest resetPasswordDTO);
     }
 }

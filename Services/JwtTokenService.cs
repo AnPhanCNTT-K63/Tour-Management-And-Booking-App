@@ -23,8 +23,8 @@ public class JwtTokenService : IJwtTokenService
                 new Claim(ClaimTypes.Role, userAuth.Role)      // Role claim
             }),
             Expires = DateTime.UtcNow.AddHours(userAuth.ExpiryInHours), // Token expiration time
-            Issuer = "https://localhost:7025", // Issuer
-            Audience = "https://localhost:7025", // Audience
+            //Issuer = "https://localhost:7025", // Issuer
+            //Audience = "https://localhost:7025", // Audience
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 
