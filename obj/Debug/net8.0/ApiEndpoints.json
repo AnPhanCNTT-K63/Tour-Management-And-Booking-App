@@ -255,6 +255,56 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TravelWebBackEndCore.Controllers.PaymentController",
+    "Method": "GetUserPaymentRequest",
+    "RelativePath": "api/payment/request",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.PaymentController",
+    "Method": "GetAcceptedPayment",
+    "RelativePath": "api/payment/request/accepted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.PaymentController",
+    "Method": "GetPendingPayment",
+    "RelativePath": "api/payment/request/pending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.PaymentController",
+    "Method": "GetProcessedPayment",
+    "RelativePath": "api/payment/request/processed",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.PaymentController",
+    "Method": "GetNotAcceptedPayment",
+    "RelativePath": "api/payment/request/unaccepted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
     "Method": "GetById",
     "RelativePath": "api/tour/{id}",

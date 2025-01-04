@@ -121,49 +121,57 @@ namespace TravelWebBackEndCore.Services
 
         public async Task<(List<TourDTO> Tours, int TotalCount)> GetAllAsync(int page, int pageSize, QueryTour query)
         {
-            var tours = _tourRepository.FindAll();
-
-
-            if (!string.IsNullOrWhiteSpace(query.region))
+            try
             {
-                tours = tours.Where(x => x.Region.Equals(query.region, StringComparison.OrdinalIgnoreCase));
-            }
+                var tours = _tourRepository.FindAll();
 
-            if (!string.IsNullOrWhiteSpace(query.searchBy) && !string.IsNullOrWhiteSpace(query.searchQuery))
-            {
-                switch (query.searchBy.ToLower())
+
+                if (!string.IsNullOrWhiteSpace(query.region))
                 {
-                    case "name":
-                        tours = tours.Where(t => t.Name != null && t.Name.Contains(query.searchQuery));
-                        break;
-                    case "city":
-                        tours = tours.Where(t => t.City != null && t.City.Contains(query.searchQuery));
-                        break;
-                    case "country":
-                        tours = tours.Where(t => t.Country != null && t.Country.Contains(query.searchQuery));
-                        break;
+                    tours = tours.Where(x => x.Region.Equals(query.region, StringComparison.OrdinalIgnoreCase));
                 }
-            }
 
-            if (!string.IsNullOrWhiteSpace(query.sortBy))
-            {
-                switch (query.sortBy.ToLower())
+                if (!string.IsNullOrWhiteSpace(query.searchBy) && !string.IsNullOrWhiteSpace(query.searchQuery))
                 {
-                    case "price_desc":
-                        tours = tours.OrderByDescending(t => t.Opening);
-                        break;
-                    case "price_asc":
-                        tours = tours.OrderBy(t => t.Opening);
-                        break;
+                    switch (query.searchBy.ToLower())
+                    {
+                        case "name":
+                            tours = tours.Where(t => t.Name != null && t.Name.Contains(query.searchQuery));
+                            break;
+                        case "city":
+                            tours = tours.Where(t => t.City != null && t.City.Contains(query.searchQuery));
+                            break;
+                        case "country":
+                            tours = tours.Where(t => t.Country != null && t.Country.Contains(query.searchQuery));
+                            break;
+                    }
                 }
+
+                if (!string.IsNullOrWhiteSpace(query.sortBy))
+                {
+                    switch (query.sortBy.ToLower())
+                    {
+                        case "price_desc":
+                            tours = tours.OrderByDescending(t => t.Opening);
+                            break;
+                        case "price_asc":
+                            tours = tours.OrderBy(t => t.Opening);
+                            break;
+                    }
+                }
+
+                int totalCount = await tours.CountAsync();
+
+                var paginatedTours = await tours.Skip((page - 1) * pageSize).Include(t => t.TourPackages).Take(pageSize).ToListAsync();
+
+
+                return (Tours: paginatedTours.Select(t => t.ToTourDto()).ToList(), TotalCount: totalCount);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
 
-            int totalCount = await tours.CountAsync();
-
-            var paginatedTours = await tours.Skip((page - 1) * pageSize).Include(t => t.TourPackages).Take(pageSize).ToListAsync();
-
-
-            return (Tours: paginatedTours.Select(t => t.ToTourDto()).ToList(), TotalCount: totalCount);
         }
 
         public async Task<TourDTO?> GetTourByIdAsync(int id)

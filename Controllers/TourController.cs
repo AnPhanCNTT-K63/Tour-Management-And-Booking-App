@@ -21,6 +21,7 @@ namespace TravelWebBackEndCore.Controllers
         [HttpGet("get/{page:int}/{pageSize:int}")]
         public async Task<IActionResult> GetAll([FromRoute] int page, [FromRoute] int pageSize, [FromQuery] QueryTour query)
         {
+
             var paginatedTours = await _tourService.GetAllAsync(page, pageSize, query);
 
             return Ok(new

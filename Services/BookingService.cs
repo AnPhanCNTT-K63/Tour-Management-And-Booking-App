@@ -131,6 +131,30 @@ namespace TravelWebBackEndCore.Services
             return new OkObjectResult(bookingDTOs);
         }
 
+        public async Task<List<MyBooking>> SetMyBookingAsync(int userId, object statusFilter)
+        {
+            var bookingsTemp = await _bookingRepository.FindBookingsByUserIdAsync(userId);
+            if (statusFilter is string singleStatus)
+            {
+                bookingsTemp = bookingsTemp.Where(b => b.Status == singleStatus);
+            }
+            else if (statusFilter is string[] multipleStatuses)
+            {
+                bookingsTemp = bookingsTemp.Where(b => multipleStatuses.Contains(b.Status));
+            }
+
+            var bookings = await bookingsTemp.Include(b => b.TourPackage).ToListAsync();
+
+            return bookings.Select(booking => new MyBooking
+            {
+                Id = booking.Id,
+                TourPackageId = booking.TourPackageId,
+                Name = booking.TourPackage.Name,
+                Price = booking.TourPackage.Price,
+                Status = booking.Status,
+                NumOfPeople = booking.NumOfPeople,
+            }).ToList();
+        }
 
         public async Task<IActionResult> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO)
         {

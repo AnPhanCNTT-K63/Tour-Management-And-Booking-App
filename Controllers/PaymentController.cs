@@ -27,5 +27,35 @@ namespace TravelWebBackEndCore.Controllers
 
             return result;
         }
+
+        [HttpGet("request")]
+        public async Task<IActionResult> GetUserPaymentRequest()
+        {
+            return await _paymentService.GetUserPaymentRequest();
+        }
+
+        [HttpGet("request/pending")]
+        public async Task<IActionResult> GetPendingPayment()
+        {
+            return await _paymentService.GetPendingPayment();
+        }
+
+        [HttpGet("request/processed")]
+        public async Task<IActionResult> GetProcessedPayment()
+        {
+            return await _paymentService.GetProcessedPayment();
+        }
+
+        [HttpGet("request/accepted")]
+        public async Task<IActionResult> GetAcceptedPayment()
+        {
+            return await _paymentService.GetAcceptedPayment();
+        }
+
+        [HttpGet("request/unaccepted")]
+        public async Task<IActionResult> GetNotAcceptedPayment()
+        {
+            return await _paymentService.GetNotAcceptedPayment();
+        }
     }
 }

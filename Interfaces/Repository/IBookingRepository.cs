@@ -9,6 +9,7 @@ namespace TravelWebBackEndCore.Interfaces.Repository
         Task<Booking?> FindByIdAsync(int id);
         Task<IQueryable<Booking>> FindBookingsByUserIdAsync(int userId);
         Task AddAsync(Booking booking);
+        Task<IQueryable<Booking>> getBookings();
         Task SaveChangesAsync();
     }
 }

@@ -56,6 +56,7 @@ namespace TravelWebBackEndCore.Services
 
             var userAuth = new UserAuthDTO
             {
+                Id = user.Id.ToString(),
                 Email = user.Email,
                 Username = user.Username,
                 Role = user.Role,

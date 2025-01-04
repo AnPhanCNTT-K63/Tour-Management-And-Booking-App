@@ -39,6 +39,18 @@ namespace TravelWebBackEndCore.Repositories
             return booking;
         }
 
+        public Task<IQueryable<Booking>> getBookings()
+        {
+            var bookings = _context.Bookings
+                .Include(b => b.User)
+                .Include(b => b.TourPackage)
+                .Include(b => b.Contact)
+                .Include(b => b.Payment)
+                .Include(b => b.Travelers)
+                .Where(b => !b.IsDeleted);
+            return Task.FromResult(bookings);
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

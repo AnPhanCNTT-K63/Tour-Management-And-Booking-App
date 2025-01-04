@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelWebBackEndCore.DTOs.Booking;
+using TravelWebBackEndCore.Models;
 
 namespace TravelWebBackEndCore.Interfaces.Service
 {
@@ -9,5 +10,6 @@ namespace TravelWebBackEndCore.Interfaces.Service
         Task<IActionResult> UpdateStatusAsync(int id, UpdateBookingStatus statusDTO);
         Task<IActionResult> FindBookingByUserIdAsync(int user_id, string? status);
         Task<IActionResult> DeleteAsync(int booking_id);
+        Task<List<MyBooking>> SetMyBookingAsync(int userId, object statusFilter);
     }
 }
