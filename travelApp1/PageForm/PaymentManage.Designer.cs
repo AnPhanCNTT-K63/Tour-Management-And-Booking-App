@@ -133,7 +133,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Margin = new Padding(2, 2, 2, 2);
-            Name = "PaymentManage";
+            //Name = "PaymentManage";
             Text = "PaymentManage";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using travelApp1.Models;
 using travelApp1.Services;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace travelApp1.PageForm
 {
@@ -82,7 +83,7 @@ namespace travelApp1.PageForm
                 }
                 else
                 {
-                    MessageBox.Show("Error while fetching data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(await res.Content.ReadAsStringAsync(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

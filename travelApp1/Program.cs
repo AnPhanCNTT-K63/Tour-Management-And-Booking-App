@@ -35,6 +35,7 @@ namespace travelApp1
                     UserDTO.Username = claims["unique_name"].ToString();
                     UserDTO.Email = claims["email"].ToString();
                     UserDTO.Role = claims["role"].ToString();
+                    UserDTO.Id = claims["nameid"].ToString();
                 }
             }
         }
