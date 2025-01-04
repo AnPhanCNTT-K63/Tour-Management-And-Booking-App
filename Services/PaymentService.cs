@@ -94,7 +94,7 @@ namespace TravelWebBackEndCore.Services
                         PackageId = b.TourPackageId,
                         PackageName = b.TourPackage.Name,
                         TotalPrice = b.Payment.PaymentAmount,
-                        PaymentMethod = b.Payment.PaymentMethod,
+                        Method = b.Payment.PaymentMethod,
                         Status = b.Status,
                     }).ToList();
 

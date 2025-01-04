@@ -68,6 +68,20 @@ namespace TravelWebBackEndCore.Services
             return new OkObjectResult(token);
         }
 
+        public async Task<IActionResult> PasswordCheck(PasswordCheckDTO passwordCheck)
+        {
+            var user = await _userRepository.FindByIdAsync(passwordCheck.userId);
+
+            if (user == null || user.Password != passwordCheck.password)
+            {
+                return new BadRequestObjectResult("Invalid Password");
+            }
+            else
+            {
+                return new OkObjectResult("success");
+            }
+        }
+
         public async Task<IActionResult> Register(CreateUserDTO userDTO)
         {
             var existingUserEmail = await _userRepository.FindByEmailAsync(userDTO.Email);

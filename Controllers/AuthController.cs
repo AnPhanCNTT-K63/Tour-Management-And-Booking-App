@@ -87,6 +87,17 @@ namespace TravelWebBackEndCore.Controllers
             return result;
         }
 
+        [HttpPost("password-check")]
+        public async Task<IActionResult> PasswordCheck([FromBody] PasswordCheckDTO passwordCheck)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _authService.PasswordCheck(passwordCheck);
+            return result;
+        }
+
 
     }
 }
