@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio 2022\\Travel App Winform\\TravelWebBackEndCore\\TravelWebBackEndCore.csproj": {}
+    "D:\\Visual Studio 2022\\Travel App Winform\\api\\TravelWebBackEndCore.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio 2022\\Travel App Winform\\TravelWebBackEndCore\\TravelWebBackEndCore.csproj": {
+    "D:\\Visual Studio 2022\\Travel App Winform\\api\\TravelWebBackEndCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio 2022\\Travel App Winform\\TravelWebBackEndCore\\TravelWebBackEndCore.csproj",
+        "projectUniqueName": "D:\\Visual Studio 2022\\Travel App Winform\\api\\TravelWebBackEndCore.csproj",
         "projectName": "TravelWebBackEndCore",
-        "projectPath": "D:\\Visual Studio 2022\\Travel App Winform\\TravelWebBackEndCore\\TravelWebBackEndCore.csproj",
+        "projectPath": "D:\\Visual Studio 2022\\Travel App Winform\\api\\TravelWebBackEndCore.csproj",
         "packagesPath": "C:\\Users\\DUC AN\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio 2022\\Travel App Winform\\TravelWebBackEndCore\\obj\\",
+        "outputPath": "D:\\Visual Studio 2022\\Travel App Winform\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

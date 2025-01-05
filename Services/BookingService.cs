@@ -108,7 +108,7 @@ namespace TravelWebBackEndCore.Services
 
         public async Task<IActionResult> FindBookingByUserIdAsync(int userId, string? status)
         {
-            var user = _userRepository.FindByIdAsync(userId);
+            var user = await _userRepository.FindByIdAsync(userId);
 
             if (user == null)
             {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Security.Claims;
 using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
@@ -31,6 +32,7 @@ namespace TravelWebBackEndCore.Controllers
             });
         }
 
+        [Authorize]
         [HttpPost("create-tour-and-package")]
         public async Task<IActionResult> Create([FromBody] CreateTourWithPackageDTO dto)
         {
@@ -38,6 +40,10 @@ namespace TravelWebBackEndCore.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            var id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            dto.UserId = int.Parse(id);
 
             var result = await _tourService.CreateTourWithPackageAsync(dto);
 
@@ -50,6 +56,7 @@ namespace TravelWebBackEndCore.Controllers
 
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
+
             var tour = await _tourService.GetTourByIdAsync(id);
             if (tour == null)
             {

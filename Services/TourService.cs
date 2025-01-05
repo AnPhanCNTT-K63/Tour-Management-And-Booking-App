@@ -1,6 +1,7 @@
 ﻿using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TravelWebBackEndCore.Data;
 using TravelWebBackEndCore.DTOs.Tour;
 using TravelWebBackEndCore.Helpers;
@@ -39,6 +40,7 @@ namespace TravelWebBackEndCore.Services
         {
             try
             {
+
                 var user = await _userRepository.FindByIdAsync(dto.UserId);
 
                 if (user == null)

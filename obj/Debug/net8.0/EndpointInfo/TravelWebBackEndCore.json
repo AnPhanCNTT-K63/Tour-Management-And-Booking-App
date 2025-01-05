@@ -371,11 +371,17 @@
                   "file": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "folder": {
+                    "type": "string"
                   }
                 }
               },
               "encoding": {
                 "file": {
+                  "style": "form"
+                },
+                "folder": {
                   "style": "form"
                 }
               }
@@ -1089,8 +1095,8 @@
             "nullable": true
           },
           "price": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "activities": {
             "minLength": 1,
@@ -1433,8 +1439,8 @@
             "nullable": true
           },
           "price": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "activities": {
             "type": "string",

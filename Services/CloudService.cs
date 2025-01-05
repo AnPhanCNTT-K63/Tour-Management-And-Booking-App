@@ -34,21 +34,26 @@ namespace TravelWebBackEndCore.Services
         /// <param name="keyName">The key name to save the file as in the S3 bucket.</param>
         /// <returns>The URL of the uploaded file.</returns>
         /// 
-        public async Task<IActionResult> UploadFile(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file, string folderName)
         {
             if (file == null || file.Length == 0)
             {
-                return new NotFoundObjectResult("File is missing or empty.");
+                return new BadRequestObjectResult("File is missing or empty.");
+            }
+
+            if (string.IsNullOrWhiteSpace(folderName))
+            {
+                folderName = "DefaultFolder";
             }
 
             try
             {
-                string keyName = Path.GetFileName(file.FileName);
+                string keyName = $"{folderName}/{Path.GetFileName(file.FileName)}";
 
                 using (var fileStream = file.OpenReadStream())
                 {
                     var fileUrl = await UploadFileStreamAsync(fileStream, keyName);
-                    return new OkObjectResult("File uploaded successfully.");
+                    return new OkObjectResult(fileUrl);
                 }
             }
             catch (Exception ex)
@@ -56,6 +61,7 @@ namespace TravelWebBackEndCore.Services
                 return new BadRequestObjectResult(ex.Message);
             }
         }
+
         public async Task<string> UploadFileAsync(string filePath, string keyName)
         {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))

@@ -10,8 +10,8 @@ namespace TravelWebBackEndCore.DTOs.TourPackage
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
-        public int Price { get; set; }
+        public string? Image { get; set; }
+        public decimal Price { get; set; }
         public string Activities { get; set; }
         public bool IsChangeSchedule { get; set; }
         public bool IsRefund { get; set; }
