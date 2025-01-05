@@ -4,8 +4,8 @@ using travelApp1.PageForm;
 using travelApp1.Services;
 using DotNetEnv;
 using Newtonsoft.Json;
-using travelApp1.Models;
 using System.Diagnostics;
+using travelApp1.Helpers;
 
 namespace travelApp1
 {
@@ -14,17 +14,20 @@ namespace travelApp1
         [STAThread]
         static void Main()
         {
-            InitUser();
+            Init();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new TourForm());
+            Application.Run(new TourManagement());
 
         }
 
-        public static void InitUser()
+        public static void Init()
         {
+            Properties.Settings.Default.CloudUri = "https://d1kr2sry6d4ekb.cloudfront.net/";
+            CloudHelper.CloudUri = Properties.Settings.Default.CloudUri;
+
             if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
             {
                 var claims = JwtHelper.DecodeJwt(Properties.Settings.Default.AccessToken);
@@ -32,10 +35,10 @@ namespace travelApp1
                 if (claims != null)
                 {
                     var claimsJson = JsonConvert.SerializeObject(claims, Formatting.Indented);
-                    UserDTO.Username = claims["unique_name"].ToString();
-                    UserDTO.Email = claims["email"].ToString();
-                    UserDTO.Role = claims["role"].ToString();
-                    UserDTO.Id = claims["nameid"].ToString();
+                    UserIndentity.Username = claims["unique_name"].ToString();
+                    UserIndentity.Email = claims["email"].ToString();
+                    UserIndentity.Role = claims["role"].ToString();
+                    UserIndentity.Id = claims["nameid"].ToString();
                 }
             }
         }

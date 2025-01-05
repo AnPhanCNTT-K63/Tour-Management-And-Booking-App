@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\paymentmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\paymentmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\paymentmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\paymentmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\models\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\models\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\tourmanagementdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourmanagementdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,52 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Program.cs",
-              "RelativeToolTip": "travelApp1\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
+              "Title": "TourManagementDetail.cs",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourManagementDetail.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourManagementDetail.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourManagementDetail.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\TourManagementDetail.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAAwNQAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T08:48:35.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PaymentDTO.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\PaymentDTO.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Models\\PaymentDTO.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\Models\\PaymentDTO.cs",
-              "RelativeToolTip": "travelApp1\\Models\\PaymentDTO.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T08:44:32.662Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PaymentManage.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\PaymentManage.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\PaymentManage.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\PaymentManage.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\PaymentManage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T08:40:18.782Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PaymentManage.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\PaymentManage.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\PaymentManage.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\PaymentManage.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\PaymentManage.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwCQAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T07:33:22.749Z",
+              "WhenOpened": "2025-01-05T00:43:36.142Z",
               "EditorCaption": ""
             }
           ]

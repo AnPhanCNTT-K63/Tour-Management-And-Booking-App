@@ -34,5 +34,17 @@ namespace travelApp1.Properties {
                 this["AccessToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CloudUri {
+            get {
+                return ((string)(this["CloudUri"]));
+            }
+            set {
+                this["CloudUri"] = value;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.Services;
 using static Google.Apis.Requests.BatchRequest;
@@ -50,7 +51,7 @@ namespace travelApp1.PageForm
 
             numGuests.Minimum = 1;
 
-            txtEmail.Text = UserDTO.Email;
+            txtEmail.Text = UserIndentity.Email;
             txtTourName.Text = _tour.Name;
             txtPackageName.Text = _package.Name;
             txtPrice.Text = _package.Price.ToString() + "$";
@@ -107,7 +108,9 @@ namespace travelApp1.PageForm
                 {
                     _bookingId = JsonConvert.DeserializeObject<int>(await res.Content.ReadAsStringAsync());
                     MessageBox.Show("Success", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var form = new Payment(booking, float.Parse(_totalPrice.ToString()), _bookingId);
+
+                    string selectedPaymentMethod = GetSelectedPaymentMethod();
+                    var form = new Payment(booking, float.Parse(_totalPrice.ToString()), _bookingId, selectedPaymentMethod);
                     form.Show();
                     this.Close();
                 }
@@ -120,6 +123,15 @@ namespace travelApp1.PageForm
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string GetSelectedPaymentMethod()
+        {
+            if (rbtnCreditCard.Checked) return "Credit Card";
+            if (rbtnEwallet.Checked) return "E-wallet";
+            if (rbtnBankTransfer.Checked) return "Bank Transfer";
+
+            return null;
         }
     }
 }

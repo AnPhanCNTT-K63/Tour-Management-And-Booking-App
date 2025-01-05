@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace travelApp1.Models
+namespace travelApp1.Helpers
 {
-    public static class UserDTO
+    public static class UserIndentity
     {
         public static string Id { get; set; }
         public static string Username { get; set; }

@@ -49,7 +49,6 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.Signin.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.SignUp.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.Properties.Resources.resources
-D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourManagerForm.resources
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.csproj.GenerateResource.cache
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.GeneratedMSBuildEditorConfig.editorconfig
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.AssemblyInfoInputs.cache
@@ -94,3 +93,5 @@ D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\tra
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
 D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TourManagement.resources
+D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourManagementDetail.resources

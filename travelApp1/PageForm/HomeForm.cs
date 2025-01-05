@@ -27,8 +27,7 @@ namespace travelApp1
            };
             logoPictureBox.Image = Image.FromFile("Images/logo.png");  // Thay đường dẫn chính xác đến logo
 
-            TourManagerForm tourM = new TourManagerForm();
-            tourM.Show();
+
         }
 
         // Hàm cập nhật slide
