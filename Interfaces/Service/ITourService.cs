@@ -8,6 +8,7 @@ namespace TravelWebBackEndCore.Interfaces.Service
     {
         Task<(List<TourDTO> Tours, int TotalCount)> GetAllAsync(int page, int pageSize, QueryTour query);
         Task<TourDTO?> GetTourByIdAsync(int id);
+        Task<IActionResult> UpdateAsync(int id, UpdateTourDTO tourDto);
         Task<IActionResult> CreateTourWithPackageAsync(CreateTourWithPackageDTO dto);
         Task<IActionResult> SoftDeleteAsync(int id);
         Task<IActionResult> RestoreAsync(int id);

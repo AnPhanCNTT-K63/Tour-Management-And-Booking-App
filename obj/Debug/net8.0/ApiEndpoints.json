@@ -49,6 +49,22 @@
   },
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.AuthController",
+    "Method": "PasswordCheck",
+    "RelativePath": "api/auth/password-check",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "passwordCheck",
+        "Type": "TravelWebBackEndCore.DTOs.Auth.PasswordCheckDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/auth/register",
     "HttpMethod": "POST",
@@ -114,7 +130,7 @@
   {
     "ContainingType": "TravelWebBackEndCore.Controllers.BookingController",
     "Method": "UpdateStatus",
-    "RelativePath": "api/booking/update-status",
+    "RelativePath": "api/booking/update-status/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -122,7 +138,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "statusDTO",
@@ -425,6 +441,27 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TravelWebBackEndCore.Controllers.TourController",
+    "Method": "Update",
+    "RelativePath": "api/tour/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tourDto",
+        "Type": "TravelWebBackEndCore.DTOs.Tour.UpdateTourDTO",
         "IsRequired": true
       }
     ],

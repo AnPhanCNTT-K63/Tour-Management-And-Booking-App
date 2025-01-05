@@ -128,7 +128,7 @@ namespace TravelWebBackEndCore.Services
 
                 if (!string.IsNullOrWhiteSpace(query.region))
                 {
-                    tours = tours.Where(x => x.Region.Equals(query.region, StringComparison.OrdinalIgnoreCase));
+                    tours = tours.Where(x => x.Region.Equals(query.region));
                 }
 
                 if (!string.IsNullOrWhiteSpace(query.searchBy) && !string.IsNullOrWhiteSpace(query.searchQuery))
@@ -224,5 +224,51 @@ namespace TravelWebBackEndCore.Services
                 return new BadRequestObjectResult(e.Message);
             }
         }
+
+        public async Task<IActionResult> UpdateAsync(int id, UpdateTourDTO tourDto)
+        {
+            try
+            {
+                var tour = await _tourRepository.FindByIdAsync(id);
+
+                if (tour == null)
+                {
+                    return new NotFoundObjectResult("Tour not found");
+                }
+
+                if (!string.IsNullOrWhiteSpace(tourDto.Name))
+                    tour.Name = tourDto.Name;
+
+                if (!string.IsNullOrWhiteSpace(tourDto.Region))
+                    tour.Region = tourDto.Region;
+
+                if (!string.IsNullOrWhiteSpace(tourDto.Country))
+                    tour.Country = tourDto.Country;
+
+                if (!string.IsNullOrWhiteSpace(tourDto.City))
+                    tour.City = tourDto.City;
+
+                if (!string.IsNullOrWhiteSpace(tourDto.Image))
+                    tour.Image = tourDto.Image;
+
+                if (!string.IsNullOrWhiteSpace(tourDto.Description))
+                    tour.Description = tourDto.Description;
+
+                if (tourDto.Opening.HasValue)
+                    tour.Opening = tourDto.Opening.Value;
+
+                if (tourDto.Ending.HasValue)
+                    tour.Ending = tourDto.Ending.Value;
+
+                await _tourRepository.SaveChangesAsync();
+
+                return new OkObjectResult("Update success");
+            }
+            catch (Exception e)
+            {
+                return new BadRequestObjectResult(e.Message);
+            }
+        }
+
     }
 }

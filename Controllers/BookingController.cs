@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Security.Claims;
 using TravelWebBackEndCore.DTOs.Booking;
 using TravelWebBackEndCore.Interfaces.Repository;
@@ -39,7 +40,7 @@ namespace TravelWebBackEndCore.Controllers
             return result;
         }
 
-        [HttpPatch("update-status")]
+        [HttpPatch("update-status/{id:int}")]
         public async Task<IActionResult> UpdateStatus([FromRoute] int id, [FromBody] UpdateBookingStatus statusDTO)
         {
             if (!ModelState.IsValid)

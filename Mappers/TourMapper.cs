@@ -22,6 +22,9 @@ namespace TravelWebBackEndCore.Mappers
                 : 0,
                 Opening = tourModel.Opening,
                 Ending = tourModel.Ending,
+                CreatedAt = tourModel.CreatedAt,
+                UpdatedAt = tourModel.UpdatedAt,
+                DeletedAt = tourModel.DeletedAt,
             };
         }
 
@@ -42,6 +45,8 @@ namespace TravelWebBackEndCore.Mappers
                 TourPackages = tourModel.TourPackages != null
                 ? tourModel.TourPackages.Select(x => x.ToPackageDto()).ToList()
                 : new List<PackageDTO>(),
+                UserId = tourModel.User.Id,
+                IsDeleted = tourModel.IsDeleted,
                 Opening = tourModel.Opening,
                 Ending = tourModel.Ending,
             };

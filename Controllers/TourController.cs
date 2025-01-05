@@ -82,5 +82,12 @@ namespace TravelWebBackEndCore.Controllers
 
             return result;
         }
+
+        [HttpPut("update/{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateTourDTO tourDto)
+        {
+            var result = await _tourService.UpdateAsync(id, tourDto);
+            return result;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using TravelWebBackEndCore.DTOs.TourPackage;
+using TravelWebBackEndCore.DTOs.User;
 
 namespace TravelWebBackEndCore.DTOs.Tour
 {
@@ -12,8 +13,14 @@ namespace TravelWebBackEndCore.DTOs.Tour
         public string Image { get; set; } = new string("No image");
         public string Description { get; set; } = new string("No description");
         public decimal Price { get; set; }
+        public int UserId { get; set; }
+        public bool IsDeleted { get; set; }
         public DateTime? Opening { get; set; }
         public DateTime? Ending { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdatedAt { get; set; } = DateTime.Now;
         public ICollection<PackageDTO>? TourPackages { get; set; }
+
     }
 }

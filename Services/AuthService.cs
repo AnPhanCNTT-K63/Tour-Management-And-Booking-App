@@ -72,15 +72,21 @@ namespace TravelWebBackEndCore.Services
         {
             var user = await _userRepository.FindByIdAsync(passwordCheck.userId);
 
-            if (user == null || user.Password != passwordCheck.password)
+            if (user == null)
+            {
+                return new BadRequestObjectResult("User not found");
+            }
+
+            var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.Password, passwordCheck.password);
+
+            if (passwordVerificationResult == PasswordVerificationResult.Failed)
             {
                 return new BadRequestObjectResult("Invalid Password");
             }
-            else
-            {
-                return new OkObjectResult("success");
-            }
+
+            return new OkObjectResult("success");
         }
+
 
         public async Task<IActionResult> Register(CreateUserDTO userDTO)
         {

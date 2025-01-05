@@ -24,12 +24,12 @@ namespace TravelWebBackEndCore.Repository
 
         public IQueryable<Tour> FindAll()
         {
-            return _context.Tours;
+            return _context.Tours.Where(t => t.IsDeleted == false);
         }
 
         public async Task<Tour?> FindByIdAsync(int id)
         {
-            return await _context.Tours.FindAsync(id);
+            return await _context.Tours.Include(t => t.User).FirstOrDefaultAsync(t => t.Id == id && t.IsDeleted == false);
         }
 
         public void RemoveAsync(Tour tour)
