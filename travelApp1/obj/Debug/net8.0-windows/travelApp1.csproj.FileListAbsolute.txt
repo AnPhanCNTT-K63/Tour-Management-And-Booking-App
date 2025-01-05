@@ -204,7 +204,6 @@ D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-wind
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.HomeForm.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Payment.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.PaymentManage.resources
-D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.ProfileForm.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.ResetPassword.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.Signin.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.SignUp.resources
@@ -227,5 +226,6 @@ D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-wind
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\ref\travelApp1.dll
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.BookingManageForm.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditAccountForm.resources
-D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditProfileForm.resources
+D:\Visual Studio 2022\Travel App Winform\client\travelApp1\bin\Debug\net8.0-windows\Images\BackgroundLogin.jpg
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TrashTourManagement.resources
+D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.ProfileForm.resources

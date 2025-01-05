@@ -18,6 +18,7 @@ namespace travelApp1
 
         private void InitializeComponent()
         {
+            panelSignup = new Panel();
             lbSignUp = new Label();
             lbUserName = new Label();
             lbEmail = new Label();
@@ -26,16 +27,33 @@ namespace travelApp1
             txtEmail = new TextBox();
             txtPassword = new TextBox();
             btnSignUp = new Button();
+            panelSignup.SuspendLayout();
             SuspendLayout();
+            // 
+            // panelSignup
+            // 
+            panelSignup.Controls.Add(lbSignUp);
+            panelSignup.Controls.Add(lbUserName);
+            panelSignup.Controls.Add(lbEmail);
+            panelSignup.Controls.Add(lbPassword);
+            panelSignup.Controls.Add(txtUserName);
+            panelSignup.Controls.Add(txtEmail);
+            panelSignup.Controls.Add(txtPassword);
+            panelSignup.Controls.Add(btnSignUp);
+            panelSignup.Location = new Point(3, 3);
+            panelSignup.Name = "panelSignup";
+            panelSignup.Size = new Size(498, 401);
+            panelSignup.TabIndex = 0;
             // 
             // lbSignUp
             // 
             lbSignUp.AutoSize = true;
+            lbSignUp.BackColor = Color.Transparent;
             lbSignUp.Font = new Font("Times New Roman", 34.2F, FontStyle.Bold);
-            lbSignUp.Location = new Point(150, 40);
+            lbSignUp.Location = new Point(164, 61);
             lbSignUp.Name = "lbSignUp";
             lbSignUp.Size = new Size(223, 65);
-            lbSignUp.TabIndex = 0;
+            lbSignUp.TabIndex = 8;
             lbSignUp.Text = "Sign Up";
             lbSignUp.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -43,82 +61,77 @@ namespace travelApp1
             // 
             lbUserName.AutoSize = true;
             lbUserName.Font = new Font("Arial", 12F);
-            lbUserName.Location = new Point(70, 130);
+            lbUserName.Location = new Point(84, 151);
             lbUserName.Name = "lbUserName";
             lbUserName.Size = new Size(114, 23);
-            lbUserName.TabIndex = 1;
+            lbUserName.TabIndex = 9;
             lbUserName.Text = "User Name:";
             // 
             // lbEmail
             // 
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Arial", 12F);
-            lbEmail.Location = new Point(70, 180);
+            lbEmail.Location = new Point(84, 201);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new Size(64, 23);
-            lbEmail.TabIndex = 2;
+            lbEmail.TabIndex = 10;
             lbEmail.Text = "Email:";
             // 
             // lbPassword
             // 
             lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Arial", 12F);
-            lbPassword.Location = new Point(70, 230);
+            lbPassword.Location = new Point(84, 251);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(104, 23);
-            lbPassword.TabIndex = 3;
+            lbPassword.TabIndex = 11;
             lbPassword.Text = "Password:";
             // 
             // txtUserName
             // 
-            txtUserName.Location = new Point(200, 130);
+            txtUserName.Location = new Point(214, 151);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(200, 27);
-            txtUserName.TabIndex = 4;
+            txtUserName.TabIndex = 12;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(200, 180);
+            txtEmail.Location = new Point(214, 201);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(200, 27);
-            txtEmail.TabIndex = 5;
+            txtEmail.TabIndex = 13;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(200, 230);
+            txtPassword.Location = new Point(214, 251);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(200, 27);
-            txtPassword.TabIndex = 6;
+            txtPassword.TabIndex = 14;
             // 
             // btnSignUp
             // 
             btnSignUp.BackColor = SystemColors.ActiveCaption;
             btnSignUp.Font = new Font("Times New Roman", 13.8F);
-            btnSignUp.Location = new Point(200, 280);
+            btnSignUp.Location = new Point(214, 301);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new Size(126, 38);
-            btnSignUp.TabIndex = 7;
+            btnSignUp.TabIndex = 15;
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = false;
-            btnSignUp.Click += btnSignUp_Click;
+            btnSignUp.Click += btnSignUp_Click_1;
             // 
             // SignUp
             // 
             ClientSize = new Size(500, 400);
-            Controls.Add(lbSignUp);
-            Controls.Add(lbUserName);
-            Controls.Add(lbEmail);
-            Controls.Add(lbPassword);
-            Controls.Add(txtUserName);
-            Controls.Add(txtEmail);
-            Controls.Add(txtPassword);
-            Controls.Add(btnSignUp);
+            Controls.Add(panelSignup);
             Name = "SignUp";
+            panelSignup.ResumeLayout(false);
+            panelSignup.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
+        private Panel panelSignup;
         private Label lbSignUp;
         private Label lbUserName;
         private Label lbEmail;

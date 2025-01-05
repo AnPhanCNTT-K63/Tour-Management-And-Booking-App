@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Auth.OAuth2;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Text.Json;
@@ -7,65 +8,48 @@ using System.Windows.Forms;
 using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.PageForm;
+using travelApp1.Services;
 
 namespace travelApp1
 {
     public partial class AccountForm : Form
     {
+        private AccountDTO _account = new AccountDTO();
+        private readonly ApiService apiService = new ApiService();
         public AccountForm()
         {
             InitializeComponent();
             this.Load += AccountForm_Load; // Đăng ký sự kiện Load
+            txtPassword.Text = "********";
+
         }
 
         // Hàm gọi API để lấy dữ liệu tài khoản
         private async Task<AccountDTO> GetAccountAsync(int userId)
         {
-            string apiUrl = $"https://localhost:7025/api/user/{userId}/account";
-            var client = new RestClient(apiUrl);
-            var request = new RestRequest(apiUrl, Method.Get);
-
-            // Gửi request
-            var response = await client.ExecuteAsync(request);
-
-            if (response.IsSuccessful && response.Content != null)
+            try
             {
-                // Deserialize JSON thành AccountDTO
-                var account = JsonSerializer.Deserialize<AccountDTO>(response.Content, new JsonSerializerOptions
+                var res = await apiService.GetAsync($"user/{userId}/account");
+
+                if (res.IsSuccessStatusCode)
                 {
-                    PropertyNameCaseInsensitive = true
-                });
-                return account;
+                    var json = await res.Content.ReadAsStringAsync();
+                    var account = JsonConvert.DeserializeObject<AccountDTO>(json);
+
+                    _account = account;
+
+                    return account;
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi lấy thông tin tài khoản: {res.StatusCode} - {res.ReasonPhrase}");
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {response.StatusCode} - {response.ErrorMessage}");
+                MessageBox.Show($"Lỗi lấy thông tin tài khoản: {ex.Message}");
                 return null;
-            }
-        }
-
-        // Hàm gọi API để cập nhật thông tin tài khoản
-        private async Task<bool> UpdateAccountAsync(int userId, AccountDTO updatedAccount)
-        {
-            string apiUrl = $"https://localhost:7025/api/user/{userId}/account";
-            var client = new RestClient(apiUrl);
-            var request = new RestRequest(apiUrl, Method.Put);
-
-            // Serialize đối tượng thành JSON
-            string jsonBody = JsonSerializer.Serialize(updatedAccount);
-            request.AddStringBody(jsonBody, ContentType.Json);
-
-            // Gửi request
-            var response = await client.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show($"Lỗi cập nhật: {response.StatusCode} - {response.ErrorMessage}");
-                return false;
             }
         }
 
@@ -94,9 +78,24 @@ namespace travelApp1
             this.Close();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEditUsername_Click(object sender, EventArgs e)
         {
-            EditAccountForm editForm = new EditAccountForm();
+            EditAccountForm editForm = new EditAccountForm(_account, "username");
+            editForm.FormClosed += (s, args) => AccountForm_Load(null, null);
+            editForm.ShowDialog();
+        }
+
+        private void btnEditEmail_Click(object sender, EventArgs e)
+        {
+            EditAccountForm editForm = new EditAccountForm(_account, "email");
+            editForm.FormClosed += (s, args) => AccountForm_Load(null, null);
+            editForm.ShowDialog();
+        }
+
+        private void btnEditPassword_Click(object sender, EventArgs e)
+        {
+            EditAccountForm editForm = new EditAccountForm(_account, "password");
+            editForm.FormClosed += (s, args) => AccountForm_Load(null, null);
             editForm.ShowDialog();
         }
     }

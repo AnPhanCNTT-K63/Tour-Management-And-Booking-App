@@ -11,6 +11,8 @@ namespace travelApp1.PageForm
         private readonly TourDTO _tour;
         private List<PackageDTO> _packages;
         private readonly ApiService _service;
+        private Label selectedScheduleLabel = null;
+        private Label selectedVoucherLabel = null;
         public TourDetail(TourDTO tour)
         {
             InitializeComponent();
@@ -57,26 +59,47 @@ namespace travelApp1.PageForm
         }
         private void DisplayTourDetails()
         {
-            lblName.Text = _tour.Name;
-            lblRegion.Text = _tour.Region;
-            lblCountry.Text = _tour.Country;
-            lblCity.Text = _tour.City;
+            lblName.Text = $"Name: {_tour.Name}";
+            lblRegion.Text = $"Region: {_tour.Region}";
+            lblCountry.Text = $"Country: {_tour.Country}";
+            lblCity.Text = $"City: {_tour.City}";
+            lblDescription.Text = $"Description: {_tour.Description ?? "N/A"}";
+            lblOpening.Text = $"Opening Date: {_tour.Opening.ToString("yyyy-MM-dd")}";
+            lblEnding.Text = $"Ending Date: {_tour.Ending.ToString("yyyy-MM-dd")}";
+
             pictureBox.ImageLocation = $"{CloudHelper.CloudUri}/Tours/{_tour.Image}";
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.BorderStyle = BorderStyle.FixedSingle;
+
+            // Styling the labels for better visual appeal
+            lblName.Font = new Font("Arial", 14, FontStyle.Bold);
+            lblRegion.Font = new Font("Arial", 12, FontStyle.Regular);
+            lblCountry.Font = new Font("Arial", 12, FontStyle.Regular);
+            lblCity.Font = new Font("Arial", 12, FontStyle.Regular);
+            lblDescription.Font = new Font("Arial", 10, FontStyle.Italic);
+            lblOpening.Font = new Font("Arial", 12, FontStyle.Regular);
+            lblEnding.Font = new Font("Arial", 12, FontStyle.Regular);
+
+            lblName.ForeColor = Color.Black;
+            lblRegion.ForeColor = Color.Black;
+            lblCountry.ForeColor = Color.Black;
+            lblCity.ForeColor = Color.Black;
+            lblDescription.ForeColor = Color.DarkGreen;
+            lblOpening.ForeColor = Color.Black;
+            lblEnding.ForeColor = Color.Black;
         }
+
 
         private void DisplayTourPackages(List<PackageDTO> packages)
         {
             flowLayoutPanel1.Controls.Clear();
-            Label selectedScheduleLabel = null; // Track the currently selected schedule
-            Label selectedVoucherLabel = null; // Track the currently selected voucher
 
             foreach (var package in packages)
             {
                 var panel = new Panel
                 {
-                    Width = flowLayoutPanel1.Width - 20,
-                    Height = 300,
+                    Width = flowLayoutPanel1.Width - 30,
+                    Height = 340,
                     BorderStyle = BorderStyle.FixedSingle,
                     Padding = new Padding(10),
                     Margin = new Padding(10),
@@ -84,48 +107,62 @@ namespace travelApp1.PageForm
                     Tag = package
                 };
 
-                // Package Name
-                var nameLabel = new Label
-                {
-                    Text = $"Name: {package.Name ?? "N/A"}", // Null check for Name
-                    Width = panel.Width - 20,
-                    Location = new Point(10, 10),
-                    Font = new Font("Arial", 12, FontStyle.Bold),
-                    ForeColor = Color.Black
-                };
-
                 // Package Image
                 var pictureBox = new PictureBox
                 {
-                    Width = 120,
-                    Height = 120,
-                    ImageLocation = $"{CloudHelper.CloudUri}/Packages/{package.Image}" ?? "", // Null check for Image
+                    Width = 150,
+                    Height = 150,
+                    ImageLocation = $"{CloudHelper.CloudUri}/Packages/{package.Image}",
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Location = new Point(10, 40)
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Location = new Point(10, 10)
+                };
+
+                // Package Name
+                var nameLabel = new Label
+                {
+                    Text = $"Name: {package.Name ?? "N/A"}",
+                    AutoSize = true,
+                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    ForeColor = Color.Black,
+                    Location = new Point(180, 10)
+                };
+
+                // Package Description
+                var descriptionLabel = new Label
+                {
+                    Text = $"Description: {package.Description ?? "N/A"}",
+                    AutoSize = false,
+                    Width = panel.Width - 200,
+                    Height = 50,
+                    Font = new Font("Arial", 10, FontStyle.Italic),
+                    ForeColor = Color.Gray,
+                    Location = new Point(180, 40)
                 };
 
                 // Package Price
                 var priceLabel = new Label
                 {
-                    Text = $"Price: ${package.Price ?? 0}", // Null check for Price
-                    Width = panel.Width - 140,
-                    Location = new Point(130, 40),
-                    ForeColor = Color.Black
+                    Text = $"Price: ${package.Price ?? 0}",
+                    AutoSize = true,
+                    Font = new Font("Arial", 11, FontStyle.Regular),
+                    ForeColor = Color.DarkGreen,
+                    Location = new Point(180, 100)
                 };
 
-                // Schedules (Left side)
-                var schedulesLabel = new Label
+                // Schedules Section
+                var schedulesTitleLabel = new Label
                 {
                     Text = "Schedules:",
-                    Width = (panel.Width / 2) - 20,
-                    Location = new Point(10, 170),
+                    AutoSize = true,
                     Font = new Font("Arial", 10, FontStyle.Bold),
-                    ForeColor = Color.Black
+                    ForeColor = Color.Black,
+                    Location = new Point(10, 180)
                 };
 
-                panel.Controls.Add(schedulesLabel);
+                panel.Controls.Add(schedulesTitleLabel);
 
-                int scheduleY = 190;
+                int scheduleY = 200;
                 if (package.Schedules != null && package.Schedules.Any())
                 {
                     foreach (var schedule in package.Schedules)
@@ -133,28 +170,21 @@ namespace travelApp1.PageForm
                         var scheduleLabel = new Label
                         {
                             Text = schedule.TravelDay.ToString("yyyy-MM-dd"),
-                            Width = (panel.Width / 2) - 20,
-                            Location = new Point(10, scheduleY),
+                            AutoSize = true,
+                            Font = new Font("Arial", 9, FontStyle.Regular),
                             ForeColor = Color.Blue,
                             Cursor = Cursors.Hand,
-                            Tag = schedule,
+                            Location = new Point(10, scheduleY),
+                            Tag = schedule
                         };
 
                         scheduleLabel.Click += (sender, e) =>
                         {
-                            // Deselect the previous schedule
-                            if (selectedScheduleLabel != null)
-                            {
-                                selectedScheduleLabel.BackColor = Color.Transparent;
-                            }
-
-                            // Select the current schedule
-                            scheduleLabel.BackColor = Color.LightGray;
-                            selectedScheduleLabel = scheduleLabel; // Update the selected schedule
+                            HighlightSelectedLabel(ref selectedScheduleLabel, scheduleLabel);
                         };
 
                         panel.Controls.Add(scheduleLabel);
-                        scheduleY += 30;
+                        scheduleY += 25;
                     }
                 }
                 else
@@ -162,26 +192,27 @@ namespace travelApp1.PageForm
                     var noScheduleLabel = new Label
                     {
                         Text = "N/A",
-                        Width = (panel.Width / 2) - 20,
-                        Location = new Point(10, scheduleY),
-                        ForeColor = Color.Black
+                        AutoSize = true,
+                        Font = new Font("Arial", 9, FontStyle.Regular),
+                        ForeColor = Color.Gray,
+                        Location = new Point(10, scheduleY)
                     };
                     panel.Controls.Add(noScheduleLabel);
                 }
 
-                // Vouchers (Right side)
-                var vouchersLabel = new Label
+                // Vouchers Section
+                var vouchersTitleLabel = new Label
                 {
                     Text = "Vouchers:",
-                    Width = (panel.Width / 2) - 20,
-                    Location = new Point((panel.Width / 2) + 10, 170),
+                    AutoSize = true,
                     Font = new Font("Arial", 10, FontStyle.Bold),
-                    ForeColor = Color.Black
+                    ForeColor = Color.Black,
+                    Location = new Point(180, 180)
                 };
 
-                panel.Controls.Add(vouchersLabel);
+                panel.Controls.Add(vouchersTitleLabel);
 
-                int voucherY = 190;
+                int voucherY = 200;
                 if (package.Vouchers != null && package.Vouchers.Any())
                 {
                     foreach (var voucher in package.Vouchers)
@@ -189,37 +220,21 @@ namespace travelApp1.PageForm
                         var voucherLabel = new Label
                         {
                             Text = voucher.Code,
-                            Width = (panel.Width / 2) - 20,
-                            Location = new Point((panel.Width / 2) + 10, voucherY),
+                            AutoSize = true,
+                            Font = new Font("Arial", 9, FontStyle.Regular),
                             ForeColor = Color.Green,
-                            Cursor = Cursors.Hand, // Make it look clickable
+                            Cursor = Cursors.Hand,
+                            Location = new Point(180, voucherY),
                             Tag = voucher
                         };
 
                         voucherLabel.Click += (sender, e) =>
                         {
-                            // Check if this voucher is already selected
-                            if (selectedVoucherLabel == voucherLabel)
-                            {
-                                // Unselect the voucher
-                                voucherLabel.BackColor = Color.Transparent;
-                                selectedVoucherLabel = null; // Clear the selection
-                            }
-                            else
-                            {
-                                // Select the current voucher
-                                if (selectedVoucherLabel != null)
-                                {
-                                    selectedVoucherLabel.BackColor = Color.Transparent; // Deselect the previous one
-                                }
-
-                                voucherLabel.BackColor = Color.LightGray;
-                                selectedVoucherLabel = voucherLabel; // Update the selected voucher
-                            }
+                            HighlightSelectedLabel(ref selectedVoucherLabel, voucherLabel);
                         };
 
                         panel.Controls.Add(voucherLabel);
-                        voucherY += 30;
+                        voucherY += 25;
                     }
                 }
                 else
@@ -227,60 +242,80 @@ namespace travelApp1.PageForm
                     var noVoucherLabel = new Label
                     {
                         Text = "N/A",
-                        Width = (panel.Width / 2) - 20,
-                        Location = new Point((panel.Width / 2) + 10, voucherY),
-                        ForeColor = Color.Black
+                        AutoSize = true,
+                        Font = new Font("Arial", 9, FontStyle.Regular),
+                        ForeColor = Color.Gray,
+                        Location = new Point(180, voucherY)
                     };
                     panel.Controls.Add(noVoucherLabel);
                 }
 
-                // Add the Book Now button
+                // Book Now Button
                 var btnBook = new Button
                 {
                     Text = "Book Now",
-                    Width = 100,
-                    Height = 30,
-                    Location = new Point(panel.Width - 120, 130),
+                    Width = 120,
+                    Height = 35,
+                    BackColor = Color.LightBlue,
+                    FlatStyle = FlatStyle.Flat,
+                    Location = new Point(panel.Width - 140, panel.Height - 50),
                     Tag = package
-
                 };
 
                 btnBook.Click += (sender, e) =>
                 {
-                    var clickedButton = sender as Button;
-                    if (clickedButton != null)
-                    {
-                        // Retrieve the associated package
-                        var selectedPackage = (PackageDTO)clickedButton.Tag;
-
-                        // You can also check for the selected schedule or voucher here
-                        var selectedSchedule = panel.Controls.OfType<Label>()
-                            .Where(lbl => lbl.BackColor == Color.LightGray && lbl.Tag is ScheduleDTO)
-                            .Select(lbl => (ScheduleDTO)lbl.Tag)
-                            .FirstOrDefault();
-
-                        var selectedVoucher = panel.Controls.OfType<Label>()
-                            .Where(lbl => lbl.BackColor == Color.LightGray && lbl.Tag is VoucherDTO)
-                            .Select(lbl => (VoucherDTO)lbl.Tag)
-                            .FirstOrDefault();
-
-
-                        var form = new Booking(selectedPackage, _tour, selectedSchedule?.TravelDay.ToString("yyyy-MM-dd"), selectedVoucher.Code);
-                        form.Show();
-                        this.Hide();
-                    }
+                    BookPackage(sender, panel);
                 };
 
                 // Add controls to the panel
-                panel.Controls.Add(nameLabel);
                 panel.Controls.Add(pictureBox);
+                panel.Controls.Add(nameLabel);
+                panel.Controls.Add(descriptionLabel);
                 panel.Controls.Add(priceLabel);
                 panel.Controls.Add(btnBook);
 
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
+        private void HighlightSelectedLabel(ref Label selectedLabel, Label newLabel)
+        {
+            // Deselect the previous label
+            if (selectedLabel != null)
+            {
+                selectedLabel.BackColor = Color.Transparent;
+            }
+
+            // Select the new label
+            newLabel.BackColor = Color.LightGray;
+            selectedLabel = newLabel;
+        }
+        private void BookPackage(object sender, Panel panel)
+        {
+            var clickedButton = sender as Button;
+            if (clickedButton != null)
+            {
+                var selectedPackage = (PackageDTO)clickedButton.Tag;
+
+                var selectedSchedule = panel.Controls.OfType<Label>()
+                    .Where(lbl => lbl.BackColor == Color.LightGray && lbl.Tag is ScheduleDTO)
+                    .Select(lbl => (ScheduleDTO)lbl.Tag)
+                    .FirstOrDefault();
+
+                var selectedVoucher = panel.Controls.OfType<Label>()
+                    .Where(lbl => lbl.BackColor == Color.LightGray && lbl.Tag is VoucherDTO)
+                    .Select(lbl => (VoucherDTO)lbl.Tag)
+                    .FirstOrDefault();
+
+                var form = new Booking(selectedPackage, _tour, selectedSchedule?.TravelDay.ToString("yyyy-MM-dd"), selectedVoucher?.Code);
+                form.Show();
+                this.Hide();
+            }
+        }
 
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -16,10 +16,14 @@ namespace travelApp1
         public Signin()
         {
             InitializeComponent();
+
+            string imagePath = Path.Combine(Application.StartupPath, "Images", "BackgroundLogin.jpg");
+            panelSignin.BackgroundImage = Image.FromFile(imagePath);
+            panelSignin.BackgroundImageLayout = ImageLayout.Stretch; // Điều chỉnh hiển thị ảnh
             _apiService = new ApiService();
         }
 
-        private async void button1_Click_1(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
@@ -66,15 +70,12 @@ namespace travelApp1
             }
         }
 
-        private void linkLabelFogotP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelFogotP_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Redirecting to Forgot Password page...", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             var form = new ForgotPassword();
             form.Show();
             this.Hide();
         }
-
-
-
     }
 }

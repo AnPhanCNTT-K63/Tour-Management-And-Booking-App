@@ -66,16 +66,22 @@ namespace travelApp1.PageForm
         {
             try
             {
-                var url = $"tour/trash/{page}/{PageSize}";
+                var url = $"tour/get/{1}/{1000}";
                 var res = await _apiService.GetAsync(url);
 
                 if (res.IsSuccessStatusCode)
                 {
                     var toursJson = await res.Content.ReadAsStringAsync();
                     var tours = JsonConvert.DeserializeObject<TourResponseDTO>(toursJson);
+                    var deletedTours = tours.tours.Where(t => t.IsDeleted == true).ToList();
 
-                    DisplayDeletedTours(tours.tours);
-                    _totalDeletedTours = tours.totalCount;
+                    if (deletedTours.Count == 0)
+                    {
+                        MessageBox.Show("No deleted tours found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    DisplayDeletedTours(tours.tours.Where(t => t.IsDeleted == true).ToList());
+                    _totalDeletedTours = deletedTours.Count;
                     _totalPages = (int)Math.Ceiling((double)_totalDeletedTours / PageSize);
 
                     UpdatePaginationButtons();
@@ -128,7 +134,8 @@ namespace travelApp1.PageForm
         {
             try
             {
-                var res = await _apiService.PostAsync($"tour/restore/{tourId}", null);
+                var res = await _apiService.PatchAsync($"tour/restore/{tourId}", null);
+
 
                 if (res.IsSuccessStatusCode)
                 {

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.Services;
 using static Google.Apis.Requests.BatchRequest;
@@ -27,7 +28,7 @@ namespace travelApp1.PageForm
             InitializeComponent();
             _service = new ApiService();
             InitData(_currentPage);
-
+            logoPictureBox.Image = Image.FromFile("Images/logo.png");
             flowLayoutPanel1.AutoScroll = true;
         }
 
@@ -76,7 +77,7 @@ namespace travelApp1.PageForm
                     var toursJson = await res.Content.ReadAsStringAsync();
                     var tours = JsonConvert.DeserializeObject<TourResponseDTO>(toursJson);
 
-                    DisplayTours(tours.tours);
+                    DisplayTours(tours.tours.Where(t => t.IsDeleted == false).ToList());
                     _totalTours = tours.totalCount;
 
                     UpdatePageNumbers();
@@ -100,8 +101,8 @@ namespace travelApp1.PageForm
             {
                 var panel = new Panel
                 {
-                    Width = flowLayoutPanel1.Width - 20,
-                    Height = 220,
+                    Width = flowLayoutPanel1.Width - 30,
+                    Height = 245,
                     BorderStyle = BorderStyle.FixedSingle,
                     Padding = new Padding(10),
                     Margin = new Padding(10),
@@ -111,53 +112,67 @@ namespace travelApp1.PageForm
 
                 var pictureBox = new PictureBox
                 {
-                    Width = 120,
-                    Height = 120,
-                    ImageLocation = tour.Image,
-                    SizeMode = PictureBoxSizeMode.StretchImage
+                    Width = 180,
+                    Height = 180,
+                    ImageLocation = $"{CloudHelper.CloudUri}/Tours/{tour.Image}",
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BorderStyle = BorderStyle.FixedSingle
                 };
 
                 var nameLabel = new Label
                 {
                     Text = $"Name: {tour.Name}",
-                    Width = panel.Width - 140,
-                    Location = new Point(130, 10),
+                    AutoSize = true,
                     Font = new Font("Arial", 12, FontStyle.Bold),
-                    ForeColor = Color.Black
+                    ForeColor = Color.Black,
+                    Location = new Point(200, 10)
                 };
 
                 var regionLabel = new Label
                 {
                     Text = $"Region: {tour.Region}",
-                    Width = panel.Width - 140,
-                    Location = new Point(130, 40),
-                    ForeColor = Color.Black
+                    AutoSize = true,
+                    Font = new Font("Arial", 10, FontStyle.Regular),
+                    ForeColor = Color.Gray,
+                    Location = new Point(200, 40)
                 };
 
                 var countryLabel = new Label
                 {
                     Text = $"Country: {tour.Country}",
-                    Width = panel.Width - 140,
-                    Location = new Point(130, 70),
-                    ForeColor = Color.Black
+                    AutoSize = true,
+                    Font = new Font("Arial", 10, FontStyle.Regular),
+                    ForeColor = Color.Gray,
+                    Location = new Point(200, 70)
                 };
 
                 var cityLabel = new Label
                 {
                     Text = $"City: {tour.City}",
-                    Width = panel.Width - 140,
-                    Location = new Point(130, 100),
-                    ForeColor = Color.Black
+                    AutoSize = true,
+                    Font = new Font("Arial", 10, FontStyle.Regular),
+                    ForeColor = Color.Gray,
+                    Location = new Point(200, 100)
                 };
 
-
+                var descriptionLabel = new Label
+                {
+                    Text = $"Description: {tour.Description}",
+                    AutoSize = true,
+                    MaximumSize = new Size(panel.Width - 220, 60),
+                    Font = new Font("Arial", 9, FontStyle.Italic),
+                    ForeColor = Color.DarkGray,
+                    Location = new Point(200, 130)
+                };
 
                 var btnDetail = new Button
                 {
                     Text = "View Details",
-                    Width = 100,
-                    Height = 30,
-                    Location = new Point(130, 150)
+                    Width = 120,
+                    Height = 35,
+                    Location = new Point(200, 200),
+                    BackColor = Color.LightBlue,
+                    FlatStyle = FlatStyle.Flat
                 };
 
                 btnDetail.Click += (sender, e) => OpenTourDetailForm(tour);
@@ -167,11 +182,13 @@ namespace travelApp1.PageForm
                 panel.Controls.Add(regionLabel);
                 panel.Controls.Add(countryLabel);
                 panel.Controls.Add(cityLabel);
+                panel.Controls.Add(descriptionLabel);
                 panel.Controls.Add(btnDetail);
 
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
+
 
         private void OpenTourDetailForm(TourDTO selectedTour)
         {
@@ -218,6 +235,13 @@ namespace travelApp1.PageForm
             string searchQuery = txtSearchQuery.Text;
 
             InitData(_currentPage, selectedFilter, searchQuery);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm();
+            homeForm.Show();
+            this.Close();
         }
     }
 }

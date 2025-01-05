@@ -34,11 +34,23 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             txtSearchQuery = new TextBox();
+            leftPanel = new Panel();
+            logoPictureBox = new PictureBox();
+            btnHome = new Button();
+            slidePanel = new Panel();
+            btnTour = new Button();
+            btnProfile = new Button();
+            btnAccount = new Button();
+            panelWelcome = new Panel();
+            lblWelcome = new Label();
+            leftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
+            panelWelcome.SuspendLayout();
             SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(143, 273);
+            btnSearch.Location = new Point(307, 235);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(120, 29);
             btnSearch.TabIndex = 2;
@@ -73,9 +85,9 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(477, 27);
+            flowLayoutPanel1.Location = new Point(477, 117);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(709, 623);
+            flowLayoutPanel1.Size = new Size(709, 533);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // txtSearchQuery
@@ -85,11 +97,102 @@
             txtSearchQuery.Size = new Size(147, 27);
             txtSearchQuery.TabIndex = 7;
             // 
+            // leftPanel
+            // 
+            leftPanel.BackColor = Color.FromArgb(128, 128, 255);
+            leftPanel.Controls.Add(logoPictureBox);
+            leftPanel.Controls.Add(btnHome);
+            leftPanel.Controls.Add(slidePanel);
+            leftPanel.Controls.Add(btnTour);
+            leftPanel.Controls.Add(btnProfile);
+            leftPanel.Controls.Add(btnAccount);
+            leftPanel.Dock = DockStyle.Left;
+            leftPanel.Location = new Point(0, 0);
+            leftPanel.Name = "leftPanel";
+            leftPanel.Size = new Size(200, 766);
+            leftPanel.TabIndex = 8;
+            // 
+            // logoPictureBox
+            // 
+            logoPictureBox.Location = new Point(55, 9);
+            logoPictureBox.Name = "logoPictureBox";
+            logoPictureBox.Size = new Size(100, 100);
+            logoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            logoPictureBox.TabIndex = 0;
+            logoPictureBox.TabStop = false;
+            // 
+            // btnHome
+            // 
+            btnHome.Font = new Font("Arial", 12F);
+            btnHome.Location = new Point(10, 160);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(180, 50);
+            btnHome.TabIndex = 3;
+            btnHome.Text = "Home";
+            btnHome.Click += btnHome_Click;
+            // 
+            // slidePanel
+            // 
+            slidePanel.BorderStyle = BorderStyle.FixedSingle;
+            slidePanel.Location = new Point(200, 50);
+            slidePanel.Name = "slidePanel";
+            slidePanel.Size = new Size(600, 300);
+            slidePanel.TabIndex = 0;
+            // 
+            // btnTour
+            // 
+            btnTour.Font = new Font("Arial", 12F);
+            btnTour.Location = new Point(10, 235);
+            btnTour.Name = "btnTour";
+            btnTour.Size = new Size(180, 50);
+            btnTour.TabIndex = 0;
+            btnTour.Text = "Tour";
+            // 
+            // btnProfile
+            // 
+            btnProfile.Font = new Font("Arial", 12F);
+            btnProfile.Location = new Point(10, 309);
+            btnProfile.Name = "btnProfile";
+            btnProfile.Size = new Size(180, 50);
+            btnProfile.TabIndex = 1;
+            btnProfile.Text = "Profile";
+            // 
+            // btnAccount
+            // 
+            btnAccount.Font = new Font("Arial", 12F);
+            btnAccount.Location = new Point(10, 384);
+            btnAccount.Name = "btnAccount";
+            btnAccount.Size = new Size(180, 50);
+            btnAccount.TabIndex = 2;
+            btnAccount.Text = "Account";
+            // 
+            // panelWelcome
+            // 
+            panelWelcome.BackColor = Color.FromArgb(255, 192, 192);
+            panelWelcome.Controls.Add(lblWelcome);
+            panelWelcome.Dock = DockStyle.Top;
+            panelWelcome.Location = new Point(200, 0);
+            panelWelcome.Name = "panelWelcome";
+            panelWelcome.Size = new Size(1050, 51);
+            panelWelcome.TabIndex = 9;
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Arial", 16F, FontStyle.Bold);
+            lblWelcome.Location = new Point(385, 9);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(326, 32);
+            lblWelcome.TabIndex = 4;
+            lblWelcome.Text = "Welcome to Tours Page";
+            // 
             // TourForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1250, 766);
+            Controls.Add(panelWelcome);
+            Controls.Add(leftPanel);
             Controls.Add(txtSearchQuery);
             Controls.Add(btnSearch);
             Controls.Add(label1);
@@ -98,6 +201,10 @@
             Controls.Add(flowLayoutPanel1);
             Name = "TourForm";
             Text = "TourForm";
+            leftPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
+            panelWelcome.ResumeLayout(false);
+            panelWelcome.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -110,5 +217,14 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
         private TextBox txtSearchQuery;
+        private Panel leftPanel;
+        private PictureBox logoPictureBox;
+        private Button btnHome;
+        private Panel slidePanel;
+        private Button btnTour;
+        private Button btnProfile;
+        private Button btnAccount;
+        private Panel panelWelcome;
+        private Label lblWelcome;
     }
 }

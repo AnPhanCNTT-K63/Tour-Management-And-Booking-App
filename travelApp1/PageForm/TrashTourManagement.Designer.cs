@@ -36,10 +36,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 65);
+            dataGridView1.Location = new Point(29, 94);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(721, 188);
+            dataGridView1.Size = new Size(1213, 188);
             dataGridView1.TabIndex = 0;
             // 
             // pageNumberLabel
@@ -53,7 +53,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1274, 450);
             Controls.Add(pageNumberLabel);
             Controls.Add(dataGridView1);
             Name = "TrashTourManagement";

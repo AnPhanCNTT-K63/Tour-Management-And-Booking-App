@@ -13,10 +13,28 @@ namespace travelApp1
         public SignUp()
         {
             InitializeComponent();
+            string imagePath = Path.Combine(Application.StartupPath, "Images", "BackgroundLogin.jpg");
+            panelSignup.BackgroundImage = Image.FromFile(imagePath);
+            panelSignup.BackgroundImageLayout = ImageLayout.Stretch; // Điều chỉnh hiển thị ảnh
             _apiService = new ApiService();
         }
 
-        private async void btnSignUp_Click(object sender, EventArgs e)
+
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private async void btnSignUp_Click_1(object sender, EventArgs e)
         {
             string userName = txtUserName.Text.Trim();
             string email = txtEmail.Text.Trim();
@@ -59,19 +77,6 @@ namespace travelApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Unhandled Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
             }
         }
     }
