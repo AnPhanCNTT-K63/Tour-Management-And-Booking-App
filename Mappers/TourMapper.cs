@@ -21,6 +21,7 @@ namespace TravelWebBackEndCore.Mappers
                 ? tourModel.TourPackages.Min(x => x.Price)
                 : 0,
                 Opening = tourModel.Opening,
+                IsDeleted = tourModel.IsDeleted,
                 Ending = tourModel.Ending,
                 CreatedAt = tourModel.CreatedAt,
                 UpdatedAt = tourModel.UpdatedAt,

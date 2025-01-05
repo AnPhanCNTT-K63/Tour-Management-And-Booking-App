@@ -216,6 +216,7 @@ namespace TravelWebBackEndCore.Services
                 }
 
                 tour.IsDeleted = true;
+                tour.DeletedAt = DateTime.Now;
                 await _tourRepository.SaveChangesAsync();
 
                 return new OkObjectResult("Delete success");
