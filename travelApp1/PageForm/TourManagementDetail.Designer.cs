@@ -32,7 +32,7 @@
             txtID = new TextBox();
             label1 = new Label();
             txtTourName = new TextBox();
-            pictureBox1 = new PictureBox();
+            TourImage = new PictureBox();
             btnChangePic = new Button();
             label2 = new Label();
             txtCity = new TextBox();
@@ -53,7 +53,10 @@
             label8 = new Label();
             label9 = new Label();
             txtUserId = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label10 = new Label();
+            txtImage = new TextBox();
+            label11 = new Label();
+            ((System.ComponentModel.ISupportInitialize)TourImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -91,23 +94,24 @@
             txtTourName.Size = new Size(125, 27);
             txtTourName.TabIndex = 4;
             // 
-            // pictureBox1
+            // TourImage
             // 
-            pictureBox1.Location = new Point(815, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(252, 175);
-            pictureBox1.TabIndex = 7;
-            pictureBox1.TabStop = false;
+            TourImage.Location = new Point(1055, 12);
+            TourImage.Name = "TourImage";
+            TourImage.Size = new Size(252, 175);
+            TourImage.TabIndex = 7;
+            TourImage.TabStop = false;
             // 
             // btnChangePic
             // 
             btnChangePic.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            btnChangePic.Location = new Point(877, 193);
+            btnChangePic.Location = new Point(1055, 206);
             btnChangePic.Name = "btnChangePic";
             btnChangePic.Size = new Size(132, 29);
             btnChangePic.TabIndex = 8;
             btnChangePic.Text = "change picture";
             btnChangePic.UseVisualStyleBackColor = true;
+            btnChangePic.Click += btnChangePic_Click;
             // 
             // label2
             // 
@@ -128,7 +132,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(670, 57);
+            label3.Location = new Point(652, 53);
             label3.Name = "label3";
             label3.Size = new Size(88, 20);
             label3.TabIndex = 11;
@@ -136,16 +140,16 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(619, 90);
+            txtDescription.Location = new Point(648, 90);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(190, 79);
+            txtDescription.Size = new Size(324, 79);
             txtDescription.TabIndex = 12;
             txtDescription.Text = "";
             // 
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(248, 319);
+            btnSave.Location = new Point(224, 242);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 13;
@@ -156,7 +160,7 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(462, 319);
+            btnDelete.Location = new Point(354, 242);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 14;
@@ -167,10 +171,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 377);
+            dataGridView1.Location = new Point(12, 399);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1055, 386);
+            dataGridView1.Size = new Size(1334, 386);
             dataGridView1.TabIndex = 15;
             // 
             // label4
@@ -271,11 +275,40 @@
             txtUserId.Size = new Size(125, 27);
             txtUserId.TabIndex = 27;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(306, 197);
+            label10.Name = "label10";
+            label10.Size = new Size(54, 20);
+            label10.TabIndex = 28;
+            label10.Text = "Image:";
+            // 
+            // txtImage
+            // 
+            txtImage.Location = new Point(402, 194);
+            txtImage.Name = "txtImage";
+            txtImage.Size = new Size(125, 27);
+            txtImage.TabIndex = 29;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label11.Location = new Point(12, 366);
+            label11.Name = "label11";
+            label11.Size = new Size(113, 20);
+            label11.TabIndex = 30;
+            label11.Text = "Tour Packages:";
+            // 
             // TourManagementDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1079, 797);
+            ClientSize = new Size(1358, 797);
+            Controls.Add(label11);
+            Controls.Add(txtImage);
+            Controls.Add(label10);
             Controls.Add(txtUserId);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -296,14 +329,14 @@
             Controls.Add(txtCity);
             Controls.Add(label2);
             Controls.Add(btnChangePic);
-            Controls.Add(pictureBox1);
+            Controls.Add(TourImage);
             Controls.Add(txtTourName);
             Controls.Add(label1);
             Controls.Add(txtID);
             Controls.Add(lblID);
             Name = "TourManagementDetail";
             Text = "TourManagerForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TourImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -314,7 +347,7 @@
         private TextBox txtID;
         private Label label1;
         private TextBox txtTourName;
-        private PictureBox pictureBox1;
+        private PictureBox TourImage;
         private Button btnChangePic;
         private Label label2;
         private TextBox txtCity;
@@ -335,5 +368,8 @@
         private Label label8;
         private Label label9;
         private TextBox txtUserId;
+        private Label label10;
+        private TextBox txtImage;
+        private Label label11;
     }
 }

@@ -19,13 +19,13 @@ namespace travelApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new TourManagement());
+            Application.Run(new TourForm());
 
         }
 
         public static void Init()
         {
-            Properties.Settings.Default.CloudUri = "https://d1kr2sry6d4ekb.cloudfront.net/";
+            Properties.Settings.Default.CloudUri = "https://d1kr2sry6d4ekb.cloudfront.net";
             CloudHelper.CloudUri = Properties.Settings.Default.CloudUri;
 
             if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))

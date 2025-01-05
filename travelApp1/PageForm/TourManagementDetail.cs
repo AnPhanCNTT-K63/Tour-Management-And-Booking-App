@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.Services;
 
@@ -20,6 +23,8 @@ namespace travelApp1
         private TourDTO _tour;
         private List<PackageDTO> _packages;
         private readonly ApiService _service;
+        private bool _isImageChanged = false;
+        private string _newImagePath = string.Empty;
         public TourManagementDetail(int tourId)
         {
             InitializeComponent();
@@ -36,7 +41,6 @@ namespace travelApp1
         }
         private async void LoadTour()
         {
-
             try
             {
                 var res = await _service.GetAsync($"tour/{_tourId}");
@@ -64,7 +68,10 @@ namespace travelApp1
             txtEnding.Text = _tour.Ending.ToString("dd/MM/yyyy");
             txtCreatedAt.Text = _tour.CreatedAt.ToString("dd/MM/yyyy");
             txtDescription.Text = _tour.Description;
-
+            txtImage.Text = _tour.Image;
+            Image image = await LoadImageFromUrl($"{CloudHelper.CloudUri}/Tours/{_tour.Image}");
+            TourImage.Image = image;
+            TourImage.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void InitializeDataGridView()
@@ -72,6 +79,8 @@ namespace travelApp1
             dataGridView1.Columns.Clear();
 
             dataGridView1.Columns.Add("Id", "ID");
+            dataGridView1.Columns["Id"].ReadOnly = true;
+
             dataGridView1.Columns.Add("Name", "Package Name");
             dataGridView1.Columns.Add("Description", "Description");
             dataGridView1.Columns.Add("Price", "Price");
@@ -81,6 +90,8 @@ namespace travelApp1
             dataGridView1.Columns.Add("CheckIn", "Check-In");
             dataGridView1.Columns.Add("Quantity", "Quantity");
             dataGridView1.Columns.Add("Vat", "VAT");
+            dataGridView1.Columns.Add("ImageName", "ImageName");
+
 
             var imageColumn = new DataGridViewImageColumn
             {
@@ -93,9 +104,15 @@ namespace travelApp1
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowTemplate.Height = 60;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridView1.CellEndEdit += DataGridView1_CellEndEdit;
         }
 
+        private async void DataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
 
+
+        }
         private async void LoadTourPackages()
         {
 
@@ -137,12 +154,13 @@ namespace travelApp1
                 dataGridView1.Rows[rowIndex].Cells["CheckIn"].Value = package.CheckIn;
                 dataGridView1.Rows[rowIndex].Cells["Quantity"].Value = package.Quantity;
                 dataGridView1.Rows[rowIndex].Cells["Vat"].Value = package.Vat?.ToString("0.00");
+                dataGridView1.Rows[rowIndex].Cells["ImageName"].Value = package.Image;
 
                 if (!string.IsNullOrEmpty(package.Image))
                 {
                     try
                     {
-                        Image packageImage = LoadImageFromUrl("https://d3omtf52mksen3.cloudfront.net/Tours/ba_be_lake.jpg");
+                        Image packageImage = await LoadImageFromUrl($"{CloudHelper.CloudUri}/Packages/{package.Image}");
                         dataGridView1.Rows[rowIndex].Cells["Image"].Value = packageImage;
                     }
                     catch
@@ -153,11 +171,11 @@ namespace travelApp1
             }
         }
 
-        private Image LoadImageFromUrl(string imageUrl)
+        private async Task<Image> LoadImageFromUrl(string imageUrl)
         {
             using (var httpClient = new System.Net.Http.HttpClient())
             {
-                var imageBytes = httpClient.GetByteArrayAsync(imageUrl).Result;
+                var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
                 using (var ms = new System.IO.MemoryStream(imageBytes))
                 {
                     return Image.FromStream(ms);
@@ -202,22 +220,91 @@ namespace travelApp1
         {
             try
             {
+                // Upload new image if it was changed
+                if (_isImageChanged && !string.IsNullOrEmpty(_newImagePath))
+                {
+                    using (var fileStream = new System.IO.FileStream(_newImagePath, System.IO.FileMode.Open))
+                    using (var httpClient = new System.Net.Http.HttpClient())
+                    {
+                        var content = new MultipartFormDataContent();
+
+                        var fileContent = new StreamContent(fileStream);
+                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                        content.Add(fileContent, "file", Path.GetFileName(_newImagePath));
+
+                        content.Add(new StringContent("Tours"), "folder");
+
+                        var response = await httpClient.PostAsync("https://localhost:7025/api/cloud/upload", content);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var uploadedImagePath = await response.Content.ReadAsStringAsync();
+                            _tour.Image = Path.GetFileName(uploadedImagePath); // Update the tour image path
+                        }
+                        else
+                        {
+                            var errorMessage = await response.Content.ReadAsStringAsync();
+                            MessageBox.Show($"Failed to upload image: {errorMessage}", "Upload Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+
+                // Prepare the updated tour DTO
                 var updateTourDto = new UpdateTourDTO
                 {
                     Name = txtTourName.Text.Trim(),
                     Region = txtRegion.Text.Trim(),
                     Country = txtCountry.Text.Trim(),
                     City = txtCity.Text.Trim(),
+                    Image = _tour.Image.Trim(),
                     Description = txtDescription.Text.Trim(),
                     Opening = DateTime.TryParse(txtOpening.Text, out var openingDate) ? openingDate : (DateTime?)null,
                     Ending = DateTime.TryParse(txtEnding.Text, out var endingDate) ? endingDate : (DateTime?)null
                 };
 
+                // Send the updated tour to the API
                 var res = await _service.PutAsync($"tour/update/{_tourId}", updateTourDto);
 
                 if (res.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Tour has been updated successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Prepare updated packages
+                    var updatedPackages = new List<PackageDTO>();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        var package = new PackageDTO
+                        {
+                            Id = Convert.ToInt32(row.Cells["Id"].Value),
+                            Name = row.Cells["Name"].Value?.ToString(),
+                            Description = row.Cells["Description"].Value?.ToString(),
+                            Price = decimal.TryParse(row.Cells["Price"].Value?.ToString().Replace("$", "").Trim(), out var price) ? price : (decimal?)null,
+                            Image = row.Cells["ImageName"].Value?.ToString(),
+                            Activities = row.Cells["Activities"].Value?.ToString(),
+                            IsChangeSchedule = row.Cells["IsChangeSchedule"].Value?.ToString() == "Yes",
+                            IsRefund = row.Cells["IsRefund"].Value?.ToString() == "Yes",
+                            CheckIn = row.Cells["CheckIn"].Value?.ToString(),
+                            Quantity = int.TryParse(row.Cells["Quantity"].Value?.ToString(), out var quantity) ? quantity : (int?)null,
+                            Vat = decimal.TryParse(row.Cells["Vat"].Value?.ToString(), out var vat) ? vat : (decimal?)null
+                        };
+
+                        updatedPackages.Add(package);
+                    }
+
+                    // Update packages via API
+                    foreach (var package in updatedPackages)
+                    {
+                        var packageRes = await _service.PutAsync($"package/update/{package.Id}", package);
+                        Debug.WriteLine(JsonConvert.SerializeObject(package, Formatting.Indented));
+
+                        if (!packageRes.IsSuccessStatusCode)
+                        {
+                            var errorMessage = await packageRes.Content.ReadAsStringAsync();
+                            MessageBox.Show($"Failed to update package ID {package.Id}: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    MessageBox.Show("Tour updated successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
@@ -231,6 +318,49 @@ namespace travelApp1
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+        private void btnChangePic_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Select a Tour Image";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string filePath = openFileDialog.FileName;
+                        var fileInfo = new System.IO.FileInfo(filePath);
+
+                        if (fileInfo.Length > 5 * 1024 * 1024)
+                        {
+                            MessageBox.Show("Please select an image smaller than 5 MB.", "File Size Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        using (var fs = new System.IO.FileStream(filePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        {
+                            var image = Image.FromStream(fs);
+                            TourImage.Image = new Bitmap(image);
+                        }
+
+                        txtImage.Text = Path.GetFileName(filePath);
+                        _isImageChanged = true;
+                        _newImagePath = filePath;
+
+                        MessageBox.Show("Tour image changed successfully. Click Save to upload.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while changing the picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
 
 
     }

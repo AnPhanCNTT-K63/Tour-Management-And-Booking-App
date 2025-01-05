@@ -1,31 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+﻿using RestSharp;
 using travelApp1.Models;
+using travelApp1.Services;
 
 namespace travelApp1
 {
     public partial class CreateTourPackage : Form
     {
-        private readonly TourDTO _tourDTO; // Lưu thông tin tour được truyền từ CreateTour
-        private List<PackageDTO> _packages = new List<PackageDTO>(); // Danh sách package
+        private readonly TourDTO _tourDTO;
+        private List<PackageDTO> _packages = new List<PackageDTO>();
         private readonly CreateTour _parentForm;
+        private readonly ApiService _apiService;
 
         public CreateTourPackage(TourDTO tourDTO, CreateTour parentForm)
         {
             InitializeComponent();
             _tourDTO = tourDTO;
             _parentForm = parentForm;
+            _apiService = new ApiService();
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.ImageLocation = Path.Combine(Application.StartupPath, "Images", "default.jpg");
+
         }
-        private void btnAddPackage_Click_1(object sender, EventArgs e)
+        private async void btnAddPackage_Click_1(object sender, EventArgs e)
         {
-            // Tạo đối tượng PackageDTO từ giao diện
+            if (string.IsNullOrEmpty(txtPackageImage.Text))
+            {
+                MessageBox.Show("Vui lòng chọn hình ảnh cho package.");
+                return;
+            }
+
+            // Upload the package image
+            var packageImagePath = txtPackageImage.Text;
+            var uploadResult = await UploadImageAsync(packageImagePath, "Packages");
+            if (string.IsNullOrEmpty(uploadResult))
+            {
+                MessageBox.Show("Không thể tải lên hình ảnh package.");
+                return;
+            }
+
             var package = new PackageDTO
             {
                 Name = txtPackageName.Text,
                 Description = txtPackageDescription.Text,
-                Image = txtPackageImage.Text,
+                Image = uploadResult, // Use the uploaded image result (file name or URL)
                 Price = (int)nudPrice.Value,
                 Activities = txtActivities.Text,
                 IsChangeSchedule = chkChangeSchedule.Checked,
@@ -36,11 +54,11 @@ namespace travelApp1
                 Schedules = new List<ScheduleDTO>()
             };
 
-            // Thêm danh sách Voucher từ dgvVouchers
+            // Add vouchers
             var vouchers = new List<VoucherDTO>();
             foreach (DataGridViewRow row in dgvVouchers.Rows)
             {
-                if (row.Cells[0].Value != null && row.Cells[1].Value != null) // Kiểm tra các ô không rỗng
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
                 {
                     vouchers.Add(new VoucherDTO
                     {
@@ -50,109 +68,98 @@ namespace travelApp1
                     });
                 }
             }
-            package.Vouchers = vouchers; // Gán danh sách Voucher vào PackageDTO
+            package.Vouchers = vouchers;
 
-            // Lấy tất cả ngày du lịch từ DataGridView (hoặc một danh sách khác)
+            // Add travel days
             foreach (DataGridViewRow row in dgvTravelDays.Rows)
             {
-                if (row.Cells[0].Value != null) // Kiểm tra ngày du lịch không rỗng
+                if (row.Cells[0].Value != null)
                 {
                     var travelDay = new ScheduleDTO
                     {
-                        TravelDay = (DateTime)row.Cells[0].Value // Giả sử column 0 là ngày du lịch
+                        TravelDay = (DateTime)row.Cells[0].Value
                     };
-                    package.Schedules.Add(travelDay); // Thêm ngày du lịch vào package
+                    package.Schedules.Add(travelDay);
                 }
             }
 
-            // Kiểm tra nếu không có ngày du lịch nào được thêm
             if (package.Schedules.Count == 0)
             {
                 MessageBox.Show("Vui lòng thêm ít nhất một ngày du lịch.");
                 return;
             }
 
-            // Kiểm tra tính hợp lệ của PackageDTO
             string validationError = package.GetValidationError();
             if (validationError != null)
             {
                 MessageBox.Show(validationError);
                 return;
             }
+
+            _packages.Add(package);
+            MessageBox.Show("Package đã được thêm!");
+
+            var result = MessageBox.Show("Bạn có muốn thêm TourPackage khác?", "Thêm TourPackage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                txtPackageName.Clear();
+                txtPackageDescription.Clear();
+                txtPackageImage.Clear();
+                nudPrice.Value = 0;
+                txtActivities.Clear();
+                chkChangeSchedule.Checked = false;
+                chkRefund.Checked = false;
+                nudQuantity.Value = 0;
+                nudVat.Value = 0;
+                dtpTravelDay.Value = DateTime.Now;
+                txtVoucherTitle.Clear();
+                txtVoucherCode.Clear();
+                nudDiscount.Value = 0;
+                txtCheckIn.Clear();
+                dgvTravelDays.Rows.Clear();
+                dgvVouchers.Rows.Clear();
+            }
             else
             {
-                // Thêm package vào danh sách
-                _packages.Add(package);
-                MessageBox.Show("Package đã được thêm!");
-
-                // Hiển thị hộp thoại yêu cầu người dùng quyết định có thêm gói tour nữa không
-                var result = MessageBox.Show("Bạn có muốn thêm TourPackage khác?", "Thêm TourPackage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    // Nếu "Có", giữ cửa sổ CreateTourPackage mở để tiếp tục thêm gói tour
-                    txtPackageName.Clear();
-                    txtPackageDescription.Clear();
-                    txtPackageImage.Clear();
-                    nudPrice.Value = 0;
-                    txtActivities.Clear();
-                    chkChangeSchedule.Checked = false;
-                    chkRefund.Checked = false;
-                    nudQuantity.Value = 0;
-                    nudVat.Value = 0;
-                    dtpTravelDay.Value = DateTime.Now;
-                    txtVoucherTitle.Clear();
-                    txtVoucherCode.Clear();
-                    nudDiscount.Value = 0;
-                    txtCheckIn.Clear();
-                    dgvTravelDays.Rows.Clear(); // Xóa hết các dòng đã nhập trong DataGridView
-                    dgvVouchers.Rows.Clear(); // Xóa hết các Voucher đã thêm
-                }
-                else
-                {
-                    // Nếu "Không", chuyển sang nút Submit để kết thúc việc tạo tour
-                    btnSubmit.Visible = true;
-                }
+                btnSubmit.Visible = true;
             }
         }
+
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Kiểm tra danh sách packages
             if (_packages == null || _packages.Count == 0)
             {
                 MessageBox.Show("Vui lòng thêm ít nhất một TourPackage để tiếp tục.");
                 return;
             }
 
-            // Chuẩn bị payload
             var payload = new
             {
-                userId = 1, // ID admin
+                userId = 1,
                 tourDTO = _tourDTO,
                 createPackageDTO = _packages
             };
 
-            string jsonPayload = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
 
-            // Gửi API bằng HttpClient
-            using (var client = new HttpClient())
+
+            var response = await _apiService.PostAsync("tour/create-tour-and-package", new
             {
-                var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("https://localhost:7025/api/tour/create-tour-and-package", content);
+                userId = 1,
+                tourDTO = _tourDTO,
+                createPackageDTO = _packages
+            });
 
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("Tạo tour thành công!");
-                    this.Close(); // Đóng cửa sổ CreateTourPackage
-                    var createTourForm = new CreateTour(); // Mở lại cửa sổ CreateTour
-                    createTourForm.Show();
-                }
-                else
-                {
-                    MessageBox.Show($"Lỗi: {response.ReasonPhrase}");
-                    MessageBox.Show(jsonPayload.ToString());
-                }
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Tạo tour thành công!");
+                this.Close();
+
             }
+            else
+            {
+                MessageBox.Show($"Lỗi: {await response.Content.ReadAsStringAsync()}");
+            }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -231,29 +238,42 @@ namespace travelApp1
 
         private void btnBrowseImage_Click(object sender, EventArgs e)
         {
-            // Tạo OpenFileDialog để chọn file
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Chỉ cho phép chọn file ảnh
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Only allow image files
                 openFileDialog.Title = "Chọn hình ảnh";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Lấy tên file từ đường dẫn
-                    string fileName = System.IO.Path.GetFileName(openFileDialog.FileName);
+                    // Store the full file path in txtPackageImage
+                    txtPackageImage.Text = openFileDialog.FileName;
 
-                    // Gán tên file vào txtPackageImage
-                    txtPackageImage.Text = fileName;
-
-                    // Sao chép ảnh vào thư mục lưu trữ (nếu cần)
-                    string destinationPath = System.IO.Path.Combine(Application.StartupPath, "Images", fileName);
-                    if (!System.IO.Directory.Exists(System.IO.Path.Combine(Application.StartupPath, "Images")))
-                    {
-                        System.IO.Directory.CreateDirectory(System.IO.Path.Combine(Application.StartupPath, "Images"));
-                    }
-                    System.IO.File.Copy(openFileDialog.FileName, destinationPath, true); // Ghi đè nếu file tồn tại
+                    // Display the selected image in pictureBox1
+                    pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
                 }
             }
         }
+
+        private async Task<string> UploadImageAsync(string imagePath, string folder)
+        {
+            using (var client = new RestClient("https://localhost:7025/api/"))
+            {
+                var request = new RestRequest("cloud/upload", Method.Post);
+                request.AddFile("file", imagePath);
+                request.AddParameter("folder", folder);
+
+                var response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                {
+                    // Assuming the API returns the uploaded file's full path or URL
+                    string uploadedImageUrl = response.Content.Trim('"');
+                    string imageName = Path.GetFileName(uploadedImageUrl); // Extract only the image name
+                    return imageName;
+                }
+                return null;
+            }
+        }
+
+
     }
 }
