@@ -16,6 +16,10 @@ namespace travelApp1
         public Signin()
         {
             InitializeComponent();
+
+            string imagePath = Path.Combine(Application.StartupPath, "Images", "BackgroundLogin.jpg");
+            panelSignin.BackgroundImage = Image.FromFile(imagePath);
+            panelSignin.BackgroundImageLayout = ImageLayout.Stretch; // Điều chỉnh hiển thị ảnh
             _apiService = new ApiService();
         }
 
@@ -74,7 +78,9 @@ namespace travelApp1
             this.Hide();
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace travelApp1.PageForm
             InitializeComponent();
             _service = new ApiService();
             InitData(_currentPage);
-
+            logoPictureBox.Image = Image.FromFile("Images/logo.png");  // Thay đường dẫn chính xác đến logo
             flowLayoutPanel1.AutoScroll = true;
         }
 
@@ -218,6 +218,13 @@ namespace travelApp1.PageForm
             string searchQuery = txtSearchQuery.Text;
 
             InitData(_currentPage, selectedFilter, searchQuery);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm();
+            homeForm.Show();
+            this.Close();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using travelApp1.Models;
+using travelApp1.PageForm;
 
 namespace travelApp1
 {
@@ -53,7 +54,7 @@ namespace travelApp1
 
         private void BtnViewTour_Click(object? sender, EventArgs e)
         {
-            HomeForm tourForm = new HomeForm();
+            TourForm tourForm = new TourForm();
             tourForm.Show();
         }
 
@@ -65,9 +66,8 @@ namespace travelApp1
         //Sự kiện khi nhấn nút "Tour"
         private void BtnTour_Click(object? sender, EventArgs e)
         {
-            HomeForm tourForm = new HomeForm();
+            TourForm tourForm = new TourForm();
             tourForm.Show(); // Hiển thị form Tour
-            MessageBox.Show("Bạn đã chọn 'Đặt Tour'. Tính năng này đang được phát triển!");
         }
 
         // Sự kiện khi nhấn nút "Profile"
@@ -84,6 +84,12 @@ namespace travelApp1
             accountForm.Show(); // Hiển thị form Account
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomeForm homeForm = new HomeForm();
+            homeForm.Show();
+            this.Close();
+        }
     }
 
 
