@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
+using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.Services;
 
@@ -60,7 +61,8 @@ namespace travelApp1.PageForm
             lblRegion.Text = _tour.Region;
             lblCountry.Text = _tour.Country;
             lblCity.Text = _tour.City;
-            pictureBox.ImageLocation = _tour.Image;
+            pictureBox.ImageLocation = $"{CloudHelper.CloudUri}/Tours/{_tour.Image}";
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void DisplayTourPackages(List<PackageDTO> packages)
@@ -97,7 +99,7 @@ namespace travelApp1.PageForm
                 {
                     Width = 120,
                     Height = 120,
-                    ImageLocation = package.Image ?? "", // Null check for Image
+                    ImageLocation = $"{CloudHelper.CloudUri}/Packages/{package.Image}" ?? "", // Null check for Image
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Location = new Point(10, 40)
                 };

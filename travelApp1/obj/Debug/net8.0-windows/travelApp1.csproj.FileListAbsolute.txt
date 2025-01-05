@@ -100,6 +100,7 @@ D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Image
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Images\image2.jpg
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Images\image3.jpg
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Images\logo.png
+D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Images\BackgroundLogin.jpg
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\travelApp1.dll.config
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\travelApp1.deps.json
 D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\travelApp1.runtimeconfig.json
@@ -133,8 +134,11 @@ D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\runti
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.csproj.AssemblyReference.cache
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.AccountForm.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Booking.resources
+D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.BookingManageForm.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.CreateTour.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.CreateTourPackage.resources
+D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditAccountForm.resources
+D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditProfileForm.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.ForgotPassword.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.HomeForm.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Payment.resources
@@ -147,6 +151,7 @@ D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\trave
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TourForm.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TourManagement.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.TourManagementDetail.resources
+D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Trash.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.Properties.Resources.resources
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.csproj.GenerateResource.cache
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.GeneratedMSBuildEditorConfig.editorconfig
@@ -160,4 +165,3 @@ D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\refin
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.pdb
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\travelApp1.genruntimeconfig.cache
 D:\New\Tour-Management-And-Booking-App\travelApp1\obj\Debug\net8.0-windows\ref\travelApp1.dll
-D:\New\Tour-Management-And-Booking-App\travelApp1\bin\Debug\net8.0-windows\Images\BackgroundLogin.jpg
