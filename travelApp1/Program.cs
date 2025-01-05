@@ -19,7 +19,7 @@ namespace travelApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new TourManagement());
+            Application.Run(new SignUp());
 
         }
 

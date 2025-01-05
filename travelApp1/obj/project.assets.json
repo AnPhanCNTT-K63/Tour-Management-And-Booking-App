@@ -5781,24 +5781,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DUC AN\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\dinhv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
+      "projectUniqueName": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
       "projectName": "travelApp1",
-      "projectPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\travelApp1.csproj",
-      "packagesPath": "C:\\Users\\DUC AN\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\obj\\",
+      "projectPath": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\travelApp1.csproj",
+      "packagesPath": "C:\\Users\\dinhv\\.nuget\\packages\\",
+      "outputPath": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DUC AN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\dinhv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5806,6 +5801,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5823,8 +5819,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -5894,7 +5889,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,6 +13,9 @@ namespace travelApp1
         public SignUp()
         {
             InitializeComponent();
+            string imagePath = Path.Combine(Application.StartupPath, "Images", "BackgroundLogin.jpg");
+            panelSignup.BackgroundImage = Image.FromFile(imagePath);
+            panelSignup.BackgroundImageLayout = ImageLayout.Stretch; // Điều chỉnh hiển thị ảnh
             _apiService = new ApiService();
         }
 

@@ -36,7 +36,7 @@
             btnViewTour = new Button();
             btnBooking = new Button();
             leftPanel = new Panel();
-            button1 = new Button();
+            btnHome = new Button();
             btnTour = new Button();
             btnProfile = new Button();
             btnAccount = new Button();
@@ -107,7 +107,7 @@
             // 
             leftPanel.BackColor = Color.FromArgb(128, 128, 255);
             leftPanel.Controls.Add(logoPictureBox);
-            leftPanel.Controls.Add(button1);
+            leftPanel.Controls.Add(btnHome);
             leftPanel.Controls.Add(slidePanel);
             leftPanel.Controls.Add(btnTour);
             leftPanel.Controls.Add(btnProfile);
@@ -118,14 +118,15 @@
             leftPanel.Size = new Size(200, 488);
             leftPanel.TabIndex = 3;
             // 
-            // button1
+            // btnHome
             // 
-            button1.Font = new Font("Arial", 12F);
-            button1.Location = new Point(10, 112);
-            button1.Name = "button1";
-            button1.Size = new Size(180, 50);
-            button1.TabIndex = 3;
-            button1.Text = "Home";
+            btnHome.Font = new Font("Arial", 12F);
+            btnHome.Location = new Point(10, 112);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(180, 50);
+            btnHome.TabIndex = 3;
+            btnHome.Text = "Home";
+            btnHome.Click += btnHome_Click;
             // 
             // btnTour
             // 
@@ -209,6 +210,6 @@
         private Button btnAccount;
         private Label lblWelcome;
         private Panel panelWelcome;
-        private Button button1;
+        private Button btnHome;
     }
 }

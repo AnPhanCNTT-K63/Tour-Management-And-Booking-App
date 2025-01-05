@@ -1,10 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\",
+  "WorkspaceRootPath": "D:\\New\\Tour-Management-And-Booking-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\tour-management-and-booking-app-app\\travelapp1\\pageform\\tourmanagementdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourmanagementdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\new\\tour-management-and-booking-app\\travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +46,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -41,32 +77,134 @@
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SignUp.cs",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\SignUp.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\SignUp.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\SignUp.cs*",
+              "RelativeToolTip": "travelApp1\\PageForm\\SignUp.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:48:49.794Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TourManagementDetail.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourManagementDetail.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourManagementDetail.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\Tour-Management-And-Booking-App-app\\travelApp1\\PageForm\\TourManagementDetail.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\TourManagementDetail.cs",
-              "ViewState": "AgIAAMcAAAAAAAAAAAAAwO4AAAAAAAAAAAAAAA==",
+              "Title": "SignUp.cs [Design]",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\SignUp.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\SignUp.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\SignUp.cs [Design]*",
+              "RelativeToolTip": "travelApp1\\PageForm\\SignUp.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T00:43:36.142Z",
+              "WhenOpened": "2025-01-05T09:48:23.634Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Signin.cs",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\Signin.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Signin.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\Signin.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\Signin.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:32:56.942Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Signin.cs [Design]",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\Signin.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Signin.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\Signin.cs [Design]",
+              "RelativeToolTip": "travelApp1\\PageForm\\Signin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:28:47.953Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TourForm.cs",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\TourForm.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourForm.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\TourForm.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\TourForm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAxwB0AAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:26:04.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\Program.cs",
+              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\Program.cs",
+              "RelativeToolTip": "travelApp1\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:24:22.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeForm.cs",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\HomeForm.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\HomeForm.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\HomeForm.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\HomeForm.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:21:13.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeForm.cs [Design]",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\HomeForm.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\HomeForm.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\HomeForm.cs [Design]",
+              "RelativeToolTip": "travelApp1\\PageForm\\HomeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:20:48.579Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TourForm.cs [Design]",
+              "DocumentMoniker": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\TourForm.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourForm.cs",
+              "ToolTip": "D:\\New\\Tour-Management-And-Booking-App\\travelApp1\\PageForm\\TourForm.cs [Design]",
+              "RelativeToolTip": "travelApp1\\PageForm\\TourForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T09:20:44.117Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },
         {
           "DockedWidth": 332,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
           "SelectedChildIndex": -1,
           "Children": [
             {
