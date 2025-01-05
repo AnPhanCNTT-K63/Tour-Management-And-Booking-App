@@ -86,16 +86,7 @@ namespace travelApp1
             this.Close();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            HomeForm h = new HomeForm();
-            this.Close();
-        }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            EditAccountForm editForm = new EditAccountForm();
-            editForm.ShowDialog();
         }
     }
 }

@@ -28,112 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Name = new DataGridViewTextBoxColumn();
-            Date = new DataGridViewTextBoxColumn();
-            BID = new DataGridViewTextBoxColumn();
-            TPackage = new DataGridViewTextBoxColumn();
-            TPName = new DataGridViewTextBoxColumn();
-            Price = new DataGridViewTextBoxColumn();
-            Payment = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.Location = new Point(456, 32);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(226, 41);
             label1.TabIndex = 0;
             label1.Text = "Manage User Payment Requests";
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Name, Date, BID, TPackage, TPName, Price, Payment, Status });
-            dataGridView1.Location = new Point(2, 101);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1108, 288);
             dataGridView1.TabIndex = 1;
             // 
-            // ID
             // 
-            ID.HeaderText = "UserId";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.Width = 150;
-            // 
-            // Name
-            // 
-            Name.HeaderText = "UserName";
-            Name.MinimumWidth = 8;
-            Name.Name = "Name";
-            Name.Width = 150;
-            // 
-            // Date
-            // 
-            Date.HeaderText = "Booking Date";
-            Date.MinimumWidth = 8;
-            Date.Name = "Date";
-            Date.Width = 150;
-            // 
-            // BID
-            // 
-            BID.HeaderText = "BookingID";
-            BID.MinimumWidth = 8;
-            BID.Name = "BID";
-            BID.Width = 150;
-            // 
-            // TPackage
-            // 
-            TPackage.HeaderText = "Tour Package ID";
-            TPackage.MinimumWidth = 8;
-            TPackage.Name = "TPackage";
-            TPackage.Width = 150;
-            // 
-            // TPName
-            // 
-            TPName.HeaderText = "TourPackage Name";
-            TPName.MinimumWidth = 8;
-            TPName.Name = "TPName";
-            TPName.Width = 150;
-            // 
-            // Price
-            // 
-            Price.HeaderText = "Total Price";
-            Price.MinimumWidth = 8;
-            Price.Name = "Price";
-            Price.Width = 150;
-            // 
-            // Payment
-            // 
-            Payment.HeaderText = "Payment Menthod";
-            Payment.MinimumWidth = 8;
-            Payment.Name = "Payment";
-            Payment.Width = 150;
-            // 
-            // Status
-            // 
-            Status.HeaderText = "Status";
-            Status.MinimumWidth = 8;
-            Status.Name = "Status";
-            Status.Width = 150;
             // 
             // PaymentManage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1108, 523);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
-            //Name = "PaymentManage";
             Text = "PaymentManage";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -142,15 +71,7 @@
         #endregion
 
         private Label label1;
+        private ContextMenuStrip contextMenuStrip1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn BID;
-        private DataGridViewTextBoxColumn TPackage;
-        private DataGridViewTextBoxColumn TPName;
-        private DataGridViewTextBoxColumn Price;
-        private DataGridViewTextBoxColumn Payment;
-        private DataGridViewTextBoxColumn Status;
     }
 }

@@ -18,13 +18,13 @@ namespace travelApp1.PageForm
         private readonly BookingDTO _booking;
         private readonly float _totalPrice;
         private readonly int _bookingId;
-        public Payment(BookingDTO booking, float totalPrice, int bookingId)
         {
             InitializeComponent();
             _booking = booking;
             _apiService = new ApiService();
             _totalPrice = totalPrice;
             _bookingId = bookingId;
+            _paymentMethod = paymentMethod;
         }
 
         private async void btnConfirm_Click(object sender, EventArgs e)
@@ -34,7 +34,6 @@ namespace travelApp1.PageForm
                 var data = new
                 {
                     paymentDate = DateTime.Parse(_booking.bookingDate).ToString("yyyy-MM-ddTHH:mm:ss.fffZ"),
-                    paymentMethod = _booking.status,
                     paymentAmount = _totalPrice,
                     bookingId = _bookingId
                 };

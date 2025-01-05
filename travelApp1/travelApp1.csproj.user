@@ -55,7 +55,6 @@
     <Compile Update="PageForm\TourForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PageForm\TourManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

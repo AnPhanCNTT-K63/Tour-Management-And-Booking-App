@@ -17,8 +17,14 @@ namespace travelApp1.Models
         public string Image { get; set; } // Link ảnh
         public string Description { get; set; } // Mô tả tour
         public decimal Price { get; set; }
+        public int UserId { get; set; }
+        public bool IsDeleted { get; set; }
         public DateTime Opening { get; set; } // Ngày bắt đầu
         public DateTime Ending { get; set; } // Ngày kết thúc
+
+        public DateTime? DeletedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdatedAt { get; set; } = DateTime.Now;
         public string GetValidationError()
         {
             if (string.IsNullOrEmpty(Name)) return "Tên tour không được để trống.";

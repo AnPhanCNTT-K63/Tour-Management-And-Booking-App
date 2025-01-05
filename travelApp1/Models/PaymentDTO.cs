@@ -12,10 +12,8 @@ namespace travelApp1.Models
         public string BookingId { get; set; }
         public string PackageId { get; set; }
         public string Username { get; set; }
-        public string TourId { get; set; }
         public string Method { get; set; }
         public string Status { get; set; }
         public string Date { get; set; }
-        public string TotalPrice { get; set; }
     }
 }

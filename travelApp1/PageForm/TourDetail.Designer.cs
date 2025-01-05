@@ -41,58 +41,40 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(168, 72);
-            lblName.Margin = new Padding(4, 0, 4, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(59, 25);
             lblName.TabIndex = 0;
             lblName.Text = "label1";
             // 
             // lblCountry
             // 
             lblCountry.AutoSize = true;
-            lblCountry.Location = new Point(168, 124);
-            lblCountry.Margin = new Padding(4, 0, 4, 0);
             lblCountry.Name = "lblCountry";
-            lblCountry.Size = new Size(59, 25);
             lblCountry.TabIndex = 1;
             lblCountry.Text = "label1";
             // 
             // lblRegion
             // 
             lblRegion.AutoSize = true;
-            lblRegion.Location = new Point(168, 184);
-            lblRegion.Margin = new Padding(4, 0, 4, 0);
             lblRegion.Name = "lblRegion";
-            lblRegion.Size = new Size(59, 25);
             lblRegion.TabIndex = 2;
             lblRegion.Text = "label1";
             // 
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(168, 240);
-            lblCity.Margin = new Padding(4, 0, 4, 0);
             lblCity.Name = "lblCity";
-            lblCity.Size = new Size(59, 25);
             lblCity.TabIndex = 3;
             lblCity.Text = "label1";
             // 
             // pictureBox
             // 
-            pictureBox.Location = new Point(168, 319);
-            pictureBox.Margin = new Padding(4, 4, 4, 4);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(156, 78);
             pictureBox.TabIndex = 4;
             pictureBox.TabStop = false;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(358, 31);
-            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(924, 624);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // btnBack
@@ -107,10 +89,7 @@
             // 
             // TourDetail
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1706, 1025);
-            Controls.Add(btnBack);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox);
             Controls.Add(lblCity);

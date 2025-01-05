@@ -279,10 +279,5 @@ namespace travelApp1.PageForm
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            TourForm t = new TourForm();
-            this.Close();
-        }
     }
 }

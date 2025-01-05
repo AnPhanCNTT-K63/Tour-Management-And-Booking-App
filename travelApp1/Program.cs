@@ -6,6 +6,7 @@ using DotNetEnv;
 using Newtonsoft.Json;
 using travelApp1.Models;
 using System.Diagnostics;
+using travelApp1.Helpers;
 
 namespace travelApp1
 {
@@ -14,17 +15,17 @@ namespace travelApp1
         [STAThread]
         static void Main()
         {
-            InitUser();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new BookingManageForm());
 
         }
 
-        public static void InitUser()
         {
+            Properties.Settings.Default.CloudUri = "https://d1kr2sry6d4ekb.cloudfront.net/";
+            CloudHelper.CloudUri = Properties.Settings.Default.CloudUri;
+
             if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
             {
                 var claims = JwtHelper.DecodeJwt(Properties.Settings.Default.AccessToken);
@@ -32,10 +33,6 @@ namespace travelApp1
                 if (claims != null)
                 {
                     var claimsJson = JsonConvert.SerializeObject(claims, Formatting.Indented);
-                    UserDTO.Username = claims["unique_name"].ToString();
-                    UserDTO.Email = claims["email"].ToString();
-                    UserDTO.Role = claims["role"].ToString();
-                    UserDTO.Id = claims["nameid"].ToString();
                 }
             }
         }

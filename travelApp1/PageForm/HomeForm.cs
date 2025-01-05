@@ -29,7 +29,7 @@ namespace travelApp1
             logoPictureBox.Image = Image.FromFile("Images/logo.png");  // Thay đường dẫn chính xác đến logo
 
             TourManagerForm tourM = new TourManagerForm();
-            
+
         }
 
         // Hàm cập nhật slide
@@ -55,7 +55,6 @@ namespace travelApp1
 
         private void BtnViewTour_Click(object? sender, EventArgs e)
         {
-            TourForm tourForm = new TourForm();
             tourForm.Show();
         }
 
@@ -67,15 +66,12 @@ namespace travelApp1
         //Sự kiện khi nhấn nút "Tour"
         private void BtnTour_Click(object? sender, EventArgs e)
         {
-            TourForm tourForm = new TourForm();
             tourForm.Show(); // Hiển thị form Tour
-            
         }
 
         // Sự kiện khi nhấn nút "Profile"
         private void BtnProfile_Click(object? sender, EventArgs e)
         {
-            EditProfileForm profileForm = new EditProfileForm();
             profileForm.Show(); // Hiển thị form Profile
         }
 

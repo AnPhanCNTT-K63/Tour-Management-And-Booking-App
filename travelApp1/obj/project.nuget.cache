@@ -106,5 +106,12 @@
     "C:\\Users\\hahoa\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\Workspace\\ReactJS\\Travel Web\\Tour-Management-And-Booking-App-app\\travelApp1\\obj\\project.nuget.cache : Value cannot be null.\r\nParameter name: value"
+    }
+  ]
 }
