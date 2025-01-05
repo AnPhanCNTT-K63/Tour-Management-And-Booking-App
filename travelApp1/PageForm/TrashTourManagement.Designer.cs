@@ -1,6 +1,6 @@
 ﻿namespace travelApp1.PageForm
 {
-    partial class Trash
+    partial class TrashTourManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -29,26 +29,35 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            pageNumberLabel = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 100);
+            dataGridView1.Location = new Point(30, 65);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(776, 304);
+            dataGridView1.Size = new Size(721, 188);
             dataGridView1.TabIndex = 0;
             // 
-            // Trash
+            // pageNumberLabel
+            // 
+            pageNumberLabel.Location = new Point(116, 301);
+            pageNumberLabel.Name = "pageNumberLabel";
+            pageNumberLabel.Size = new Size(250, 125);
+            pageNumberLabel.TabIndex = 1;
+            // 
+            // TrashTourManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pageNumberLabel);
             Controls.Add(dataGridView1);
-            Name = "Trash";
-            Text = "Trash";
+            Name = "TrashTourManagement";
+            Text = "TrashTourManagement";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -56,5 +65,6 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private FlowLayoutPanel pageNumberLabel;
     }
 }

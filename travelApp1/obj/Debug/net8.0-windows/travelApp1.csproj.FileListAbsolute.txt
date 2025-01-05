@@ -228,4 +228,4 @@ D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-wind
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.BookingManageForm.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditAccountForm.resources
 D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.EditProfileForm.resources
-D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.Trash.resources
+D:\Visual Studio 2022\Travel App Winform\client\travelApp1\obj\Debug\net8.0-windows\travelApp1.PageForm.TrashTourManagement.resources

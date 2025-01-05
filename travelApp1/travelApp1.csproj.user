@@ -61,7 +61,7 @@
     <Compile Update="PageForm\TourManagementDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PageForm\Trash.cs">
+    <Compile Update="PageForm\TrashTourManagement.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
