@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using travelApp1.Helpers;
 using travelApp1.Models;
 using travelApp1.PageForm;
 
@@ -20,18 +21,38 @@ namespace travelApp1
         {
             InitializeComponent();
 
+
             if (Properties.Settings.Default.AccessToken != "")
             {
                 btnSignIn.Visible = false;
                 btnSignUp.Visible = false;
                 btnSignOut.Visible = true;
+
+                lblUserInfo.Text = "Xin chào, " + UserIndentity.Email;
+
             }
             else
             {
                 btnSignIn.Visible = true;
                 btnSignUp.Visible = true;
                 btnSignOut.Visible = false;
+                btnAccount.Visible = false;
+
+                lblUserInfo.Text = "Bạn chưa đăng nhập!";
+
             }
+
+            if (UserIndentity.Role == "admin")
+            {
+                btnAdmin.Visible = true;
+            }
+            else
+            {
+                btnAdmin.Visible = false;
+            }
+
+            logoPictureBox.Image = Image.FromFile("Images/logo.png");
+
 
             // Initialize the panel for slides
             slidePanel = new Panel
@@ -72,15 +93,7 @@ namespace travelApp1
             slideTimer.Start();
 
             // Load logo
-            logoPictureBox = new PictureBox
-            {
-                Image = Image.FromFile("Images/logo.png"),
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Location = new Point(10, 10),
-                Width = 100,
-                Height = 100
-            };
-            this.Controls.Add(logoPictureBox);
+
 
             // Initialize current slide index and update the first slide
             currentSlideIndex = 0;
@@ -130,15 +143,31 @@ namespace travelApp1
         // Sự kiện khi nhấn nút "Profile"
         private void BtnProfile_Click(object? sender, EventArgs e)
         {
-            ProfileForm profileForm = new ProfileForm();
-            profileForm.Show(); // Hiển thị form Profile
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
+            {
+                ProfileForm profileForm = new ProfileForm();
+                profileForm.Show(); // Hiển thị form Profile
+            }
+            else
+            {
+                MessageBox.Show("Bạn cần đăng nhập để xem thông tin cá nhân!");
+            }
+
         }
 
         // Sự kiện khi nhấn nút "Account"
         private void BtnAccount_Click(object? sender, EventArgs e)
         {
-            AccountForm accountForm = new AccountForm();
-            accountForm.Show(); // Hiển thị form Account
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
+            {
+                AccountForm accountForm = new AccountForm();
+                accountForm.Show(); // Hiển thị form Account
+            }
+            else
+            {
+                MessageBox.Show("Bạn cần đăng nhập để xem thông tin tài khoản!");
+            }
+
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -157,9 +186,17 @@ namespace travelApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            TourForm tourForm = new TourForm();
-            tourForm.Show();
-            this.Hide();
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
+            {
+                TourForm tourForm = new TourForm();
+                tourForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Bạn cần đăng nhập để đặt tour!");
+            }
+
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -179,8 +216,34 @@ namespace travelApp1
         private void btnSignOut_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.AccessToken = "";
-            Debug.WriteLine(Properties.Settings.Default.AccessToken);
+            Properties.Settings.Default.Save();
 
+            btnSignIn.Visible = true;
+            btnSignUp.Visible = true;
+            btnSignOut.Visible = false;
+
+            lblUserInfo.Text = "Bạn chưa đăng nhập!";
+        }
+
+        private void btnBooking_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
+            {
+                MessageBox.Show("Bạn cần đăng nhập để xem booking!");
+            }
+            else
+            {
+                var form = new BookingManageForm();
+                form.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            var form = new AdminForm();
+            form.Show();
+            this.Hide();
         }
     }
 

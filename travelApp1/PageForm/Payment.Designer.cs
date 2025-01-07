@@ -34,6 +34,8 @@
             label1 = new Label();
             btnConfirm = new Button();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // titleLabel
@@ -89,10 +91,20 @@
             label2.TabIndex = 9;
             label2.Text = "QR Code";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.images;
+            pictureBox1.Location = new Point(115, 115);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(231, 218);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // Payment
             // 
             AutoSize = true;
             ClientSize = new Size(472, 487);
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(btnConfirm);
             Controls.Add(label1);
@@ -104,6 +116,7 @@
             Name = "Payment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Expiry Date (MM/YY):";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,5 +128,6 @@
         private Label label1;
         private Button btnConfirm;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

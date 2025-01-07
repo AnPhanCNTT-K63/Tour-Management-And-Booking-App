@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Visual Studio 2022\\Travel App Winform\\client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\pageform\\tourmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\pageform\\tourmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\tourmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|d:\\visual studio 2022\\travel app winform\\client\\travelapp1\\pageform\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFC67AB-3409-4033-83E2-DF053EA17372}|travelApp1\\travelApp1.csproj|solutionrelative:travelapp1\\pageform\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -49,41 +49,44 @@
               "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\Program.cs",
-              "RelativeDocumentMoniker": "travelApp1\\Program.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\Program.cs",
-              "RelativeToolTip": "travelApp1\\Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwBUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:43:20.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeForm.cs",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\HomeForm.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\HomeForm.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\HomeForm.cs",
-              "RelativeToolTip": "travelApp1\\PageForm\\HomeForm.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAASwLYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:26:48.558Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeForm.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\HomeForm.cs",
-              "RelativeDocumentMoniker": "travelApp1\\PageForm\\HomeForm.cs",
-              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\HomeForm.cs [Design]",
-              "RelativeToolTip": "travelApp1\\PageForm\\HomeForm.cs [Design]",
+              "Title": "TourManagement.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\TourManagement.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourManagement.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\TourManagement.cs [Design]",
+              "RelativeToolTip": "travelApp1\\PageForm\\TourManagement.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:25:20.769Z",
+              "WhenOpened": "2025-01-06T03:09:09.772Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TourManagement.cs",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\TourManagement.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\TourManagement.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\TourManagement.cs",
+              "RelativeToolTip": "travelApp1\\PageForm\\TourManagement.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAAAgwN8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T03:08:58.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Payment.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\Payment.cs",
+              "RelativeDocumentMoniker": "travelApp1\\PageForm\\Payment.cs",
+              "ToolTip": "D:\\Visual Studio 2022\\Travel App Winform\\client\\travelApp1\\PageForm\\Payment.cs [Design]",
+              "RelativeToolTip": "travelApp1\\PageForm\\Payment.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:13:32.46Z",
               "EditorCaption": " [Design]"
             }
           ]

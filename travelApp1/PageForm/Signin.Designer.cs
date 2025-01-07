@@ -36,12 +36,14 @@ namespace travelApp1
             linkLabelFogotP = new LinkLabel();
             button1 = new Button();
             lbSignIn = new Label();
+            signup = new LinkLabel();
             panelSignin.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelSignin
             // 
+            panelSignin.Controls.Add(signup);
             panelSignin.Controls.Add(panel1);
             panelSignin.Controls.Add(linkLabelFogotP);
             panelSignin.Controls.Add(button1);
@@ -141,6 +143,20 @@ namespace travelApp1
             lbSignIn.Text = "Sign In";
             lbSignIn.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // signup
+            // 
+            signup.AutoSize = true;
+            signup.BackColor = Color.Transparent;
+            signup.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signup.LinkColor = Color.MidnightBlue;
+            signup.Location = new Point(541, 273);
+            signup.Name = "signup";
+            signup.Size = new Size(73, 22);
+            signup.TabIndex = 13;
+            signup.TabStop = true;
+            signup.Text = "Sign Up";
+            signup.LinkClicked += signup_LinkClicked;
+            // 
             // Signin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -167,5 +183,6 @@ namespace travelApp1
         private LinkLabel linkLabelFogotP;
         private Button button1;
         private Label lbSignIn;
+        private LinkLabel signup;
     }
 }

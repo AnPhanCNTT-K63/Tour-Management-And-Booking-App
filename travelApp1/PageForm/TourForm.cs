@@ -241,7 +241,7 @@ namespace travelApp1.PageForm
         {
             HomeForm homeForm = new HomeForm();
             homeForm.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

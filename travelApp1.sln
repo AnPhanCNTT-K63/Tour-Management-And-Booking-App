@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "travelApp1", "travelApp1\travelApp1.csproj", "{6BFC67AB-3409-4033-83E2-DF053EA17372}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TravelApp", "TravelApp\TravelApp.vdproj", "{08595CD6-8489-4F64-ADF1-B10DCC394071}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{6BFC67AB-3409-4033-83E2-DF053EA17372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BFC67AB-3409-4033-83E2-DF053EA17372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BFC67AB-3409-4033-83E2-DF053EA17372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08595CD6-8489-4F64-ADF1-B10DCC394071}.Debug|Any CPU.ActiveCfg = Debug
+		{08595CD6-8489-4F64-ADF1-B10DCC394071}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

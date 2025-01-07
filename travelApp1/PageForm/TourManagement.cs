@@ -27,6 +27,7 @@ namespace travelApp1.PageForm
             _apiService = new ApiService();
             query = new QueryTourDTO();
             _currentTours = new List<TourDTO>();
+            SetupUI();
             InitializeComboBox();
             InitializeDataGridView();
             InitData(_currentPage);
@@ -38,31 +39,126 @@ namespace travelApp1.PageForm
             regionComboBox.SelectedIndex = 0;
             comboBoxFilter.SelectedIndex = 0;
             regionComboBox.SelectedIndexChanged += RegionComboBox_SelectedIndexChanged;
+        }
 
+        private void SetupUI()
+        {
+            this.Text = "Tour Management";
+            this.Size = new Size(1200, 800);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.WhiteSmoke;
+
+            // Header Label
+            var headerLabel = new Label
+            {
+                Text = "Manage Tours",
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                Height = 60,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.DarkBlue
+            };
+            this.Controls.Add(headerLabel);
+
+            // Search Panel
+            var searchPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 70,
+                Padding = new Padding(10),
+                BackColor = Color.LightSteelBlue
+            };
+
+            var lblSearch = new Label
+            {
+                Text = "Search by:",
+                AutoSize = true,
+                Location = new Point(10, 25),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold)
+            };
+            searchPanel.Controls.Add(lblSearch);
+
+            comboBoxFilter = new ComboBox
+            {
+                Width = 150,
+                Location = new Point(90, 20),
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            comboBoxFilter.Items.AddRange(new[] { "Name", "Country", "City" });
+            comboBoxFilter.SelectedIndex = 0;
+            searchPanel.Controls.Add(comboBoxFilter);
+
+            searchTextBox = new TextBox
+            {
+                Width = 300,
+                Location = new Point(260, 20),
+                PlaceholderText = "Enter search query..."
+            };
+            searchPanel.Controls.Add(searchTextBox);
+
+            var btnSearch = new Button
+            {
+                Text = "Search",
+                Location = new Point(580, 18),
+                Width = 100,
+                Height = 30,
+                BackColor = Color.DarkBlue,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            btnSearch.Click += btnSearch_Click_1;
+            searchPanel.Controls.Add(btnSearch);
+
+            this.Controls.Add(searchPanel);
+
+            // Pagination Panel
+            paginationPanel = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 50,
+                Padding = new Padding(10),
+                BackColor = Color.LightSteelBlue,
+                FlowDirection = FlowDirection.LeftToRight
+            };
+            this.Controls.Add(paginationPanel);
+
+            pageNumberLabel = new Label
+            {
+                AutoSize = true,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Bottom,
+                Height = 20,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold)
+            };
+            this.Controls.Add(pageNumberLabel);
+
+            // Data Grid View Panel
+            var gridPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(10)
+            };
+            dataGridView1 = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                BorderStyle = BorderStyle.Fixed3D,
+                BackgroundColor = Color.White,
+                AllowUserToAddRows = false,
+                RowTemplate = { Height = 100 },
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            };
+            gridPanel.Controls.Add(dataGridView1);
+            this.Controls.Add(gridPanel);
         }
 
         public async void InitData(int page, string filterBy = null, string filterValue = null)
         {
             try
             {
-
                 if (!string.IsNullOrEmpty(filterBy) && !string.IsNullOrEmpty(filterValue))
                 {
-                    if (filterBy == "Name")
-                    {
-                        query.searchBy = "name";
-                        query.searchQuery = filterValue;
-                    }
-                    else if (filterBy == "Country")
-                    {
-                        query.searchBy = "country";
-                        query.searchQuery = filterValue;
-                    }
-                    else if (filterBy == "City")
-                    {
-                        query.searchBy = "city";
-                        query.searchQuery = filterValue;
-                    }
+                    query.searchBy = filterBy.ToLower();
+                    query.searchQuery = filterValue;
                 }
 
                 var queryParams = new List<string>();
@@ -74,12 +170,10 @@ namespace travelApp1.PageForm
                 if (query.priceRange != null && query.priceRange.Length > 0) queryParams.Add($"priceRange={string.Join(",", query.priceRange)}");
 
                 var queryString = string.Join("&", queryParams);
-
                 var url = $"tour/get/{page}/{PageSize}";
                 if (!string.IsNullOrEmpty(queryString)) url += $"?{queryString}";
 
                 var res = await _apiService.GetAsync(url);
-
                 Debug.WriteLine(url);
 
                 if (res.IsSuccessStatusCode)
@@ -87,7 +181,7 @@ namespace travelApp1.PageForm
                     var toursJson = await res.Content.ReadAsStringAsync();
                     var tours = JsonConvert.DeserializeObject<TourResponseDTO>(toursJson);
 
-                    DisplayTours(tours.tours);
+                    DisplayTours(tours.tours.Where(t => t.IsDeleted == false).ToList());
                     _totalTours = tours.totalCount;
                     _totalPages = (int)Math.Ceiling((double)_totalTours / PageSize);
 
@@ -133,10 +227,6 @@ namespace travelApp1.PageForm
             };
             dataGridView1.Columns.Add(detailButtonColumn);
 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.RowTemplate.Height = 100;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
         }
 
@@ -145,10 +235,8 @@ namespace travelApp1.PageForm
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "Detail")
             {
                 TourDTO selectedTour = _currentTours[e.RowIndex];
-
                 var form = new TourManagementDetail(selectedTour.Id);
                 form.FormClosed += (s, args) => InitData(_currentPage);
-
                 form.ShowDialog();
             }
         }
@@ -161,9 +249,7 @@ namespace travelApp1.PageForm
             foreach (var tour in tours)
             {
                 int rowIndex = dataGridView1.Rows.Add();
-
                 Image tourImage = await LoadImageFromUrlAsync($"{CloudHelper.CloudUri}/Tours/{tour.Image}");
-
                 dataGridView1.Rows[rowIndex].Cells["Image"].Value = tourImage;
                 dataGridView1.Rows[rowIndex].Cells["Name"].Value = tour.Name;
                 dataGridView1.Rows[rowIndex].Cells["Region"].Value = tour.Region;
@@ -176,7 +262,6 @@ namespace travelApp1.PageForm
 
         private async Task<Image> LoadImageFromUrlAsync(string imageUrl)
         {
-
             using (var httpClient = new System.Net.Http.HttpClient())
             {
                 var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
@@ -185,37 +270,24 @@ namespace travelApp1.PageForm
                     return Image.FromStream(ms);
                 }
             }
-
-
         }
+
         private void UpdatePaginationButtons()
         {
             pageNumberLabel.Text = $"Page {_currentPage} of {_totalPages}";
         }
 
-
-
         private void RegionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentPage = 1;
             string selectedRegion = regionComboBox.SelectedItem?.ToString();
-
-            if (selectedRegion != "All")
-            {
-                query.region = selectedRegion;
-            }
-            else
-            {
-                query.region = null;
-            }
-
+            query.region = selectedRegion != "All" ? selectedRegion : null;
+            InitData(_currentPage);
         }
-
 
         private void GeneratePageButtons()
         {
             paginationPanel.Controls.Clear();
-
             for (int i = 1; i <= _totalPages; i++)
             {
                 Button pageButton = new Button
@@ -223,7 +295,10 @@ namespace travelApp1.PageForm
                     Text = i.ToString(),
                     Width = 40,
                     Height = 30,
-                    Tag = i
+                    Tag = i,
+                    BackColor = i == _currentPage ? Color.DarkBlue : Color.White,
+                    ForeColor = i == _currentPage ? Color.White : Color.Black,
+                    FlatStyle = FlatStyle.Flat
                 };
                 pageButton.Click += PageButton_Click;
                 paginationPanel.Controls.Add(pageButton);
@@ -244,17 +319,33 @@ namespace travelApp1.PageForm
             _currentPage = 1;
             string selectedFilter = comboBoxFilter.SelectedItem.ToString();
             string searchQuery = searchTextBox.Text.Trim();
-
             string selectedRegion = regionComboBox.SelectedItem?.ToString();
+
+            // Set region filter
             query.region = selectedRegion != "All" ? selectedRegion : null;
 
-            if (!string.IsNullOrEmpty(searchQuery))
+            // Check if the search filter is "Region"
+            if (selectedFilter == "Region")
             {
-                InitData(_currentPage, selectedFilter, searchQuery);
+                if (!string.IsNullOrEmpty(selectedRegion) && selectedRegion != "All")
+                {
+                    InitData(_currentPage, "Region", selectedRegion);
+                }
+                else
+                {
+                    InitData(_currentPage);
+                }
             }
             else
             {
-                InitData(_currentPage);
+                if (!string.IsNullOrEmpty(searchQuery))
+                {
+                    InitData(_currentPage, selectedFilter, searchQuery);
+                }
+                else
+                {
+                    InitData(_currentPage);
+                }
             }
         }
 

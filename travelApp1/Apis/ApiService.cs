@@ -19,7 +19,7 @@ namespace travelApp1.Services
         {
             _httpClient = new HttpClient();
 
-            _baseUrl = "https://localhost:7025/api";
+            _baseUrl = Properties.Settings.Default.ApiUrl;
 
         }
 

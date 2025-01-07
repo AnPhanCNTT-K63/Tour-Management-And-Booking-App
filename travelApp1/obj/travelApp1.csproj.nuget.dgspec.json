@@ -93,6 +93,14 @@
             "dotenv.net": {
               "target": "Package",
               "version": "[3.2.1, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.4, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

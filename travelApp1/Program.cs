@@ -25,7 +25,6 @@ namespace travelApp1
 
         public static void Init()
         {
-            Properties.Settings.Default.CloudUri = "https://d1kr2sry6d4ekb.cloudfront.net";
             CloudHelper.CloudUri = Properties.Settings.Default.CloudUri;
 
             if (!string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))

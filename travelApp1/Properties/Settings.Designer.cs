@@ -35,15 +35,21 @@ namespace travelApp1.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://d1kr2sry6d4ekb.cloudfront.net")]
         public string CloudUri {
             get {
                 return ((string)(this["CloudUri"]));
             }
-            set {
-                this["CloudUri"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://anphan-001-site1.qtempurl.com/api")]
+        public string ApiUrl {
+            get {
+                return ((string)(this["ApiUrl"]));
             }
         }
     }

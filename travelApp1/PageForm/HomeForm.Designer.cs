@@ -34,6 +34,8 @@
             slidePicture = new PictureBox();
             slideTimer = new System.Windows.Forms.Timer(components);
             leftPanel = new Panel();
+            btnBooking = new Button();
+            btnSignOut = new Button();
             btnSignUp = new Button();
             btnSignIn = new Button();
             btnHome = new Button();
@@ -42,10 +44,10 @@
             btnAccount = new Button();
             lblWelcome = new Label();
             panelWelcome = new Panel();
-            label1 = new Label();
+            lblUserInfo = new Label();
             button3 = new Button();
             button4 = new Button();
-            btnSignOut = new Button();
+            btnAdmin = new Button();
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)slidePicture).BeginInit();
             leftPanel.SuspendLayout();
@@ -54,7 +56,7 @@
             // 
             // logoPictureBox
             // 
-            logoPictureBox.Location = new Point(55, 9);
+            logoPictureBox.Location = new Point(48, 9);
             logoPictureBox.Name = "logoPictureBox";
             logoPictureBox.Size = new Size(100, 100);
             logoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -88,6 +90,8 @@
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(128, 128, 255);
+            leftPanel.Controls.Add(btnAdmin);
+            leftPanel.Controls.Add(btnBooking);
             leftPanel.Controls.Add(btnSignOut);
             leftPanel.Controls.Add(btnSignUp);
             leftPanel.Controls.Add(btnSignIn);
@@ -102,12 +106,32 @@
             leftPanel.Size = new Size(207, 695);
             leftPanel.TabIndex = 3;
             // 
+            // btnBooking
+            // 
+            btnBooking.Font = new Font("Arial", 12F);
+            btnBooking.Location = new Point(10, 408);
+            btnBooking.Name = "btnBooking";
+            btnBooking.Size = new Size(180, 50);
+            btnBooking.TabIndex = 7;
+            btnBooking.Text = "My Booking";
+            btnBooking.Click += btnBooking_Click_1;
+            // 
+            // btnSignOut
+            // 
+            btnSignOut.Font = new Font("Arial", 12F);
+            btnSignOut.Location = new Point(12, 520);
+            btnSignOut.Name = "btnSignOut";
+            btnSignOut.Size = new Size(180, 50);
+            btnSignOut.TabIndex = 6;
+            btnSignOut.Text = "Sign Out";
+            btnSignOut.Click += btnSignOut_Click;
+            // 
             // btnSignUp
             // 
             btnSignUp.Font = new Font("Arial", 12F);
-            btnSignUp.Location = new Point(103, 414);
+            btnSignUp.Location = new Point(104, 464);
             btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new Size(89, 50);
+            btnSignUp.Size = new Size(103, 50);
             btnSignUp.TabIndex = 5;
             btnSignUp.Text = "Sign Up";
             btnSignUp.Click += btnSignUp_Click;
@@ -115,9 +139,9 @@
             // btnSignIn
             // 
             btnSignIn.Font = new Font("Arial", 12F);
-            btnSignIn.Location = new Point(12, 414);
+            btnSignIn.Location = new Point(3, 464);
             btnSignIn.Name = "btnSignIn";
-            btnSignIn.Size = new Size(85, 50);
+            btnSignIn.Size = new Size(95, 50);
             btnSignIn.TabIndex = 4;
             btnSignIn.Text = "Sign In";
             btnSignIn.Click += btnSignIn_Click;
@@ -175,7 +199,7 @@
             // panelWelcome
             // 
             panelWelcome.BackColor = Color.FromArgb(255, 192, 192);
-            panelWelcome.Controls.Add(label1);
+            panelWelcome.Controls.Add(lblUserInfo);
             panelWelcome.Controls.Add(lblWelcome);
             panelWelcome.Dock = DockStyle.Top;
             panelWelcome.Location = new Point(207, 0);
@@ -183,14 +207,15 @@
             panelWelcome.Size = new Size(986, 51);
             panelWelcome.TabIndex = 5;
             // 
-            // label1
+            // lblUserInfo
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(794, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 5;
-            label1.Text = "label1";
+            lblUserInfo.AutoSize = true;
+            lblUserInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblUserInfo.Location = new Point(680, 18);
+            lblUserInfo.Name = "lblUserInfo";
+            lblUserInfo.Size = new Size(51, 20);
+            lblUserInfo.TabIndex = 5;
+            lblUserInfo.Text = "label1";
             // 
             // button3
             // 
@@ -212,15 +237,15 @@
             button4.Text = "Đặt Tour";
             button4.Click += button4_Click;
             // 
-            // btnSignOut
+            // btnAdmin
             // 
-            btnSignOut.Font = new Font("Arial", 12F);
-            btnSignOut.Location = new Point(12, 520);
-            btnSignOut.Name = "btnSignOut";
-            btnSignOut.Size = new Size(180, 50);
-            btnSignOut.TabIndex = 6;
-            btnSignOut.Text = "Sign Out";
-            btnSignOut.Click += btnSignOut_Click;
+            btnAdmin.Font = new Font("Arial", 12F);
+            btnAdmin.Location = new Point(12, 614);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Size = new Size(180, 50);
+            btnAdmin.TabIndex = 8;
+            btnAdmin.Text = "Admin Dashboard";
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // HomeForm
             // 
@@ -256,7 +281,9 @@
         private Button btnSignIn;
         private Button button3;
         private Button button4;
-        private Label label1;
+        private Label lblUserInfo;
         private Button btnSignOut;
+        private Button btnBooking;
+        private Button btnAdmin;
     }
 }

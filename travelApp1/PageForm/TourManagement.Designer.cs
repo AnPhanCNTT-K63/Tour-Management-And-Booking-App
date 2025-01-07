@@ -28,44 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            regionComboBox = new ComboBox();
             searchTextBox = new TextBox();
-            pageNumberLabel = new Label();
-            paginationPanel = new FlowLayoutPanel();
+            regionComboBox = new ComboBox();
             comboBoxFilter = new ComboBox();
             btnSearch = new Button();
+            pageNumberLabel = new Label();
+            paginationPanel = new FlowLayoutPanel();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // searchTextBox
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(407, 33);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1020, 452);
-            dataGridView1.TabIndex = 0;
+            searchTextBox.Location = new Point(1447, 449);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(10, 27);
+            searchTextBox.TabIndex = 2;
             // 
             // regionComboBox
             // 
             regionComboBox.FormattingEnabled = true;
-            regionComboBox.Location = new Point(31, 48);
+            regionComboBox.Location = new Point(98, 58);
             regionComboBox.Name = "regionComboBox";
-            regionComboBox.Size = new Size(151, 28);
+            regionComboBox.Size = new Size(165, 28);
             regionComboBox.TabIndex = 1;
             // 
-            // searchTextBox
+            // comboBoxFilter
             // 
-            searchTextBox.Location = new Point(47, 97);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(125, 27);
-            searchTextBox.TabIndex = 2;
+            comboBoxFilter.FormattingEnabled = true;
+            comboBoxFilter.Items.AddRange(new object[] { "Name", "Country", "City" });
+            comboBoxFilter.Location = new Point(1447, 482);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(10, 28);
+            comboBoxFilter.TabIndex = 8;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(1226, 385);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(10, 10);
+            btnSearch.TabIndex = 9;
+            btnSearch.Text = "Search";
+            btnSearch.TextAlign = ContentAlignment.TopCenter;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click_1;
             // 
             // pageNumberLabel
             // 
             pageNumberLabel.AutoSize = true;
-            pageNumberLabel.Location = new Point(198, 248);
+            pageNumberLabel.Location = new Point(1432, 513);
             pageNumberLabel.Name = "pageNumberLabel";
             pageNumberLabel.Size = new Size(50, 20);
             pageNumberLabel.TabIndex = 5;
@@ -73,40 +84,29 @@
             // 
             // paginationPanel
             // 
-            paginationPanel.Location = new Point(31, 351);
+            paginationPanel.Location = new Point(1461, 385);
             paginationPanel.Name = "paginationPanel";
-            paginationPanel.Size = new Size(250, 125);
+            paginationPanel.Size = new Size(10, 10);
             paginationPanel.TabIndex = 7;
             // 
-            // comboBoxFilter
+            // dataGridView1
             // 
-            comboBoxFilter.FormattingEnabled = true;
-            comboBoxFilter.Items.AddRange(new object[] { "Name", "Country", "City" });
-            comboBoxFilter.Location = new Point(219, 48);
-            comboBoxFilter.Name = "comboBoxFilter";
-            comboBoxFilter.Size = new Size(151, 28);
-            comboBoxFilter.TabIndex = 8;
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(140, 155);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 29);
-            btnSearch.TabIndex = 9;
-            btnSearch.Text = "Search";
-            btnSearch.TextAlign = ContentAlignment.TopCenter;
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click_1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(1447, 418);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(10, 10);
+            dataGridView1.TabIndex = 0;
             // 
             // TourManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1469, 535);
+            Controls.Add(pageNumberLabel);
             Controls.Add(btnSearch);
             Controls.Add(comboBoxFilter);
             Controls.Add(paginationPanel);
-            Controls.Add(pageNumberLabel);
             Controls.Add(searchTextBox);
             Controls.Add(regionComboBox);
             Controls.Add(dataGridView1);
@@ -119,12 +119,12 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private ComboBox regionComboBox;
         private TextBox searchTextBox;
-        private Label pageNumberLabel;
-        private FlowLayoutPanel paginationPanel;
+        private ComboBox regionComboBox;
         private ComboBox comboBoxFilter;
         private Button btnSearch;
+        private Label pageNumberLabel;
+        private FlowLayoutPanel paginationPanel;
+        private DataGridView dataGridView1;
     }
 }

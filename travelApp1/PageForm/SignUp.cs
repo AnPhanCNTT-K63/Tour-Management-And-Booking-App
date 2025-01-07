@@ -17,6 +17,7 @@ namespace travelApp1
             panelSignup.BackgroundImage = Image.FromFile(imagePath);
             panelSignup.BackgroundImageLayout = ImageLayout.Stretch; // Điều chỉnh hiển thị ảnh
             _apiService = new ApiService();
+            txtPassword.PasswordChar = '*';
         }
 
 
@@ -66,6 +67,9 @@ namespace travelApp1
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    var form = new Signin();
+                    form.Show();
                     this.Close();
                 }
                 else
@@ -78,6 +82,13 @@ namespace travelApp1
             {
                 MessageBox.Show($"Error: {ex.Message}", "Unhandled Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void signin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var form = new Signin();
+            form.Show();
+            this.Close();
         }
     }
 }

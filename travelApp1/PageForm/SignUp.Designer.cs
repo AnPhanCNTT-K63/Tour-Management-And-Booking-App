@@ -27,11 +27,13 @@ namespace travelApp1
             txtEmail = new TextBox();
             txtPassword = new TextBox();
             btnSignUp = new Button();
+            signin = new LinkLabel();
             panelSignup.SuspendLayout();
             SuspendLayout();
             // 
             // panelSignup
             // 
+            panelSignup.Controls.Add(signin);
             panelSignup.Controls.Add(lbSignUp);
             panelSignup.Controls.Add(lbUserName);
             panelSignup.Controls.Add(lbEmail);
@@ -113,13 +115,27 @@ namespace travelApp1
             // 
             btnSignUp.BackColor = SystemColors.ActiveCaption;
             btnSignUp.Font = new Font("Times New Roman", 13.8F);
-            btnSignUp.Location = new Point(214, 301);
+            btnSignUp.Location = new Point(205, 323);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new Size(126, 38);
             btnSignUp.TabIndex = 15;
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = false;
             btnSignUp.Click += btnSignUp_Click_1;
+            // 
+            // signin
+            // 
+            signin.AutoSize = true;
+            signin.BackColor = Color.Transparent;
+            signin.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signin.LinkColor = Color.MidnightBlue;
+            signin.Location = new Point(341, 292);
+            signin.Name = "signin";
+            signin.Size = new Size(65, 22);
+            signin.TabIndex = 16;
+            signin.TabStop = true;
+            signin.Text = "Sign In";
+            signin.LinkClicked += signin_LinkClicked;
             // 
             // SignUp
             // 
@@ -140,5 +156,6 @@ namespace travelApp1
         private TextBox txtEmail;
         private TextBox txtPassword;
         private Button btnSignUp;
+        private LinkLabel signin;
     }
 }

@@ -130,7 +130,7 @@ namespace travelApp1
 
         private async Task<string> UploadImageAsync(string imagePath, string folder)
         {
-            using (var client = new RestClient("https://localhost:7025/api/"))
+            using (var client = new RestClient($"{Properties.Settings.Default.ApiUrl}"))
             {
                 var request = new RestRequest("cloud/upload", Method.Post);
                 request.AddFile("file", imagePath);

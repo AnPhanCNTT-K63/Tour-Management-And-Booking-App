@@ -5,8 +5,11 @@
     <Setting Name="AccessToken" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="CloudUri" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="CloudUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://d1kr2sry6d4ekb.cloudfront.net</Value>
+    </Setting>
+    <Setting Name="ApiUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://anphan-001-site1.qtempurl.com/api</Value>
     </Setting>
   </Settings>
 </SettingsFile>

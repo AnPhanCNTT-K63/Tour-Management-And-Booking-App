@@ -264,6 +264,11 @@ namespace travelApp1.PageForm
 
                 btnBook.Click += (sender, e) =>
                 {
+                    if (string.IsNullOrEmpty(Properties.Settings.Default.AccessToken))
+                    {
+                        MessageBox.Show("You need to login to book a package", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     BookPackage(sender, panel);
                 };
 

@@ -27,6 +27,8 @@ namespace travelApp1.PageForm
             _totalPrice = totalPrice;
             _bookingId = bookingId;
             _paymentMethod = paymentMethod;
+
+
         }
 
         private async void btnConfirm_Click(object sender, EventArgs e)

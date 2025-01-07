@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>D:\Visual Studio 2022\Travel App Winform\Tour-Management-And-Booking-App-app\travelApp1\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>D:\Visual Studio 2022\Travel App Winform\client\travelApp1\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="PageForm\AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PageForm\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PageForm\Booking.cs">
