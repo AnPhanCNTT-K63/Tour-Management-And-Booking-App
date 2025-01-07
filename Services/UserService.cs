@@ -142,5 +142,7 @@ namespace TravelWebBackEndCore.Services
 
             return new OkObjectResult("Profile updated successfully");
         }
+
+
     }
 }
