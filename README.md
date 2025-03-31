@@ -7,6 +7,8 @@ With the development of the tourism industry, travel agencies and companies need
 - **Backend:** ASP.NET Core Web API
 - **Frontend:** WinForms
 - **Database:** SQL Server
+- **Storage**: AWS S3
+- **CDN**: AWS CloudFront
 
 ## Features
 
